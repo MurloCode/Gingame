@@ -1,0 +1,11 @@
+.middle-nav {
+    display: flex;
+    justify-content: space-between;
+}
+.carousel-question {
+    display: flex;
+}
+.titre-br {
+    display: flex;
+    justify-content: center;
+}
