@@ -1,5 +1,3 @@
 # o-quizz
 
-## test branch commit
-
-### dev branch create 
+## dev branch create 
