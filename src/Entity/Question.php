@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\QuestionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Question
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $wrong_elem;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Proposition::class, mappedBy="question")
+     */
+    private $propositions;
+
+    public function __construct()
+    {
+        $this->propositions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,36 @@ class Question
     public function setWrongElem(string $wrong_elem): self
     {
         $this->wrong_elem = $wrong_elem;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Proposition[]
+     */
+    public function getPropositions(): Collection
+    {
+        return $this->propositions;
+    }
+
+    public function addProposition(Proposition $proposition): self
+    {
+        if (!$this->propositions->contains($proposition)) {
+            $this->propositions[] = $proposition;
+            $proposition->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProposition(Proposition $proposition): self
+    {
+        if ($this->propositions->removeElement($proposition)) {
+            // set the owning side to null (unless already changed)
+            if ($proposition->getQuestion() === $this) {
+                $proposition->setQuestion(null);
+            }
+        }
 
         return $this;
     }
