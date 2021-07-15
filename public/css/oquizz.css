@@ -8,4 +8,20 @@
 .titre-br {
     display: flex;
     justify-content: center;
+    background-color: grey;
+    padding: 1em;
+    margin: 1em;
 }
+.cards {
+    display: flex;
+    justify-content: space-around;
+}
+.cards-next{
+    display: flex;
+    justify-content: space-around;
+}
+.themes{
+    display: flex;
+    justify-content: space-around;
+}
+
