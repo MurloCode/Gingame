@@ -28,14 +28,19 @@ class Proposition
     private $is_valid;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $type;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $media;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="propositions")
+     */
+    private $question;
 
     public function getId(): ?int
     {
@@ -86,6 +91,18 @@ class Proposition
     public function setMedia(string $media): self
     {
         $this->media = $media;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(?Question $question): self
+    {
+        $this->question = $question;
 
         return $this;
     }
