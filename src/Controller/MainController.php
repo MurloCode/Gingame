@@ -38,4 +38,14 @@ class MainController extends AbstractController
         ]);
     }
 
+     /**
+     * @Route("/mentions-legales", name="notice")
+     */
+    public function notice(): Response
+    {
+        return $this->render('main/notice.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+
 }
