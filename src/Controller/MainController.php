@@ -17,4 +17,15 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    /**
+     * @Route("/qui-sommes-nous", name="team")
+     */
+    public function team(): Response
+    {
+        return $this->render('main/team.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+
 }
