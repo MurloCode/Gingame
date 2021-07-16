@@ -38,6 +38,11 @@ class User implements PasswordAuthenticatedUserInterface
      */
     private $status;
 
+    public function __construct()
+    {
+        $this->status = "ROLE_USER";
+    }
+
     public function getId(): ?int
     {
         return $this->id;

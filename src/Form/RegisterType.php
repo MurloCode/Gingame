@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
@@ -14,24 +16,33 @@ class RegisterType extends AbstractType
     {
         $builder
         // register user's email
-        ->add('email')
+        ->add('mail', null, [
+            'label' => 'Adresse Email:',
+            'attr' => ['class' => 'form-control']
+        ])
         // register user's login
         ->add('login', null, [
-            'label' => 'Login'
+            'label' => 'Pseudo:',
+            'attr' => ['class' => 'form-control']
         ])
+        // ->add('roles', ChoiceType::class, [
+        //     'choices' => [
+        //         'Utilisateur' => 'ROLE_USER'
+        //     ],
+        // ])
        // plain password to record the registration
         ->add('plainPassword', PasswordType::class, [
             
             'mapped' => false,
-            'attr' => ['autocomplete' => 'new-password'],
+            'attr' => ['autocomplete' => 'new-password', 'class' => 'form-control'],
             'constraints' => [
                 new NotBlank([
-                    'message' => 'Please enter a password',
+                    'message' => 'Veuillez saisir un mot de passe',
                 ]),
         // 6 characters min to validate the password        
                 new Length([
                     'min' => 6,
-                    'minMessage' => 'Your password should be at least {{ limit }} characters',
+                    'minMessage' => 'Votre mot de passe doit avoir au moins {{ limit }} caracteres',
                     // max length allowed by Symfony for security reasons
                     'max' => 4096,
                 ]),
