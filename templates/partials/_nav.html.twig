@@ -10,7 +10,7 @@ logo
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="inscription">inscription</a>
-        <a class="nav-link" href="Login">Login</a>
+        <a class="nav-link" href="{{ path('app_login') }}">Login</a>
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
        
       </div>
@@ -18,5 +18,5 @@ logo
   </div> 
   
 </nav>
-<button type="button" class="btn btn-primary">Connexion</button>
+<button type="button" href="{{ path('app_login') }}" class="btn btn-primary">Connexion</button>
 </div>
