@@ -19,25 +19,23 @@ class ThemeRepository extends ServiceEntityRepository
 		parent::__construct($registry, Theme::class);
 	}
 
-// /**
-//  *  @return Theme[] Returns an array of Theme objects
-//  */
-// 	public function findRootThemes()
-// 	{
-// 		// Search themes
-// 		// who dont have parent theme
-// 		return 
-// 			$this->createQueryBuilder('th')
-// 					->where('th.id')
-// 		// ->andWhere('t.exampleField = :val')
-// 		//     ->setParameter('val', $value)
-// 		//     ->orderBy('t.id', 'ASC')
-// 		//     ->setMaxResults(10)
-// 		//     ->getQuery()
-// 		//     ->getResult()
-// 		;
-// 	}
+/**
+ *  @return Theme[] Returns an array of Theme objects
+ */
+	// public function findRootThemes()
+	// {
+	// 	$em = $this->getContainer()->get('doctrine')->getManager();
+	// 	$repository = $em->getRepository('Theme');
+	// 	$query = $repository->createQueryBuilder('u')
+	// 		->innerJoin('u.groups', 'g')
+	// 		->where('g.id = :group_id')
+	// 		->setParameter('group_id', 10)
+	// 		->getQuery()->getResult();
+
+	// 	return $query;
+	// }
 	
+
 
 	/*
 	public function findOneBySomeField($value): ?Theme

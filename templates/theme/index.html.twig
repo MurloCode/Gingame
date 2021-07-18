@@ -21,5 +21,17 @@
 		<h1>Hello</h1>
 
 		{{ dump(themes) }}
-	</div>
-{% endblock %}
+
+		<ul>
+			{% for theme in themes %}
+				<li>{{ theme.name }}
+					-
+
+					{% for parent in theme.themeParent %}
+						{{ parent.name }}
+					{% endfor %}
+				</li>
+			</li>
+		</ul>
+	{% endfor %}
+</ul></div>{% endblock %}

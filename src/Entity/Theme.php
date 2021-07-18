@@ -12,116 +12,121 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Theme
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue
+	 * @ORM\Column(type="integer")
+	 */
+	private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $name;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Theme::class, inversedBy="themes")
-     */
-    private $themeParent;
+	/**
+	 * @ORM\ManyToMany(targetEntity=Theme::class, inversedBy="themes")
+	 */
+	private $themeParent;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="themeParent")
-     */
-    private $themes;
+	/**
+	 * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="themeParent")
+	 */
+	private $themes;
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $description;
+	/**
+	 * @ORM\Column(type="text", nullable=true)
+	 */
+	private $description;
 
-    public function __construct()
-    {
-        $this->themeParent = new ArrayCollection();
-        $this->themes = new ArrayCollection();
-    }
+	public function __construct()
+	{
+		$this->themeParent = new ArrayCollection();
+		$this->themes = new ArrayCollection();
+	}
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+	public function __toString()
+	{
+		return $this->name;
+	}
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
+	public function getId(): ?int
+	{
+		return $this->id;
+	}
 
-    public function setName(string $name): self
-    {
-        $this->name = $name;
+	public function getName(): ?string
+	{
+		return $this->name;
+	}
 
-        return $this;
-    }
+	public function setName(string $name): self
+	{
+		$this->name = $name;
 
-    /**
-     * @return Collection|self[]
-     */
-    public function getThemeParent(): Collection
-    {
-        return $this->themeParent;
-    }
+		return $this;
+	}
 
-    public function addThemeParent(self $themeParent): self
-    {
-        if (!$this->themeParent->contains($themeParent)) {
-            $this->themeParent[] = $themeParent;
-        }
+	/**
+	 * @return Collection|self[]
+	 */
+	public function getThemeParent(): Collection
+	{
+		return $this->themeParent;
+	}
 
-        return $this;
-    }
+	public function addThemeParent(self $themeParent): self
+	{
+		if (!$this->themeParent->contains($themeParent)) {
+			$this->themeParent[] = $themeParent;
+		}
 
-    public function removeThemeParent(self $themeParent): self
-    {
-        $this->themeParent->removeElement($themeParent);
+		return $this;
+	}
 
-        return $this;
-    }
+	public function removeThemeParent(self $themeParent): self
+	{
+		$this->themeParent->removeElement($themeParent);
 
-    /**
-     * @return Collection|self[]
-     */
-    public function getThemes(): Collection
-    {
-        return $this->themes;
-    }
+		return $this;
+	}
 
-    public function addTheme(self $theme): self
-    {
-        if (!$this->themes->contains($theme)) {
-            $this->themes[] = $theme;
-            $theme->addThemeParent($this);
-        }
+	/**
+	 * @return Collection|self[]
+	 */
+	public function getThemes(): Collection
+	{
+		return $this->themes;
+	}
 
-        return $this;
-    }
+	public function addTheme(self $theme): self
+	{
+		if (!$this->themes->contains($theme)) {
+			$this->themes[] = $theme;
+			$theme->addThemeParent($this);
+		}
 
-    public function removeTheme(self $theme): self
-    {
-        if ($this->themes->removeElement($theme)) {
-            $theme->removeThemeParent($this);
-        }
+		return $this;
+	}
 
-        return $this;
-    }
+	public function removeTheme(self $theme): self
+	{
+		if ($this->themes->removeElement($theme)) {
+			$theme->removeThemeParent($this);
+		}
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
+		return $this;
+	}
 
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
+	public function getDescription(): ?string
+	{
+		return $this->description;
+	}
 
-        return $this;
-    }
+	public function setDescription(?string $description): self
+	{
+		$this->description = $description;
+
+		return $this;
+	}
 }
