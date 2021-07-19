@@ -19,8 +19,7 @@ class ContactType extends AbstractType{
         ->add('lastname', TextType::class)
         ->add('pseudo', TextType::class)
         ->add('email', TextType::class)
-        ->add('message', TextareaType::class)
-        ->add('Valider', SubmitType::class);
+        ->add('message', TextareaType::class);
 
     }
 
