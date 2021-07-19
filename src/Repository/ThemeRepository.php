@@ -22,18 +22,16 @@ class ThemeRepository extends ServiceEntityRepository
 /**
  *  @return Theme[] Returns an array of Theme objects
  */
-	// public function findRootThemes()
-	// {
-	// 	$em = $this->getContainer()->get('doctrine')->getManager();
-	// 	$repository = $em->getRepository('Theme');
-	// 	$query = $repository->createQueryBuilder('u')
-	// 		->innerJoin('u.groups', 'g')
-	// 		->where('g.id = :group_id')
-	// 		->setParameter('group_id', 10)
-	// 		->getQuery()->getResult();
+	public function findRootThemes()
+	{
+		return $this->select("th")
+			->innerJoin('th.themeParent', 'l')
+			->having('count(l) > 1')
+			->getQuery()
+			->getResult();
 
-	// 	return $query;
-	// }
+		//return $qb;
+	}
 	
 
 

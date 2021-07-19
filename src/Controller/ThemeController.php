@@ -19,13 +19,15 @@ class ThemeController extends AbstractController
 	public function index(ThemeRepository $themeRepository): Response
 	{
  
+		$root = $themeRepository->findRootThemes();
+		dd($root);
 
 		$themes = $themeRepository->findAll();
 
 		foreach($themes as $theme) {
 
 			$parents = $theme->getThemeParent();
-			dump(count($parents));
+			//dump(count($names));
 			foreach ( $parents as $parent) {
 				dump($theme . " est enfant de " . $parent->getName());
 				//dump(count($name));
