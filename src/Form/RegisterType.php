@@ -16,7 +16,7 @@ class RegisterType extends AbstractType
     {
         $builder
         // register user's email
-        ->add('mail', null, [
+        ->add('email', null, [
             'label' => 'Adresse Email:',
             'attr' => ['class' => 'form-control']
         ])
