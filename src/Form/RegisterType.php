@@ -18,12 +18,12 @@ class RegisterType extends AbstractType
         // register user's email
         ->add('email', null, [
             'label' => 'Adresse Email:',
-            'attr' => ['class' => 'form-control']
+            'attr' => ['class' => 'form-control', 'placeholder' => 'Exemple: Oquizz@mail.com']
         ])
         // register user's login
         ->add('login', null, [
             'label' => 'Pseudo:',
-            'attr' => ['class' => 'form-control']
+            'attr' => ['class' => 'form-control', 'placeholder' => 'Exemple: Oquizzinator']
         ])
         // ->add('roles', ChoiceType::class, [
         //     'choices' => [
@@ -34,7 +34,7 @@ class RegisterType extends AbstractType
         ->add('plainPassword', PasswordType::class, [
             
             'mapped' => false,
-            'attr' => ['autocomplete' => 'new-password', 'class' => 'form-control'],
+            'attr' => ['autocomplete' => 'new-password', 'class' => 'form-control', 'placeholder' => 'Exemple: 0Qu1zz@123'],
             'constraints' => [
                 new NotBlank([
                     'message' => 'Veuillez saisir un mot de passe',
