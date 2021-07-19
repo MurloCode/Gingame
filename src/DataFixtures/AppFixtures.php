@@ -30,8 +30,8 @@ class AppFixtures extends Fixture
 		foreach ($users as $user) {
 			$userCreate = new User();
 			$userCreate->setLogin($user)
-				->setMail($user."@gmail.com")
-				->setStatus("ROLE_ADMIN")
+				->setEmail($user."@gmail.com")
+				->setRoles(['ROLE_ADMIN'])
 				->setPassword($this->passwordHasher->hashPassword(
 					$userCreate,
 					'123456'
