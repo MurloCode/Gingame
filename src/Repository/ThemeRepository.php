@@ -22,14 +22,30 @@ class ThemeRepository extends ServiceEntityRepository
 /**
  *  @return Theme[] Returns an array of Theme objects
  */
+
 	public function findRootThemes()
 	{
-		return $this->select("th")
-			->innerJoin('th.themeParent', 'l')
-			->having('count(l) > 1')
-			->getQuery()
-			->getResult();
+		return $this->createQueryBuilder('t')
+		->innerJoin('t.themeParent', 'b')
+		->having('COUNT(b.id) = 0')
+		//->addSelect('COUNT(b.id) AS amount')
+		//->groupBy('t.id')
+		->getQuery()
+		->getResult();
 
+	}
+
+
+	public function findChildThemes()
+	{
+		return $this->createQueryBuilder('a')
+        ->innerJoin('a.themeParent', 'b')
+        //->addSelect('a.name')
+        //->addSelect('a.id')
+        ->addSelect('COUNT(b.id)')
+        ->groupBy('a.id')
+        ->getQuery()
+        ->getResult();
 		//return $qb;
 	}
 	

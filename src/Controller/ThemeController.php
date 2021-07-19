@@ -20,6 +20,7 @@ class ThemeController extends AbstractController
 	{
  
 		$root = $themeRepository->findRootThemes();
+		// $root = $themeRepository->findChildThemes();
 		dd($root);
 
 		$themes = $themeRepository->findAll();
