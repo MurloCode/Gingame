@@ -26,10 +26,10 @@ class ThemeRepository extends ServiceEntityRepository
 	public function findRootThemes()
 	{
 		return $this->createQueryBuilder('t')
-		->innerJoin('t.themeParent', 'b')
+		->leftJoin('t.themeParent', 'b')
 		->having('COUNT(b.id) = 0')
 		//->addSelect('COUNT(b.id) AS amount')
-		//->groupBy('t.id')
+		->groupBy('t.id')
 		->getQuery()
 		->getResult();
 
