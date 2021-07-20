@@ -37,7 +37,7 @@ class Proposition
      */
     private $media;
 
-    /**
+    /**z
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="propositions")
      */
     private $question;

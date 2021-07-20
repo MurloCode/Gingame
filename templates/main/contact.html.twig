@@ -3,22 +3,32 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-<h1>Contact</h1>
-<main id="contactForm" class="mt-4 container">
-{{ form_start(form) }}
-<div class="row">
-    <div class="col">{{form_row(form.firstname)}}</div>
-    <div class="col">{{form_row(form.lastname)}}</div>
-</div>
-<div class="row">
-    <div class="col">{{form_row(form.pseudo)}}</div>
-    <div class="col">{{form_row(form.email)}}</div>
-</div>
-{{form_rest(form)}}
-<div class="form-group">
-    <button class="btn btn-primary">Envoyer</button>
-</div>
-{{ form_end(form) }}
-</main>
+    {{ form_start(form) }}
+        <h1>Contact</h1>
+        <main id="contactForm" class="mt-4 container">
+            <div class="mb-3">           
+                <div type="prenom" class="" id="Contactfirstname">{{form_row(form.firstname, { label:'Prénom:'} )}}</div>
+            </div>
+            <div class="mb-3">           
+                <div type="nom" class="" id="ContactLastName">{{form_row(form.lastname, { label:'Nom:'} )}}</div>
+            </div>
+            <div class="mb-3">            
+                <div type="nom" class="" id="ContactPseudo">{{form_row(form.pseudo, { label:'Pseudo:'} )}}</div>
+            </div>
+            <div class="mb-3">            
+                <div type="email" class="" id="InputEmail1" aria-describedby="emailHelp">{{form_row(form.email, { label:'Adresse email:'} )}}</div>
+                <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre adresse électronique avec qui que ce soit.</div>
+            </div>
+            <div class="mb-3">            
+                <div type="nom" class="" id="ContactMessage">{{form_row(form.message, { label:'Message:'} )}}</div>
+            </div>
+            <br />
+            {# <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> #}
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </main>    
+    {{ form_end(form) }}
 {% endblock %}
 

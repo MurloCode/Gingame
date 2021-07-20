@@ -27,6 +27,11 @@
 					{% for quizz in quizz.questions %}
 						<li>{{ quizz.question }}</li>
 					{% endfor %}
+					<ul>
+							{% for question in question.propositions %}
+								<li>{{ proposition.text }}</li>
+							{% endfor %}
+						</ul>
 				</ul>
 			
 			</section>	
@@ -34,7 +39,7 @@
         </div>
 		<div class="container">
 			<p>
-				<a href="">Retour à l'accueil</a>
+				<a href="{{path('home')}}">Retour à l'accueil</a>
 			</p>
 		</div>
 	</div>

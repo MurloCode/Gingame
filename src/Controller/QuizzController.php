@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Question;
 use App\Entity\Quizz;
 use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
@@ -33,8 +34,10 @@ class QuizzController extends AbstractController
      */
     public function show(Quizz $quizz)
     {
+
         return $this->render('quizz/show.html.twig', [
-            'quizz' => $quizz
+            'quizz' => $quizz,
+           
         ]);
     }
 
