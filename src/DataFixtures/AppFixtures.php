@@ -25,6 +25,18 @@ class AppFixtures extends Fixture
 		// $product = new Product();
 		// $manager->persist($product);
 
+		// Create Oquizz / Master User
+		$oquizzUser = new User();
+		$oquizzUser->setLogin("Oquizz")
+				->setRoles(['ROLE_ADMIN'])
+				->setEmail("oquizz@gmail.com")
+				->setPassword($this->passwordHasher->hashPassword(
+					$oquizzUser,
+					'123456'
+				));
+
+			$manager->persist($oquizzUser);
+
 		// Create Users
 		$users = ["Tom", "Robin", "Corentin", "Fanou"];
 		foreach ($users as $user) {
@@ -32,6 +44,7 @@ class AppFixtures extends Fixture
 			$userCreate->setLogin($user)
 				->setEmail($user."@gmail.com")
 				->setRoles(['ROLE_ADMIN'])
+				->addFriend($oquizzUser)
 				->setPassword($this->passwordHasher->hashPassword(
 					$userCreate,
 					'123456'
@@ -39,6 +52,7 @@ class AppFixtures extends Fixture
 
 			$manager->persist($userCreate);
 		}
+
 
 
 		// Create Themes
@@ -61,13 +75,20 @@ class AppFixtures extends Fixture
 			for ($i = 1; $i < 5; $i++) {
 				$quizz = new Quizz();
 				$quizz->setName("Questionnaire $theme $i");
-
+				$quizz->addTheme($childTheme);
+				$quizz->addTheme($parentTheme);
+				$quizz->setCreatedBy($oquizzUser);
+				
 				$manager->persist($quizz);
 				
 				for ($j = 1; $j < 21; $j++) {
 					// Create Question (20 per theme)
 					$question = new Question();
 					$question->setQuestion("Question n°$j ( $theme )");
+					$question->addQuizz($quizz);
+					$question->addTheme($childTheme);
+					$question->addTheme($parentTheme);
+					$question->setCreatedBy($oquizzUser);
 
 					$manager->persist($question);
 
