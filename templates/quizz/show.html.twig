@@ -1,0 +1,45 @@
+{% block content %}
+	<section class="text-center container">
+		<div class="row">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">{{quizz.name}}</h1>
+				<p>
+               
+					<a href="">Editer</a>
+					|
+					<a href="">Supprimer</a>
+
+
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="py-5 bg-light">
+		<div class="container">
+			 
+                    <tr>
+						<td>{{ quizz.id }}</td>
+						<td>{{ quizz.name }}</td>
+                    </tr>    
+                
+		</div>
+
+        <div class="py-5 bg-light">
+		<div class="container">
+			<section>
+				<h2>Questions</h2>
+				<ul>
+					{% for quizz in quizz.questions %}
+						<li>{{ quizz.question }}</li>
+					{% endfor %}
+				</ul>
+
+        </div>
+		<div class="container">
+			<p>
+				<a href="">Retour à l'accueil</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

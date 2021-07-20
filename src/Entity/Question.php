@@ -49,10 +49,20 @@ class Question
      */
     private $propositions;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Quizz::class, mappedBy="questions")
+     */
+    private $quizzs;
+
     public function __construct()
     {
         $this->propositions = new ArrayCollection();
+        $this->quizzs = new ArrayCollection();
     }
+
+    public function __toString(){
+		return $this->question;
+	}
 
     public function getId(): ?int
     {
@@ -144,6 +154,33 @@ class Question
             if ($proposition->getQuestion() === $this) {
                 $proposition->setQuestion(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Quizz[]
+     */
+    public function getQuizzs(): Collection
+    {
+        return $this->quizzs;
+    }
+
+    public function addQuizz(Quizz $quizz): self
+    {
+        if (!$this->quizzs->contains($quizz)) {
+            $this->quizzs[] = $quizz;
+            $quizz->addQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuizz(Quizz $quizz): self
+    {
+        if ($this->quizzs->removeElement($quizz)) {
+            $quizz->removeQuestion($this);
         }
 
         return $this;
