@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Theme;
+use App\Repository\QuizzRepository;
 use App\Repository\ThemeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ThemeController extends AbstractController
 {
     /**
-     * @Route("/", name="list")
+     * @Route("/", name="default")
      */
 	public function index(ThemeRepository $themeRepository): Response
 	{
@@ -26,7 +28,23 @@ class ThemeController extends AbstractController
 		]);
 	}
 
+    /**
+     * @Route("/{id}", name="show")
+     */
+	public function show(Theme $theme, QuizzRepository $quizzRepository): Response
+	{
+		// Call Theme without "parent" : "root Themes"
+		//$theme = new Theme;
 	
+		//dd($theme->getName());
+		$quizz = $quizzRepository->findAll();
+		//dd($quizz);
+		// Send root Theme to template
+		return $this->render('theme/show.html.twig', [
+			'theme' => $theme,
+			'quizz' => $quizz
+		]);
+	}
 
 }
 
