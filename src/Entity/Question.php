@@ -59,6 +59,11 @@ class Question
      */
     private $themes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="questions")
+     */
+    private $createdBy;
+
     public function __construct()
     {
         $this->propositions = new ArrayCollection();
@@ -212,6 +217,18 @@ class Question
     public function removeTheme(Theme $theme): self
     {
         $this->themes->removeElement($theme);
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?User $createdBy): self
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
