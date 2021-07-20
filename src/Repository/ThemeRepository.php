@@ -28,7 +28,6 @@ class ThemeRepository extends ServiceEntityRepository
 		return $this->createQueryBuilder('t')
 		->leftJoin('t.themeParent', 'b')
 		->having('COUNT(b.id) = 0')
-		//->addSelect('COUNT(b.id) AS amount')
 		->groupBy('t.id')
 		->getQuery()
 		->getResult();
