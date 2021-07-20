@@ -18,10 +18,22 @@
 	</style>
 
 	<div class="example-wrapper">
-		<h1>Quizz des la catégories : {{ theme.name }}</h1>
-
-		{{ dump(quizz) }}
-
+		<h1>Quizz de la catégories :
+			{{ theme.name }}</h1>
+		<ul>
+		
+			{% for quizz in theme.quizz %}
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="..." alt="Card image cap">
+					<div class="card-body">
+						<li>
+							<a href={{ path('quizz_show', {id : quizz.id } ) }}>{{ quizz.name }}</a>
+						</li>
+					</div>
+				</div>  
+			{% endfor %} 
+	                       
+		</ul>
 
 	</div>
 {% endblock %}

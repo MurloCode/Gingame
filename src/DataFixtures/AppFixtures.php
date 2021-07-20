@@ -7,6 +7,7 @@ use App\Entity\Question;
 use App\Entity\Quizz;
 use App\Entity\Theme;
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -62,7 +63,7 @@ class AppFixtures extends Fixture
 		
 		$manager->persist($parentTheme);
 		
-		// Create Childs Themes
+		// Create Children Themes
 		$themes = ["Friends", "Scrubs", "H", "Kaamelott"];
 		foreach ($themes as $theme) {
 			$childTheme = new Theme;
@@ -112,5 +113,7 @@ class AppFixtures extends Fixture
 		}
 
 		$manager->flush();
+
+
 	}
 }
