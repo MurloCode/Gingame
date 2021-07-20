@@ -34,9 +34,11 @@ class QuizzController extends AbstractController
      */
     public function show(Quizz $quizz)
     {
-
+        
+        
         return $this->render('quizz/show.html.twig', [
             'quizz' => $quizz,
+            
            
         ]);
     }

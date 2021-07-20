@@ -26,8 +26,12 @@
 			<section>
 				<h2>Questions</h2>
 				<ul>
-					{% for quizz in quizz.questions %}
-						<li>{{ quizz.question }}</li>
+					{% for question in quizz.questions %}
+						<li>{{ question.question }}</li>		
+						{% for proposition in question.propositions %}
+							<ul><li>{{proposition.text}}</li></ul>
+						{% endfor %}
+					
 					{% endfor %}
 				</ul>
 				<h2>Themes</h2>
