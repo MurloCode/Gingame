@@ -4,14 +4,24 @@
 {% endblock %}
 
 {% block body %}
-	<ul>
-		{% for quizz in quizzs %}
+<h1>PAGE QUIZZ/INDEX.HTML.TWIG</h1>
+<form>
+    <img class="d-grid col-6 mb-3 mx-auto" src="http://via.placeholder.com/640x360" alt="">
 
-			<li>{{ quizz.name }}<a href="{{ path('quizz_show', {id:quizz.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
-			</li>
-
-
-		{% endfor %}
-	</ul>
-	<a href="{{path('home')}}">Retour à l'accueil</a>
+    <div class="d-grid col-6 mb-3 mx-auto">
+    <div class="d-grid col-3 gap-2 d-md-block">
+        <input type="radio" class="btn-check col-sm" name="options" id="option1" autocomplete="off">
+        <label class="btn btn-outline-success" for="option1">Radio</label>
+        <input type="radio" class="btn-check col-sm" name="options" id="option2" autocomplete="off">
+        <label class="btn btn-outline-success" for="option2">Radio</label>
+    </div>
+    <div class="d-grid col-3 gap-2 d-md-block">
+        <input type="radio" class="btn-check col-sm" name="options" id="option3" autocomplete="off">
+        <label class="btn btn-outline-success" for="option3">Radio</label>
+        <input type="radio" class="btn-check col-sm" name="options" id="option4" autocomplete="off">
+        <label class="btn btn-outline-success" for="option4">Radio</label>
+    </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 {% endblock %}
