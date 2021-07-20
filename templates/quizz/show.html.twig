@@ -7,19 +7,21 @@
 		</div>
 	</section>
 
-	 <div class="py-5 bg-light">
+	<div class="py-5 bg-light">
 		<div class="container">
 			<section>
 				<h2>Quizz</h2>
 				<ul>
-						<li> # {{ quizz.id }}</li>
-						<li>{{ quizz.name }}</li>
+					<li>
+						#
+						{{ quizz.id }}</li>
+					<li>{{ quizz.name }}</li>
 				</ul>
-			</section>	
+			</section>
 		</div>
-        </div>
+	</div>
 
-        <div class="py-5 bg-light">
+	<div class="py-5 bg-light">
 		<div class="container">
 			<section>
 				<h2>Questions</h2>
@@ -27,20 +29,20 @@
 					{% for quizz in quizz.questions %}
 						<li>{{ quizz.question }}</li>
 					{% endfor %}
-					<ul>
-							{% for question in question.propositions %}
-								<li>{{ proposition.text }}</li>
-							{% endfor %}
-						</ul>
 				</ul>
-			
-			</section>	
-		</div>
-        </div>
-		<div class="container">
-			<p>
-				<a href="{{path('home')}}">Retour à l'accueil</a>
-			</p>
-		</div>
+				<h2>Themes</h2>
+				<ul>
+					{% for quizz in quizz.themes %}
+						<li>{{ quizz.name }}</li>
+					{% endfor %}
+				</ul>
+			</ul>
+
+		</section>
 	</div>
-{% endblock %}
+</div>
+<div class="container">
+	<p>
+		<a href="{{path('home')}}">Retour à l'accueil</a>
+	</p>
+</div></div>{% endblock %}
