@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello QuizzController!{% endblock %}
+{% block title %}Hello QuizzController!
+{% endblock %}
 
 {% block body %}
 	<ul>
 		{% for quizz in quizzs %}
-            
-			<li>{{ quizz.name }}</li>
-            
+
+			<li>{{ quizz.name }}<a href="{{ path('quizz_show', {id:quizz.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+			</li>
+
+
 		{% endfor %}
 	</ul>
+	<a href="{{path('home')}}">Retour à l'accueil</a>
 {% endblock %}
