@@ -29,76 +29,103 @@ class Quizz
 	 */
 	private $description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Question::class, inversedBy="quizzs")
-     */
-    private $questions;
+	/**
+	 * @ORM\ManyToMany(targetEntity=Question::class, inversedBy="quizzs")
+	 */
+	private $questions;
 
-    public function __construct()
-    {
-        $this->questions = new ArrayCollection();
-    }
+	/**
+	 * @ORM\ManyToMany(targetEntity=Theme::class, inversedBy="quizz")
+	 */
+	private $themes;
 
-	public function __toString(){
-		return $this->name;
+	public function __construct()
+	{
+		$this->questions = new ArrayCollection();
+		$this->themes = new ArrayCollection();
 	}
 
-	
+	public function __toString(){
+	return $this->name;
+}
 
 
+public function getId(): ?int
+{
+	return $this->id;
+}
 
-	public function getId(): ?int
-                        	{
-                        		return $this->id;
-                        	}
+public function getName(): ?string
+{
+	return $this->name;
+}
 
-	public function getName(): ?string
-                        	{
-                        		return $this->name;
-                        	}
+public function setName(string $name): self
+{
+	$this->name = $name;
 
-	public function setName(string $name): self
-                        	{
-                        		$this->name = $name;
-                        
-                        		return $this;
-                        	}
+	return $this;
+}
 
-	public function getDescription(): ?string
-                        	{
-                        		return $this->description;
-                        	}
+public function getDescription(): ?string
+{
+	return $this->description;
+}
 
-	public function setDescription(?string $description): self
-                        	{
-                        		$this->description = $description;
-                        
-                        		return $this;
-                        	}
+public function setDescription(?string $description): self
+{
+	$this->description = $description;
 
-    /**
-     * @return Collection|Question[]
-     */
-    public function getQuestions(): Collection
-    {
-        return $this->questions;
-    }
+	return $this;
+}
 
-    public function addQuestion(Question $question): self
-    {
-        if (!$this->questions->contains($question)) {
-            $this->questions[] = $question;
-        }
+	/**
+	 * @return Collection|Question[]
+	 */
+	public function getQuestions(): Collection
+	{
+		return $this->questions;
+	}
 
-        return $this;
-    }
+	public function addQuestion(Question $question): self
+	{
+		if (!$this->questions->contains($question)) {
+			$this->questions[] = $question;
+		}
 
-    public function removeQuestion(Question $question): self
-    {
-        $this->questions->removeElement($question);
+		return $this;
+	}
 
-        return $this;
-    }
+	public function removeQuestion(Question $question): self
+	{
+		$this->questions->removeElement($question);
+
+		return $this;
+	}
+
+	/**
+	 * @return Collection|Theme[]
+	 */
+	public function getThemes(): Collection
+	{
+		return $this->themes;
+	}
+
+	public function addTheme(Theme $theme): self
+	{
+		if (!$this->themes->contains($theme)) {
+			$this->themes[] = $theme;
+		}
+
+		return $this;
+	}
+
+	public function removeTheme(Theme $theme): self
+	{
+		$this->themes->removeElement($theme);
+
+		return $this;
+	}
 
 
 }
