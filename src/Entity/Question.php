@@ -54,10 +54,16 @@ class Question
      */
     private $quizzs;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Theme::class, inversedBy="questions")
+     */
+    private $themes;
+
     public function __construct()
     {
         $this->propositions = new ArrayCollection();
         $this->quizzs = new ArrayCollection();
+        $this->themes = new ArrayCollection();
     }
 
     public function __toString(){
@@ -182,6 +188,30 @@ class Question
         if ($this->quizzs->removeElement($quizz)) {
             $quizz->removeQuestion($this);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Theme[]
+     */
+    public function getThemes(): Collection
+    {
+        return $this->themes;
+    }
+
+    public function addTheme(Theme $theme): self
+    {
+        if (!$this->themes->contains($theme)) {
+            $this->themes[] = $theme;
+        }
+
+        return $this;
+    }
+
+    public function removeTheme(Theme $theme): self
+    {
+        $this->themes->removeElement($theme);
 
         return $this;
     }
