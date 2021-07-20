@@ -47,9 +47,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $questions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Quizz::class, mappedBy="createdBy")
+     */
+    private $quizz;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
+        $this->quizz = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,6 +183,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($question->getCreatedBy() === $this) {
                 $question->setCreatedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Quizz[]
+     */
+    public function getQuizz(): Collection
+    {
+        return $this->quizz;
+    }
+
+    public function addQuizz(Quizz $quizz): self
+    {
+        if (!$this->quizz->contains($quizz)) {
+            $this->quizz[] = $quizz;
+            $quizz->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuizz(Quizz $quizz): self
+    {
+        if ($this->quizz->removeElement($quizz)) {
+            // set the owning side to null (unless already changed)
+            if ($quizz->getCreatedBy() === $this) {
+                $quizz->setCreatedBy(null);
             }
         }
 

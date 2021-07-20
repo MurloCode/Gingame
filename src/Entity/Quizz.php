@@ -39,15 +39,20 @@ class Quizz
 	 */
 	private $themes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="quizz")
+     */
+    private $createdBy;
+
 	public function __construct()
-	{
-		$this->questions = new ArrayCollection();
-		$this->themes = new ArrayCollection();
-	}
+         	{
+         		$this->questions = new ArrayCollection();
+         		$this->themes = new ArrayCollection();
+         	}
 
 	public function __toString(){
-	return $this->name;
-}
+         	return $this->name;
+         }
 
 
 public function getId(): ?int
@@ -83,49 +88,61 @@ public function setDescription(?string $description): self
 	 * @return Collection|Question[]
 	 */
 	public function getQuestions(): Collection
-	{
-		return $this->questions;
-	}
+         	{
+         		return $this->questions;
+         	}
 
 	public function addQuestion(Question $question): self
-	{
-		if (!$this->questions->contains($question)) {
-			$this->questions[] = $question;
-		}
-
-		return $this;
-	}
+         	{
+         		if (!$this->questions->contains($question)) {
+         			$this->questions[] = $question;
+         		}
+         
+         		return $this;
+         	}
 
 	public function removeQuestion(Question $question): self
-	{
-		$this->questions->removeElement($question);
-
-		return $this;
-	}
+         	{
+         		$this->questions->removeElement($question);
+         
+         		return $this;
+         	}
 
 	/**
 	 * @return Collection|Theme[]
 	 */
 	public function getThemes(): Collection
-	{
-		return $this->themes;
-	}
+         	{
+         		return $this->themes;
+         	}
 
 	public function addTheme(Theme $theme): self
-	{
-		if (!$this->themes->contains($theme)) {
-			$this->themes[] = $theme;
-		}
-
-		return $this;
-	}
+         	{
+         		if (!$this->themes->contains($theme)) {
+         			$this->themes[] = $theme;
+         		}
+         
+         		return $this;
+         	}
 
 	public function removeTheme(Theme $theme): self
-	{
-		$this->themes->removeElement($theme);
+         	{
+         		$this->themes->removeElement($theme);
+         
+         		return $this;
+         	}
 
-		return $this;
-	}
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?User $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
 
 
 }
