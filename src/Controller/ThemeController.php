@@ -29,20 +29,14 @@ class ThemeController extends AbstractController
 	}
 
     /**
-     * @Route("/{id}", name="show")
+     * @Route("/{id}", name="show", requirements={"id"="\d+"})
      */
-	public function show(Theme $theme, QuizzRepository $quizzRepository): Response
+	public function show(Theme $theme): Response
 	{
-		// Call Theme without "parent" : "root Themes"
-		//$theme = new Theme;
-	
-		//dd($theme->getName());
-		$quizz = $quizzRepository->findAll();
-		//dd($quizz);
-		// Send root Theme to template
+
+		// Send Child Theme to template
 		return $this->render('theme/show.html.twig', [
-			'theme' => $theme,
-			'quizz' => $quizz
+			'theme' => $theme
 		]);
 	}
 

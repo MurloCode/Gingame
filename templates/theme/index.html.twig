@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
 {% block title %}Hello ThemeController!
 {% endblock %}
@@ -17,31 +17,15 @@
 		}
 	</style>
 
-	<div class="example-wrapper">
-		<h1>Quizz par catégorie</h1>
+	<div class="container">
 
-		{{ dump(rootThemes) }}
-
-
-		<div class="card-group">
-			{% for rootTheme in rootThemes %}
-				<h2>{{ rootTheme.name }}</h2>
-
-				{% for enfant in rootTheme.themes %}
-
-
-					<div class="card">
-						<img src="https://via.placeholder.com/200x150.png" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">{{ enfant.name }}</h5>
-							<p class="card-text">
-								<small class="text-muted">Last updated 3 mins ago</small>
-							</p>
-						</div>
-					</div>
-				{% endfor %}
-
-			{% endfor %}
+		<div class="example-wrapper">
+			<h1>Quizz par catégorie</h1>
 		</div>
+
+		{% include "partials/theme/_groupCard.html.twig" %}
+
 	</div>
+
+
 {% endblock %}
