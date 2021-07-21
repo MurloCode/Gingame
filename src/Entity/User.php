@@ -57,6 +57,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $friends;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $Created_At;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -245,6 +250,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeFriend(self $friend): self
     {
         $this->friends->removeElement($friend);
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->Created_At;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $Created_At): self
+    {
+        $this->Created_At = $Created_At;
 
         return $this;
     }
