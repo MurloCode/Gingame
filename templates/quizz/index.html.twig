@@ -5,30 +5,28 @@
 
 {% block body %}
 <h1>PAGE QUIZZ/INDEX.HTML.TWIG</h1>
-<form>
-    <img class="d-grid col-6 mb-3 mx-auto" src="http://via.placeholder.com/640x360" alt="">
+<img class="d-grid col-lg-6 mx-auto" src="http://via.placeholder.com/640x360" alt="">
 
-    <div class="d-grid col-6 mb-3 mx-auto">
-        <div class="row">
-            <div class="col-lg-6 col-sm-12">
-                <input type="radio" class="btn-check btn-lg" name="options" id="option1" autocomplete="off">
-                <label class="btn btn-outline-success" for="option1">Radio</label>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <input type="radio" class="btn-check btn-lg" name="options" id="option2" autocomplete="off">
-                <label class="btn btn-outline-success" for="option2">Radio</label>
-            </div>
-            <div class="col-lg-6 col-lg-push-6 col-sm-12">
-                <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                <label class="btn btn-outline-success" for="option3">Radio</label>
-            </div>
-            <div class="col-lg-6 col-lg-push-6 col-sm-12">
-                <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-                <label class="btn btn-outline-success" for="option4">Radio</label>
-            </div>
+<div class="container d-grid mx-auto">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <input type="radio" class="btn-check btn-lg" name="options" id="option1" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option1">Réponse 1</label>
         </div>
-        <br />
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-lg-6 col-sm-12">
+            <input type="radio" class="btn-check btn-lg" name="options" id="option2" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option2">Réponse 2</label>
+        </div>
+        <div class="col-lg-6 col-lg-push-6 col-sm-12">
+            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option3">Réponse 3</label>
+        </div>
+        <div class="col-lg-6 col-lg-push-6 col-sm-12">
+            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option4">Réponse 4</label>
+        </div>
     </div>
-</form>
+    <br />
+    <button type="submit" class="btn btn-primary quizzbutton">Valider la réponse !</button>
+</div>
 {% endblock %}
