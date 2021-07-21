@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -67,6 +68,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->questions = new ArrayCollection();
         $this->quizz = new ArrayCollection();
         $this->friends = new ArrayCollection();
+        $this->Created_At = new DateTime();
     }
 
     public function getId(): ?int
