@@ -2,7 +2,7 @@
 
 {% block title %}Hello QuizzController!{% endblock %}
 
-{% block content %}
+{% block body %}
 	<section class="text-center container">
 		<div class="row">
 			<div class="col-lg-6 col-md-8 mx-auto">
@@ -11,7 +11,7 @@
 		</div>
 	</section>
 
-	<div class="py-5 bg-light">
+	{# <div class="py-5 bg-light">
 		<div class="container">
 			<section>
 				<h2>Quizz</h2>
@@ -48,9 +48,41 @@
 
 		</section>
 	</div>
-</div>
+</div> #}
 <div class="container">
 	<p>
 		<a href="{{path('home')}}">Retour à l'accueil</a>
 	</p>
+
+	<div class="container d-grid mx-auto">
+	{{ dump(question) }}
+	
+	{{ question.question }}	
+	
+	
+    <div class="row">
+						{% for proposition in question.propositions %}
+						
+        <div class="col-lg-6 col-sm-12">
+            <input type="radio" class="btn-check btn-lg" name="options" id="option1" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option1">{{proposition.text}}</label>
+        </div>
+	{% endfor %}
+
+        {# <div class="col-lg-6 col-sm-12">
+            <input type="radio" class="btn-check btn-lg" name="options" id="option2" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option2">Réponse 2</label>
+        </div>
+        <div class="col-lg-6 col-lg-push-6 col-sm-12">
+            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option3">Réponse 3</label>
+        </div>
+        <div class="col-lg-6 col-lg-push-6 col-sm-12">
+            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="option4">Réponse 4</label>
+        </div> #}
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary quizzbutton">Valider la réponse !</button>
+</div>
 </div></div>{% endblock %}
