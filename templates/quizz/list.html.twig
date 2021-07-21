@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Liste 
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="py-5 bg-light">
+		<div class="container">
+			<section>
+				<h2>Quizz</h2>
+				{% for quizz in quizz %}
+				<ul>
+					<li>
+						#
+						{{ quizz.id }}</li>
+					<li>{{ quizz.name }}</li>
+				</ul>	
+				{% endfor %}
+				
+			</section>
+		</div>
+	</div>
+{% endblock %}
