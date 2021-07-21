@@ -54,18 +54,16 @@
 		<a href="{{path('home')}}">Retour à l'accueil</a>
 	</p>
 
-	<div class="container d-grid mx-auto">
-	{{ dump(question) }}
-	
+	<div class="container d-grid mx-auto">	
 	{{ question.question }}	
 	
-	
+	<form action={{ path('quizz_show', {id: quizz.id }) }} method="POST">
     <div class="row">
 						{% for proposition in question.propositions %}
 						
         <div class="col-lg-6 col-sm-12">
-            <input type="radio" class="btn-check btn-lg" name="options" id="option1" autocomplete="off">
-            <label class="btn btn-outline-success quizzbutton" for="option1">{{proposition.text}}</label>
+            <input onClick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
+            <label class="btn btn-outline-success quizzbutton" for="{{proposition.id}}">{{proposition.text}}</label>
         </div>
 	{% endfor %}
 
@@ -83,6 +81,17 @@
         </div> #}
     </div>
     <br />
-    <button type="submit" class="btn btn-primary quizzbutton">Valider la réponse !</button>
+    <button id="bt" type="submit" disabled="enabled" class="btn btn-primary quizzbutton">Valider la réponse !</button>
+	</form>
 </div>
-</div></div>{% endblock %}
+</div></div>
+{% block javascript %}
+<script>
+function enableButton() {
+	document.getElementById("bt").disabled = false;
+}
+</script>
+{% endblock %}
+{% endblock %}
+
+

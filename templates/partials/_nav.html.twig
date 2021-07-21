@@ -32,6 +32,7 @@
 			</ul>
 			<div class="d-flex">
 				{% if is_granted('ROLE_USER') %}
+					
 					<a class="btn btn-lg btn-dark" href="{{ path('app_logout') }}" role="button">Déconnexion</a>
 				{% else %}
 					<a class="btn btn-lg btn-primary" href="{{ path('app_login') }}" role="button">Connexion</a>

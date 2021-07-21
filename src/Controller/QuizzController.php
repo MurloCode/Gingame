@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use App\Entity\Quizz;
+use App\Form\AnswerType;
+use App\Form\PropositionType;
+use App\Repository\PropositionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,38 +37,71 @@ class QuizzController extends AbstractController
 	 *
 	 * @return Response
 	 */
-	public function show(Quizz $quizz, RequestStack $requestStack)
+	public function show(Quizz $quizz, RequestStack $requestStack, PropositionRepository $proposition)
 	{
 		$this->requestStack = $requestStack;
 		$session = $this->requestStack->getSession();
-		
+
 		// Vérify if Session Exist
 		$sessionName = 'questionID'.$quizz->getId() ;
 		$questionSession = $session->get($sessionName);
-		
+	
+		$sessionPoint = 'questionPoint'.$quizz->getId() ;
+		$quizzPoint = $session->get($sessionPoint);
+
 		$questions = $quizz->getQuestions();
 		
-		// Verify if Quiz is ended
-		// dd(array_keys($session->get('questionID'), $quizz->getId()));
-		//dd($questionSession);
+		// Verify if Quiz is started or ended
+		if ($questionSession === null) {
+			$session->set($sessionName, 0);
+			$session->set($sessionPoint, 0);
+			
+		} elseif (count($questions) <= $session->get($sessionName) +1 ) {
+			return $this->redirectToRoute('quizz_result', ['question' => $questions[$session->get($sessionPoint)] ]);
+		}
 
-			if ($questionSession === null) {
-				$session->set($sessionName, 0);
-				//dd($session->get('questionID'));
-			} elseif (count($questions) <= $session->get($sessionName) +1 ) {
-				dd("FINI !");
-			} else {
-				$session->set($sessionName, $questionSession+1);
+		// Verify if form is Sent
+		if (isset($_POST["options"])) {
+
+			// Verify if answer is valid
+			$reponse = $proposition->find($_POST["options"]);
+
+			// Verify if the answer are from the good question (Anti-Cheat !)
+			if ($questions[$questionSession]->getId() !== $reponse->getQuestion()->getId()) {
+				return $this->render('quizz/show.html.twig', [
+					'quizz' => $quizz,
+					'question' => $questions[$session->get($sessionName)],
+				]);
 			}
 
-			return $this->render('quizz/show.html.twig', [
-				'quizz' => $quizz,
-				'question' => $questions[$session->get($sessionName)]
-			]);
+			// Increment Question in Session variable
+			$session->set($sessionName, $questionSession+1);
+
+			if ($reponse->getIsValid() == true) {
+				$session->set($sessionPoint, $quizzPoint +1);
+				dump("Points : " . $session->get($sessionPoint));
+			} else {
+				dump('lose');
+			}
+		}		
+
+		return $this->render('quizz/show.html.twig', [
+			'quizz' => $quizz,
+			'question' => $questions[$session->get($sessionName)],
+		]);
 	
 		
 		
 	}
 
-	
+
+	/**
+	 * @Route("/result", name="result")
+	 */
+	public function result(){
+
+		return $this->render('quizz/win.html.twig',[
+
+		]);
+	}
 }
