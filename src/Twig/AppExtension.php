@@ -14,12 +14,12 @@ class AppExtension extends AbstractExtension
 			// If your filter generates SAFE HTML, you should add a third
 			// parameter: ['is_safe' => ['html']]
 			// Reference: https://twig.symfony.com/doc/2.x/advanced.html#automatic-escaping
-			new TwigFilter('oShuffle', function ($array) {
+			new TwigFilter('oShuffle', function ($object) {
 				
 				$shuffle = [];
 
-				foreach($array as $array) {
-					array_push($shuffle, $array);
+				foreach($object as $object) {
+					array_push($shuffle, $object);
 				}
 				shuffle($shuffle);
 

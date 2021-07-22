@@ -12,44 +12,7 @@
 		</div>
 	</section>
 
-	{# <div class="py-5 bg-light">
-														<div class="container">
-															<section>
-																<h2>Quizz</h2>
-																<ul>
-																	<li>
-																		#
-																		{{ quizz.id }}</li>
-																	<li>{{ quizz.name }}</li>
-																</ul>
-															</section>
-														</div>
-													</div>
-												
-													<div class="py-5 bg-light">
-														<div class="container">
-															<section>
-																<h2>Questions</h2>
-																<ul>
-																	{% for question in quizz.questions %}
-																		<li>{{ question.question }}</li>		
-																		{% for proposition in question.propositions %}
-																			<ul><li>{{proposition.text}}</li></ul>
-																		{% endfor %}
-																	
-																	{% endfor %}
-																</ul>
-																<h2>Themes</h2>
-																<ul>
-																	{% for quizz in quizz.themes %}
-																		<li>{{ quizz.name }}</li>
-																	{% endfor %}
-																</ul>
-															</ul>
-												
-														</section>
-													</div>
-												</div> #}
+
 	<div class="container">
 		<p>
 			<a href="{{path('home')}}">Retour à l'accueil</a>
