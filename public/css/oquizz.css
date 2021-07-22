@@ -44,3 +44,8 @@
 h1{
     margin-left: 2em;
 }
+
+.headerlogo{
+    max-width: 200px;
+    max-height: 90px;
+}
