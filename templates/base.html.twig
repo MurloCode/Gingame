@@ -20,14 +20,9 @@
 		<main>
 			{% block body %}{% endblock %}
 		</main>
-
-		{% block footer %}
-			<footer class="text-muted text-center py-5">
-				<div class="container">
-					<p class="mb-1">2021 &copy; O'quizz. Tous droits réservés</p>
-				</div>
-			</footer>
-		{% endblock %}
 		
+		{% block footer %}
+			{% include 'partials/footer.html.twig' %}
+		{% endblock %}		
 	</body>
 </html>
