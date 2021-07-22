@@ -44,7 +44,7 @@ class Historic
     private $playedAt;
 
     public function __construct() {
-        $this->playedAt = new DateTime();
+        $this->playedAt = new DateTime(); 
     }
 
     public function getId(): ?int
@@ -102,7 +102,7 @@ class Historic
 
     public function getPlayedAt(): ?\DateTimeImmutable
     {
-        return $this->playedAt;
+        return $this->playedAt; 
     }
 
     public function setPlayedAt(\DateTimeImmutable $playedAt): self

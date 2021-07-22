@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Historic;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry; 
 
 /**
  * @method Historic|null find($id, $lockMode = null, $lockVersion = null)
