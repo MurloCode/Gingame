@@ -1,3 +1,45 @@
+@font-face {
+    font-family: 'code_nextextrabold';
+    src: url('/police/codenext-extrabold-webfont.eot');
+    src: url('/police/codenext-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/police/codenext-extrabold-webfont.woff2') format('woff2'),
+         url('/police/codenext-extrabold-webfont.woff') format('woff'),
+         url('/police/codenext-extrabold-webfont.svg#code_nextextrabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Book Antiqua', arial;
+}
+  
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+.tales {
+    width: 80%;
+}
+.carousel-inner{
+    width:100%;
+    max-height: 900px !important;
+    display: block; 
+    object-fit:cover;
+}
+
+h1,h2, .navquizztext { 
+    font-family: 'code_nextextrabold';
+ } 
+
+.bg-oquizz {
+    background-image: linear-gradient(to right, black, rgb(1, 1, 114),  black);
+}
+
+.bg-oquizzblue{
+    background-color:rgb(1, 1, 114)
+}
+
 .middle-nav {
     display: flex;
     justify-content: space-between;
@@ -48,4 +90,16 @@ h1{
 .headerlogo{
     max-width: 200px;
     max-height: 90px;
+}
+
+/* bouton scroll Up */
+#scrollUp{
+    position: fixed;
+    bottom : 80px;
+    right: -150px;
+    opacity: 0.5;
+} 
+
+div.container, div.container-fluid {
+    margin-top: 20px;
 }
