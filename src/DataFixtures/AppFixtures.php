@@ -37,7 +37,7 @@ class AppFixtures extends Fixture
 				));
 
 			$manager->persist($oquizzUser);
-				echo 'ello';
+				
 		// Create Oquizz / Master User
 		$tomUser = new User();
 		$tomUser->setLogin("Tom")
