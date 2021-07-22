@@ -10,6 +10,7 @@ use App\Form\QuizzType;
 use App\Repository\PropositionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -111,7 +112,7 @@ class QuizzController extends AbstractController
 	 /**
      * @Route("/add", name="add")
      */
-    public function contact(Request $request): Response
+    public function add(Request $request): Response
     {
         $quizz = new Quizz();
         $form = $this->createForm(QuizzType::class, $quizz);
@@ -119,6 +120,29 @@ class QuizzController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()) { 
            
+			$data = $request->request->all();
+			$em = $this->getDoctrine()->getManager();
+
+			$quizz->setCreatedBy($this->getUser());
+			$quizz->setDescription($data['quizz']['description']);
+            $em->persist($quizz);
+			
+			
+
+			dump($data);
+			//$question = $data['quizz']['questions'];
+
+			$question = new Question;
+			$question->setQuestion($data['quizz']['questions']);
+			$question->setCreatedBy($this->getUser());
+			$question->addQuizz($quizz);
+			
+			$em->persist($question);
+
+			//dd($question);
+
+            $em->flush();
+
             $this->addFlash('success', 'votre quizz a bien été ajouté');
             return $this->redirectToRoute('home');
         }

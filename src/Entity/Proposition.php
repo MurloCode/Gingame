@@ -42,6 +42,10 @@ class Proposition
      */
     private $question;
 
+    public function __toString(){
+		return $this->text;
+	}
+
     public function getId(): ?int
     {
         return $this->id;
