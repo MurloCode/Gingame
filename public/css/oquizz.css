@@ -67,10 +67,28 @@ h1,h2, .navquizztext {
     justify-content: space-around;
 }
 
+.proposal {
+    color: white;
+    border-color: rgb(1, 1, 114);
+    background-color: rgb(1, 1, 114);
+}
+
+.proposal:hover{
+    color: white;
+    border-color: blue;
+    background-color: blue;
+}
+
+.validquizz:disabled{
+    background-color: grey;
+    border-color: black;
+}
+
 .quizzbutton{
     width: 100%;
     padding: 2em;
     margin-top: 2em;
+    border-radius: 2rem;
 }
 
 #avatar{
