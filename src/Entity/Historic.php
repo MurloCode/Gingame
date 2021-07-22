@@ -39,7 +39,7 @@ class Historic
     private $outOf;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $playedAt;
 
@@ -100,12 +100,12 @@ class Historic
         return $this;
     }
 
-    public function getPlayedAt(): ?\DateTimeImmutable
+    public function getPlayedAt(): ?\DateTimeInterface
     {
         return $this->playedAt; 
     }
 
-    public function setPlayedAt(\DateTimeImmutable $playedAt): self
+    public function setPlayedAt(\DateTimeInterface $playedAt): self
     {
         $this->playedAt = $playedAt;
 
