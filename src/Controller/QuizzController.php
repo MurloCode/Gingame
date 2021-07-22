@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Historic;
 use App\Entity\Question;
 use App\Entity\Quizz;
 use App\Form\AnswerType;
@@ -46,7 +47,7 @@ class QuizzController extends AbstractController
 		$session = $this->requestStack->getSession();
 
 		// Vérify if Session Exist
-		$sessionName = 'questionID'.$quizz->getId() ;
+		$sessionName = 'questionID'.$quizz->getId();
 		$questionSession = $session->get($sessionName);
 	
 		$sessionPoint = 'questionPoint'.$quizz->getId() ;
@@ -60,7 +61,7 @@ class QuizzController extends AbstractController
 			$session->set($sessionPoint, 0);
 			
 		} elseif (count($questions) <= $session->get($sessionName) +1 ) {
-			return $this->redirectToRoute('quizz_result', ['question' => $questions[$session->get($sessionPoint)] ]);
+			return $this->redirectToRoute('quizz_result', ['id' => $quizz->getId() ]);
 		}
 
 		// Verify if form is Sent
@@ -99,13 +100,44 @@ class QuizzController extends AbstractController
 
 
 	/**
-	 * @Route("/result", name="result")
+	 * @Route("/{id}/result", name="result")
 	 */
-	public function result(){
+	public function result(Quizz $quizz, RequestStack $requestStack){
 
-		return $this->render('quizz/win.html.twig',[
+		$this->requestStack = $requestStack;
+		$session = $this->requestStack->getSession();
 
+		// Verify if quizz is finish
+		$sessionName = 'questionID'.$quizz->getId();
+		//dd($session->get($sessionName));
+		if ($session->get($sessionName) +1 !== count($quizz->getQuestions())) {
+			return $this->redirectToRoute('quizz_show', ['id' => $quizz->getId() ]);
+		}
+
+
+		$historic = new Historic;
+		$historic->setUser($this->getUser());
+		$historic->setQuizz($quizz);
+		$historic->setScore($session->get('questionPoint'.$quizz->getId()));
+		$historic->setOutOf(count($quizz->getQuestions()));
+
+		$em = $this->getDoctrine()->getManager();
+		$em->persist($historic);
+
+		if ($this->getUser() !== null) {
+			$em->flush();
+
+			$session->remove('questionID'.$quizz->getId());
+			$session->remove('questionPoint'.$quizz->getId());
+
+		}
+
+		return $this->render('quizz/result.html.twig',[
+			'result' => $historic 
 		]);
+
+
+
 	}
 
 

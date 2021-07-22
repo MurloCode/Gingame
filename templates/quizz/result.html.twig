@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container">
+		<h1>Résultats :</h1>
+		{{ dump(result) }}
+		<h2>Tu as
+			{{ result.score }}
+			/
+			{{ result.outOf }}</h2>
+	</div>
+{% endblock %}
