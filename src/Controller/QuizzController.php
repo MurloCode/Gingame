@@ -108,13 +108,14 @@ class QuizzController extends AbstractController
 		$session = $this->requestStack->getSession();
 
 		// Verify if quizz is finish
+		// if not : redirect to quizz
 		$sessionName = 'questionID'.$quizz->getId();
-		//dd($session->get($sessionName));
+		
 		if ($session->get($sessionName) +1 !== count($quizz->getQuestions())) {
 			return $this->redirectToRoute('quizz_show', ['id' => $quizz->getId() ]);
 		}
 
-
+		// Add Score, User and Quizz in Historic entity
 		$historic = new Historic;
 		$historic->setUser($this->getUser());
 		$historic->setQuizz($quizz);
@@ -124,6 +125,7 @@ class QuizzController extends AbstractController
 		$em = $this->getDoctrine()->getManager();
 		$em->persist($historic);
 
+		// If user is connected : save into BDD and delete session's quizz
 		if ($this->getUser() !== null) {
 			$em->flush();
 
@@ -135,8 +137,6 @@ class QuizzController extends AbstractController
 		return $this->render('quizz/result.html.twig',[
 			'result' => $historic 
 		]);
-
-
 
 	}
 
