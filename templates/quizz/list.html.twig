@@ -16,7 +16,9 @@
 					<li>
 						#
 						{{ quizz.id }}</li>
-					<li>{{ quizz.name }}</li>
+					<li>{{ quizz.name }}
+					<a href="{{ path('quizz_show', {id:quizz.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+					</li>
 				</ul>	
 				{% endfor %}
 				
