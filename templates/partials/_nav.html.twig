@@ -20,8 +20,8 @@
 			</ul>
 			<div class="d-flex">
 				{% if is_granted('ROLE_USER') %}
-				<div>
-					{{ app.user.login }}
+				<div class="text-center mt-2">
+					<p>{{ app.user.login }}</p>
 				</div>
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle ms-3 me-3" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
