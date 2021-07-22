@@ -139,11 +139,19 @@ class AppFixtures extends Fixture
 			$kaamelott->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($kaamelott);
 
-			
+			// Quizz builder
 				$quizzFriends = new Quizz();
 				$quizzFriends->setName("Aimez-vous Friends ?"); // Titre du Quizz, à modifier
 				$quizzFriends->addTheme($friends)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzFriends);
+				
+				$quizzKaamelott = new Quizz();
+				$quizzKaamelott->setName("Aimez-vous Kaamelott ?");
+				$quizzKaamelott->addTheme($kaamelott)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+				$manager->persist($quizzKaamelott);
+
+				// Quizz Aimez-vous Friends?
+					
 
 					// 1
 					$questionFriends = new Question();
@@ -607,7 +615,473 @@ class AppFixtures extends Fixture
 			
 
 
-	
+						// Quizz Aimez-vous Kaamelott?
+
+						// 1
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion(" A cause de son illétrisme, comment se fait appeler Perceval lors de ses quêtes ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Provencal le Gaulois")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Sébastien le Chabal")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Jacques Martin")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Lorant Deutsh")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 2
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Pourquoi Kaamelott s’écrit avec 2 “t” ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Afin que le nom de la série soit correctement prononcé.")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("C'est Perceval qui l'a écrit la première fois")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Ah bon il y a 2 t?")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Euh non ca s'écrit camelotte")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 3
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Quel personnage ne fait pas partie de la Table Ronde ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le Duc d'Aquitaine")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Perceval")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Bohort")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Léodagan")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 4
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Comment s’appelle le Royaume de Léodagan ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("La Carmélide")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("La Carmélite")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le Caramelys")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("La Calédonie")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 5
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Qui a réalisé la bande-son de la série ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Alexandre Astier")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("John Williams")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Vianey")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Pascal Obispo")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 6
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Pourquoi Guenièvre a-t-elle peur des oiseaux ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Ils n’ont pas de bras")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Ils n'ont pas de poils")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Ils volent")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Ils mangent des graines")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 7
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Sous quel pied Arthur est-il marqué au fer rouge ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le droit")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Le gauche")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Il n'est pas marqué au fer")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("C'est pas faux")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 8
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Quel est le nom de la première épouse d’Arthur ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Aconia")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Arnica")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Camélia")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Césaria")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 9
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Comment se nomme la mère de Guenièvre ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Seli")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Mène")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Madame Léodagan")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Françoise")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 10
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Quel est le plat national de Kaamelott ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le croque monsieur")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Le hot dog")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le chili con carne")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("La pizza")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 11
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Quel est le nom du clan crée par Perceval et Karadoc ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Les Semi-croustillants")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Les Sous-croquants")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Les Semi-hommes")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Les Semis")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 12
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Quelle est la botte secrete de Perceval ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Ouais, c’est pas faux")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("On en a gros")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("La gauche")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("La droite")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 13
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Comment Perceval appelle-t-il sa grand-mère ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Nonna")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Mima")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Mère-Grand")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Jocelyne")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 14
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Quel est le vrai nom de La Dame du Lac ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Viviane")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Céline")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Carmen")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Mélissa")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 15
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Selon Bohort quel animal est un prédateur mortel ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le faisan")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Le lapin")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le papillon")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le loup")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 16
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Qui a fabriqué la table ronde ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Breccan")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Ikéa")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("But")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le voisin")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 17
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Bien que prêtre officiel de Kaamelott quelle est l’autre fonction du père Blaise ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Scribe")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Facteur")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Boulanger")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Eboueur")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 18
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Qui est le père du Chevalier Gauvain ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le roi Loth")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Léodagan")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Karadoc")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Arthur")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 19
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Qui est le grand rival de Merlin ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Elias")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Hervé")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le Père Blaise")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Le Tavernier")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+							// 20
+					$questionkaamelott = new Question();
+					$questionkaamelott->setQuestion("Afin de le protéger de son père, Uther Pendragon, Merlin envoie Arthur auprès d’une famille adoptive.Quel est le nom du père adoptif d’Arthur ?");
+					$questionkaamelott->addQuizz($quizzKaamelott)->addTheme($kaamelott); 
+					$questionkaamelott->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionkaamelott);
+
+						$proposition = new Proposition();
+						$proposition->setText("Anton")->setIsValid(true)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Antoine")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Anthony")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Mercorius")->setIsValid(false)->setQuestion($questionkaamelott);
+						$manager->persist($proposition);
+
+						
+
+
+
+						
 		$manager->flush();
 
 
