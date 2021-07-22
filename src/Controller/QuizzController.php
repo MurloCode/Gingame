@@ -6,10 +6,12 @@ use App\Entity\Question;
 use App\Entity\Quizz;
 use App\Form\AnswerType;
 use App\Form\PropositionType;
+use App\Form\QuizzType;
 use App\Repository\PropositionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -104,4 +106,26 @@ class QuizzController extends AbstractController
 
 		]);
 	}
+
+
+	 /**
+     * @Route("/add", name="add")
+     */
+    public function contact(Request $request): Response
+    {
+        $quizz = new Quizz();
+        $form = $this->createForm(QuizzType::class, $quizz);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) { 
+           
+            $this->addFlash('success', 'votre quizz a bien été ajouté');
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('quizz/add.html.twig', [
+            
+            'form' => $form->createView()
+        ]);
+    }
 }
