@@ -8,32 +8,20 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">			
 				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="{{ path('home') }}">Home<span class="sr-only"></span></a>
+					<a class="nav-link" aria-current="page" href="{{ path('home') }}">Accueil<span class="sr-only"></span></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="{{ path('contact') }}">Contact<span class="sr-only"></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="{{ path('team') }}">Qui sommes nous ?<span class="sr-only"></span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="{{ path('notice') }}">Mentions légales<span class="sr-only"></span></a>
-				</li>
-        <a class="nav-link" aria-current="page" href="{{ path('quizz_list') }}">Liste des quizz<span class="sr-only"></span></a>
+        			<a class="nav-link" aria-current="page" href="{{ path('quizz_list') }}">Liste des quizz<span class="sr-only"></span></a>
 				</li>
 			{% if not is_granted('ROLE_USER') %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_register') }}">inscription<span class="sr-only"></span></a>
 				</li>		
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_login') }}">Login<span class="sr-only"></span></a>
-				</li>
 			{% endif %}
 			</ul>
 			<div class="d-flex">
 				{% if is_granted('ROLE_USER') %}
-				<div>
-					{{ app.user.login }}
+				<div class="text-center mt-2">
+					<p>{{ app.user.login }}</p>
 				</div>
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle ms-3 me-3" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,0 +1,93 @@
+<footer class="footer text-center py-3">
+<hr class="dropdown-divider">
+	<div class="container text-center text-md-left">
+	<!-- Grid row -->
+		<div class="row">
+		<!-- Grid column -->
+			<div class="col-md-3 mx-auto mt-2">
+			<!-- Links -->
+				<ul class="list-unstyled">
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" aria-current="page" href="{{ path('contact') }}">Contact<span class="sr-only"></span></a>
+					</li>
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" aria-current="page" href="{{ path('notice') }}">Mentions légales<span class="sr-only"></span></a>
+					</li>
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" aria-current="page" href="{{ path('team') }}">Qui sommes nous ?<span class="sr-only"></span></a>
+					</li>
+				</ul>
+			</div>
+			<!-- Grid column -->
+			<hr class="clearfix w-100 d-md-none">
+			<!-- Grid column -->
+			<div class="col-md-3 mx-auto mt-2">
+			<!-- Links -->
+				<ul class="list-unstyled">
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" aria-current="page" href="{{ path('home') }}">Accueil<span class="sr-only"></span></a>
+					</li>
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" aria-current="page" href="{{ path('quizz_list') }}">Liste des quizz<span class="sr-only"></span></a>
+					</li>
+				</ul>
+			</div>
+			<!-- Grid column -->
+			<hr class="clearfix w-100 d-md-none">
+			<!-- Grid column -->
+			<div class="col-md-3 mx-auto mt-2">
+			<!-- inks -->        
+				<ul class="list-unstyled">
+					{# <li>
+						<a class="text-decoration-none fw-bold text-dark" href="#!">Link 1</a>
+					</li>
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" href="#!">Link 2</a>
+					</li>
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" href="#!">Link 3</a>
+					</li>
+					<li>
+						<a class="text-decoration-none fw-bold text-dark" href="#!">Link 4</a>
+					</li> #}
+				</ul>
+			</div>
+			<!-- Grid column -->
+			<hr class="clearfix w-100 d-md-none">
+			<!-- Grid column -->
+			<div class="col-md-3 mx-auto mt-2">
+			<!-- Links -->
+				<ul class="list-unstyled">
+					{% if not is_granted('ROLE_USER') %}
+						<br />
+						<li>
+							<a class="text-decoration-none fw-bold text-dark" href="#!"></a>
+						</li>
+						<li>
+							<a class="text-decoration-none fw-bold text-dark" href="{{ path('app_login') }}">Connexion</a>
+						</li>
+						<li>
+							<a class="text-decoration-none fw-bold text-dark" href="{{ path('app_register') }}">inscription</a>
+						</li>
+					{% else %}
+						<br />
+						<li>
+							<a class="text-decoration-none fw-bold text-dark" href="#!"></a>
+						</li>
+						<li>
+							<a class="text-decoration-none fw-bold text-dark" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button">Profil</a>
+						</li>
+						<li>
+							<a class="text-decoration-none fw-bold text-dark" href="{{ path('app_logout') }}" type="button">Déconnexion</a>
+						</li>
+					{% endif %}
+				</ul>
+			</div>
+			<!-- Grid column -->
+		</div>
+		<!-- Grid row -->
+	</div>
+	<div class="container footer text-center">
+		<span class="text-muted mt-1"><script type="text/javascript"> document.write(new Date().getFullYear());</script> &copy; O'quizz. Tous droits réservés</p></span>
+	</div>
+</footer>
