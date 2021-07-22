@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello QuizzController!{% endblock %}
+{% block title %}Hello QuizzController!
+{% endblock %}
 
 {% block body %}
 	<section class="text-center container">
@@ -12,86 +13,74 @@
 	</section>
 
 	{# <div class="py-5 bg-light">
-		<div class="container">
-			<section>
-				<h2>Quizz</h2>
-				<ul>
-					<li>
-						#
-						{{ quizz.id }}</li>
-					<li>{{ quizz.name }}</li>
-				</ul>
-			</section>
+														<div class="container">
+															<section>
+																<h2>Quizz</h2>
+																<ul>
+																	<li>
+																		#
+																		{{ quizz.id }}</li>
+																	<li>{{ quizz.name }}</li>
+																</ul>
+															</section>
+														</div>
+													</div>
+												
+													<div class="py-5 bg-light">
+														<div class="container">
+															<section>
+																<h2>Questions</h2>
+																<ul>
+																	{% for question in quizz.questions %}
+																		<li>{{ question.question }}</li>		
+																		{% for proposition in question.propositions %}
+																			<ul><li>{{proposition.text}}</li></ul>
+																		{% endfor %}
+																	
+																	{% endfor %}
+																</ul>
+																<h2>Themes</h2>
+																<ul>
+																	{% for quizz in quizz.themes %}
+																		<li>{{ quizz.name }}</li>
+																	{% endfor %}
+																</ul>
+															</ul>
+												
+														</section>
+													</div>
+												</div> #}
+	<div class="container">
+		<p>
+			<a href="{{path('home')}}">Retour à l'accueil</a>
+		</p>
+
+		<div class="container d-grid mx-auto">
+			{{ question.question }}
+
+			<form action={{ path('quizz_show', {id: quizz.id } ) }} method="POST">
+				<div class="row">
+
+					{% for proposition in question.propositions|oShuffle %}
+
+
+						<div class="col-lg-6 col-sm-12">
+							<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
+							<label class="btn btn-outline-success quizzbutton" for="{{proposition.id}}">{{proposition.text}}</label>
+						</div>
+					{% endfor %}
+
+				</div>
+				<br/>
+				<button id="bt" type="submit" disabled="enabled" class="btn btn-primary quizzbutton">Valider la réponse !</button>
+			</form>
 		</div>
 	</div>
-
-	<div class="py-5 bg-light">
-		<div class="container">
-			<section>
-				<h2>Questions</h2>
-				<ul>
-					{% for question in quizz.questions %}
-						<li>{{ question.question }}</li>		
-						{% for proposition in question.propositions %}
-							<ul><li>{{proposition.text}}</li></ul>
-						{% endfor %}
-					
-					{% endfor %}
-				</ul>
-				<h2>Themes</h2>
-				<ul>
-					{% for quizz in quizz.themes %}
-						<li>{{ quizz.name }}</li>
-					{% endfor %}
-				</ul>
-			</ul>
-
-		</section>
-	</div>
-</div> #}
-<div class="container">
-	<p>
-		<a href="{{path('home')}}">Retour à l'accueil</a>
-	</p>
-
-	<div class="container d-grid mx-auto">	
-	{{ question.question }}	
-	
-	<form action={{ path('quizz_show', {id: quizz.id }) }} method="POST">
-    <div class="row">
-						{% for proposition in question.propositions %}
-						
-        <div class="col-lg-6 col-sm-12">
-            <input onClick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
-            <label class="btn btn-outline-success quizzbutton" for="{{proposition.id}}">{{proposition.text}}</label>
-        </div>
-	{% endfor %}
-
-        {# <div class="col-lg-6 col-sm-12">
-            <input type="radio" class="btn-check btn-lg" name="options" id="option2" autocomplete="off">
-            <label class="btn btn-outline-success quizzbutton" for="option2">Réponse 2</label>
-        </div>
-        <div class="col-lg-6 col-lg-push-6 col-sm-12">
-            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-            <label class="btn btn-outline-success quizzbutton" for="option3">Réponse 3</label>
-        </div>
-        <div class="col-lg-6 col-lg-push-6 col-sm-12">
-            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-            <label class="btn btn-outline-success quizzbutton" for="option4">Réponse 4</label>
-        </div> #}
-    </div>
-    <br />
-    <button id="bt" type="submit" disabled="enabled" class="btn btn-primary quizzbutton">Valider la réponse !</button>
-	</form>
 </div>
-</div></div>
 {% block javascript %}
-<script>
-function enableButton() {
-	document.getElementById("bt").disabled = false;
+	<script>
+		function enableButton() {
+document.getElementById("bt").disabled = false;
 }
-</script>
-{% endblock %}
-{% endblock %}
-
-
+	</script>
+{% endblock %}{% endblock %}
