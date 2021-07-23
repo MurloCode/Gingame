@@ -15,7 +15,7 @@
 
 	<div class="container">
 		<p>
-			<a href="{{path('home')}}">Retour à l'accueil</a>
+			<a class="btn btn-danger btn-sm" href="{{path('home')}}" role="button">Retour à l'accueil</a>
 		</p>
 
 		<div class="container d-grid mx-auto">
@@ -29,13 +29,13 @@
 
 						<div class="col-lg-6 col-sm-12">
 							<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
-							<label class="btn btn-outline-success quizzbutton" for="{{proposition.id}}">{{proposition.text}}</label>
+							<label class="btn btn-outline-primary quizzbutton navquizztext proposal" for="{{proposition.id}}">{{proposition.text}}</label>
 						</div>
 					{% endfor %}
 
 				</div>
 				<br/>
-				<button id="bt" type="submit" disabled="enabled" class="btn btn-primary quizzbutton">Valider la réponse !</button>
+				<button id="bt" type="submit" disabled="enabled" class="btn btn-info quizzbutton navquizztext validquizz">Valider la réponse !</button>
 			</form>
 		</div>
 	</div>
