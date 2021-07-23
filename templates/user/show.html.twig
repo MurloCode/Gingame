@@ -1,37 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Profil de {{ user.login }}{% endblock %}
 
 {% block body %}
-    <h1>{{ user.login }}</h1>
-
-    
-    <div class="card mb-3" style="max-width: 540px;" id="profil">
-  <div class="row g-0">
-    <div class="col-md-4 ">
-      <img src="{{ asset('avatars/person-circle.svg')}}" class="img-fluid rounded-start" alt="..." id="avatar">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-       <p class="card-text"><th>Login : </th>
-                <td>{{ user.login }}</td></p>
-        {# <p class="card-text"><th>Email : </th>
-                <td>{{ user.email }}</td></p> #}
-        <p class="card-text"><th>Date d'inscription :</th>
-                <td>{{ user.CreatedAt ? user.CreatedAt|date('d-m-Y') : '' }}</td></p>
-                 <p class="card-text"><th>Amis :</th>
-                {%for friends in user.friends%}
-                <td>{{friends.login}}
-                 </td>   
-                {% endfor %}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <a href="{{ path('user_index') }}">back to list</a>
-
-    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+	<p><a class="btn btn-primary btn-sm m-2" href="{{ path('user_index') }}" role="button"> liste utilisateurs</a></p>
+	<br />
+	<h1>{{ user.login }}</h1>
+	<br />
+	<br />    
+	<div class="card mb-3" style="max-width: 540px;" id="profil">
+		<div class="row g-0">
+			<div class="col-md-4 ">
+				<br />
+				<img src="{{ asset('avatars/person-circle.svg')}}" class="img-fluid rounded-start" alt="..." id="avatar">
+				<br />
+			</div>
+			<br />
+			<div class="col-md-8">
+				<div class="card-body">
+					<br />
+					<p class="card-text"><th>Pseudo : </th>
+						<td>{{ user.login }}</td></p>
+					{# <p class="card-text"><th>Email : </th>
+					<td>{{ user.email }}</td></p> #}
+					<p class="card-text"><th>Date d'inscription :</th>
+						<td>{{ user.CreatedAt ? user.CreatedAt|date('d-m-Y') : '' }}</td></p>
+						<br />
+					<p class="card-text"><th>Amis :</th>
+					{%for friends in user.friends%}
+						<td>{{friends.login}}</td>
+						<br />
+					{% endfor %}
+					</p>
+					<p><a class="btn btn-primary me-md-2" href="{{ path('user_edit', {'id': user.id}) }}" role="button"> Modifier </a></p>
+				</div>
+				<br />
+			</div>
+			<br />
+			<br />
+		</div>
+	</div>
+	{{ include('user/_delete_form.html.twig') }}	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 {% endblock %}

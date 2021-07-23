@@ -24,19 +24,24 @@
 				<a class="nav-link dropdown-toggle navquizztext" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					{{ app.user.login }}
 				</a>
-				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+				<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDarkDropdownMenuLink">
 					<li><a class="dropdown-item navquizztext" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button">Profil</a></li>
+				{% if is_granted('ROLE_ADMIN') %}
 					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item navquizztext" href="{{ path('app_logout') }}" type="button">Déconnexion</a></li>
+					<li><a class="dropdown-item navquizztext bg-warning" href="{{ path('user_index') }}" type="button">Liste utilisateurs</a></li>
+					<li><a class="dropdown-item navquizztext bg-warning" href="{{ path('user_new') }}" type="button">Créer un nouvel utilisateur</a></li>
+				{% endif %}
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item navquizztext bg-danger" href="{{ path('app_logout') }}" type="button">Déconnexion</a></li>
 				</ul>
         	</li>
      	</ul>
     </div>
 	{% else %}
-		<a class="btn btn-lg btn-primary btn-sm" href="{{ path('app_login') }}" role="button">Connexion</a>
+		<a class="btn btn-lg btn-primary btn-sm proposal" href="{{ path('app_login') }}" role="button">Connexion</a>
 		{# option class="btn btn-primary"#}
 		{# <button class="btn btn-outline-success" type="submit">Search</button> #}
 	{% endif %}
   </div>
 </nav>
-<div class="navbar navbar-expand-lg navbar-light bg-oquizzblue mb-5"></div>
+<div class="navbar navbar-expand-lg navbar-light bg-oquizzblue mb-2"></div>
