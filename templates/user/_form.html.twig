@@ -1,5 +1,7 @@
-<main class="container">{{ form_start(form) }}
+<main class="container">
+    {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}</main>
+        <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
+</main>
 

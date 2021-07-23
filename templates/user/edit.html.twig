@@ -3,17 +3,13 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
+<p><a class="btn btn-danger m-2" href="{{ path('user_index') }}" role="button"> < retour </a></p>
+    <br />
     <h1>Edit User</h1>
-
-    
+    <br />
     <main class="container">
 {% block content %}
 	{{ form(form) }}{% endblock %}
     </main>
-  
-
- 
-    <a href="{{ path('user_index') }}">back to list</a>
-
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

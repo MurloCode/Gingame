@@ -9,22 +9,28 @@ Nouvel inscrit
 		{% for flashError in app.flashes('verify_email_error') %}
 			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 		{% endfor %}
-
-		<h1>S'inscrire</h1>
 		<br />
+		<br />
+		<h1>S'inscrire</h1>
 		{{ form_start(registerForm) }}
-		
+		<br />
+		<br />
         {{ form_row(registerForm.login) }}
 		<br />
+		<br />
         {{ form_row(registerForm.email) }}
+		<br />
 		<br />
 		{{ form_row(registerForm.plainPassword, {
             label: 'Mot de passe'
         }) }}
 		<br />
-		{# {{ form_row(registerForm.agreeTerms) }} #}
 		<br />
+		{# {{ form_row(registerForm.agreeTerms) }} #}
 		<button type="submit" class="btn btn-primary">Valider</button>
+		<br />
+		<br />
+		<br />
 		{{ form_end(registerForm) }}
 	</main>
 {% endblock %}

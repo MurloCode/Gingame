@@ -28,7 +28,7 @@
     object-fit:cover;
 }
 
-h1,h2, .navquizztext { 
+h1,h2,h3, .navquizztext { 
     font-family: 'code_nextextrabold';
  } 
 
@@ -82,18 +82,20 @@ h1,h2, .navquizztext {
 .validquizz:disabled{
     background-color: grey;
     border-color: black;
+    opacity: 0.2;
 }
 
 .quizzbutton{
     width: 100%;
-    padding: 2em;
-    margin-top: 2em;
+    padding: 1.8em;
+    margin-top: 1em;
     border-radius: 2rem;
 }
 
 #avatar{
-    width: 75%;
+    width: 50%;
     padding: auto;
+    border-radius: 20%;
 }
 
 #profil{
@@ -106,8 +108,8 @@ h1{
 }
 
 .headerlogo{
-    max-width: 200px;
-    max-height: 90px;
+    max-width: 100px;
+    max-height: 45px;
 }
 
 /* bouton scroll Up */
@@ -121,3 +123,4 @@ h1{
 div.container, div.container-fluid {
     margin-top: 20px;
 }
+
