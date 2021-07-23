@@ -73,6 +73,7 @@ class Question
 
     public function __toString(){
 		return $this->question;
+        
 	}
 
     public function getId(): ?int
