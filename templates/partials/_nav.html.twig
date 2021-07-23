@@ -24,10 +24,15 @@
 				<a class="nav-link dropdown-toggle navquizztext" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					{{ app.user.login }}
 				</a>
-				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+				<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDarkDropdownMenuLink">
 					<li><a class="dropdown-item navquizztext" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button">Profil</a></li>
+				{% if is_granted('ROLE_ADMIN') %}
 					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item navquizztext" href="{{ path('app_logout') }}" type="button">Déconnexion</a></li>
+					<li><a class="dropdown-item navquizztext bg-warning" href="{{ path('user_index') }}" type="button">Liste utilisateurs</a></li>
+					<li><a class="dropdown-item navquizztext bg-warning" href="{{ path('user_new') }}" type="button">Créer un nouvel utilisateur</a></li>
+				{% endif %}
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item navquizztext bg-danger" href="{{ path('app_logout') }}" type="button">Déconnexion</a></li>
 				</ul>
         	</li>
      	</ul>
