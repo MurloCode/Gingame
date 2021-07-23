@@ -52,6 +52,8 @@ class Quizz
 
 	public function __toString(){
          	return $this->name;
+			return $this->questions;
+			return $this->themes;
          }
 
 
