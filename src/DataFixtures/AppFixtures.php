@@ -2,14 +2,14 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Proposition;
-use App\Entity\Question;
+use App\Entity\User;
 use App\Entity\Quizz;
 use App\Entity\Theme;
-use App\Entity\User;
+use App\Entity\Question;
+use App\Entity\Proposition;
 use App\Repository\UserRepository;
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
@@ -144,7 +144,12 @@ class AppFixtures extends Fixture
 			$Scrubs->setName("Scrubs"); // Nom de la série 
 			$Scrubs->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($Scrubs);
-			
+
+			// Années 8090
+			$Années8090 = new Theme();
+			$Années8090->setName("Années8090"); // Nom de la série 
+			$Années8090->addThemeParent($parentTheme); // Serie TV
+			$manager->persist($Années8090);
 
 			// Quizz builder
 				$quizzFriends = new Quizz();
@@ -161,6 +166,11 @@ class AppFixtures extends Fixture
 				$quizzScrubs->setName("Aimez-vous Scrubs ?");
 				$quizzScrubs->addTheme($Scrubs)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzScrubs);
+
+				$quizzAnnées8090 = new Quizz();
+				$quizzAnnées8090->setName("Années8090"); // Titre du Quizz, à modifier
+				$quizzAnnées8090->addTheme($Années8090)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+				$manager->persist($quizzAnnées8090);
 
 				// Quizz Aimez-vous Friends?
 					
@@ -1551,6 +1561,485 @@ class AppFixtures extends Fixture
 						$proposition = new Proposition();
 						$proposition->setText("A cause de l'égo du scénariste")->setIsValid(false)->setQuestion($questionScrubs);
 						$manager->persist($proposition);
+
+				//Quizz Années 8090
+							// 1
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Bayside");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Sauvés par le gong")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Buffy contre les vampires")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Beverly Hills")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("HArtley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+		// 2
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Maire de New York");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Spin City")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Seinfield")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("New York Police Judiciaire")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Happy Days")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 3
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Le Centre");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Le Caméléon")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Propal2Hélène et les Garçons")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Le Prince de Bel-Air")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Buffy contre les vampires")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 4
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Vendeur de chaussures");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Mariés, deux enfants")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Alf")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Sex and the city")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("La fête à la maison")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 5
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Homme de ménage");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Madame est servie")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Navarro")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("LA vie de Famille")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("7 à la maison")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 6
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Moto noire");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Tonnerre Mécanique")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Supercopter")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Manimal")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("K2000")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 7
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Robot Orange");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Riptide")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Les dessus de Palm Beach")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Melrose Place")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Le rebelle")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 8
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Moustache");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Arabesque")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Code Quantum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Profiler")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 9
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Lézards");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("V")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Code Lisa")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Ally McBeal")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Dynastie")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 10
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Chats");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Alf")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Une nounou d'enfer")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Friends")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 11
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Sens");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("The Sentinel")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Hartley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Mac Gyver")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Deux flics à Miami")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 12
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Commissariat dans une église");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("21 Jump Street")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Navarro")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Julie Lescaut")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("New York Police Judiciaire")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 13
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Le chevalier et sa monture");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("K2000")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Supercopter")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("La croisière s'amuse")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Chips")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 14
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Révérend");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("7 à la maison")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Seinfield")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Droles de dames")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hulk")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 15
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Couteau suisse");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("MacGyver")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Stargate SG 1")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Sliders les mondes parallèles")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 16
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Plan");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("L'agence tout risque")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("L'amour du risque")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Charmed")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Wonder Woman")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 17
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Journal");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Demain à la une")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Rick Hunter")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Cosby Show")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("The Sentinel")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 18
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Australie");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hartley Coeurs à vif")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Le rebelle")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Melrose Place")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Alere à Malibu")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 19
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Guerre du Vietnam");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("L\'enfer du devoir")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Manimal")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Dawson")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 20
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Demi Dieu");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hercule")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Ulysse 31")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("L'étalon noir")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hulk")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
 
 
 
