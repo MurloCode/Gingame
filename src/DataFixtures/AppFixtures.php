@@ -2002,7 +2002,7 @@ class AppFixtures extends Fixture
 		$manager->persist($questionAnnées8090);
 
 			$proposition = new Proposition();
-			$proposition->setText("L\'enfer du devoir")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$proposition->setText("L'enfer du devoir")->setIsValid(true)->setQuestion($questionAnnées8090);
 			$manager->persist($proposition);
 						
 			$proposition = new Proposition();
