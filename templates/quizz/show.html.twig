@@ -8,6 +8,7 @@
 		{% block stylesheets %}
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 			<link rel="stylesheet" href="{{ asset('css/oquizz.css')}}">
+			<link rel="stylesheet" href="{{ asset('css/quizzpage.css')}}">
 		{% endblock %}
 
 		{% block javascripts %}
@@ -17,6 +18,39 @@
 	</head>
 
 <body>
+
+	{# <p><a class="btn btn-danger btn-sm m-2" href="{{path('home')}}" role="button"> < retour </a></p> #}
+	<section class="text-center container">
+		<div class="row">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h2 class="fw-light">{{quizz.name}}</h2>
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<div class="container d-grid mx-auto">
+			<div class="questionBlock">
+				{{ question.question }}
+			</div>
+			<form action={{ path('quizz_show', {id: quizz.id } ) }} method="POST">
+				<div class="row">
+					{% for proposition in question.propositions|oShuffle %}
+						<div class="col-lg-6 col-sm-12">
+							<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
+							<label class="btn btn-outline-primary quizzbutton navquizztext proposal" for="{{proposition.id}}">{{proposition.text}}</label>
+						</div>
+					{% endfor %}
+					<hr class="dropdown-divider">
+					<button id="bt" type="submit" disabled="enabled" class="btn btn-info quizzbutton navquizztext validquizz">Valider la réponse !</button>
+				</div>
+			
+			</form>
+		</div>
+
+	</div>
+</div>
+
+
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="position:absolute; top:10px; right:10px;">
@@ -40,36 +74,6 @@
       </div>
     </div>
   </div>
-</div>
-
-
-	<p><a class="btn btn-danger btn-sm m-2" href="{{path('home')}}" role="button"> < retour </a></p>
-	<section class="text-center container">
-		<div class="row">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<h2 class="fw-light">{{quizz.name}}</h2>
-			</div>
-		</div>
-	</section>
-	<div class="container">
-		<div class="container d-grid mx-auto">
-			{{ question.question }}
-			<form action={{ path('quizz_show', {id: quizz.id } ) }} method="POST">
-				<div class="row">
-					{% for proposition in question.propositions|oShuffle %}
-						<div class="col-lg-6 col-sm-12">
-							<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
-							<label class="btn btn-outline-primary quizzbutton navquizztext proposal" for="{{proposition.id}}">{{proposition.text}}</label>
-						</div>
-					{% endfor %}
-					<hr class="dropdown-divider">
-					<button id="bt" type="submit" disabled="enabled" class="btn btn-info quizzbutton navquizztext validquizz">Valider la réponse !</button>
-				</div>
-			
-			</form>
-		</div>
-
-	</div>
 </div>
 
 <script>

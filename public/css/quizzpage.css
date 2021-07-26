@@ -1,0 +1,9 @@
+body {
+	background:#52a3fe;
+}
+
+.questionBlock {
+	background:#25d8df;
+	min-height:20vh;
+	border-radius:5vb;
+}
