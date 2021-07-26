@@ -94,6 +94,11 @@ public function setDescription(?string $description): self
          		return $this->questions;
          	}
 
+	public function countQuestions(): int 
+	{
+		return $this->questions->count();
+	}
+
 	public function addQuestion(Question $question): self
          	{
          		if (!$this->questions->contains($question)) {
@@ -102,6 +107,7 @@ public function setDescription(?string $description): self
          
          		return $this;
          	}
+	
 
 	public function removeQuestion(Question $question): self
          	{
