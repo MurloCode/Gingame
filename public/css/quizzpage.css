@@ -1,9 +1,43 @@
 body {
-	background:#52a3fe;
+	background: #52a3fe;
 }
 
 .questionBlock {
-	background:#25d8df;
-	min-height:20vh;
-	border-radius:5vb;
+	background: #25d8df;
+	min-height: 20vh;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 1.3em;
+	font-weight: 500;
 }
+
+.propositions input[type="radio"] + label {
+	background: #fff;
+	color: #52a3fe;
+	border-radius: 5px;
+}
+.propositions input[type="radio"]:checked + label {
+	background: #87dd4a;
+	color: #fff;
+}
+
+.btn {
+	position: relative;
+	border: 0 !important;
+	cursor: pointer;
+	font-weight: bold !important;
+	border-radius: 10;
+	transition-property: all, 50ms, ease;
+}
+.btn:focus {
+	outline: 0;
+}
+.btn:hover {
+	top: 2px;
+}
+.btn:active {
+	top: 6px;
+}
+
+/* .transition(); */
+/* .btn(rgb(204, 204, 204), 20%); */
