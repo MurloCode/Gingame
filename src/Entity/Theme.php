@@ -60,6 +60,7 @@ class Theme
 	public function __toString()
                               	{
                               		return $this->name;
+									return $this->quizz;
                               	}
 
 	public function getId(): ?int
