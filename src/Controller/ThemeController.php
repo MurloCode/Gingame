@@ -40,6 +40,32 @@ class ThemeController extends AbstractController
 		]);
 	}
 
+		/**
+	 * @Route("/list", name="list")
+	 */
+	public function themeIndex(ThemeRepository $themeRepository): Response
+	{      
+		
+		return $this->render('quizz/themelistindex.html.twig', [
+			'themes' => $themeRepository->findAll()
+		]);
+	}
+	
+
+	/**
+	 * @Route("/list/{id}", name="list_id")
+	 */
+	public function themeList(Theme $themes, QuizzRepository $quizz, $id): Response
+	{      	
+	
+		
+
+		return $this->render('quizz/themelist.html.twig', [
+			'themes' => $themes,
+			'quizz' => $quizz->find($id)
+		]);
+	}
+
 }
 
 

@@ -39,30 +39,6 @@ class QuizzController extends AbstractController
 		]);
 	}
 
-	/**
-	 * @Route("/theme/list", name="theme_list")
-	 */
-	public function themeIndex(ThemeRepository $themeRepository): Response
-	{      
-		
-		return $this->render('quizz/themelistindex.html.twig', [
-			'themes' => $themeRepository->findAll()
-		]);
-	}
-	
-
-	/**
-	 * @Route("/theme/list/{id}", name="theme_list_id")
-	 */
-	public function themeList(Theme $themes, Quizz $quizz): Response
-	{      
-		
-		return $this->render('quizz/themelist.html.twig', [
-			'themes' => $themes,
-			'quizz' => $quizz
-		]);
-	}
-
 	 /**
 	 * @Route("/{id}", name="show", requirements={"id"="\d+"})
 	 *
