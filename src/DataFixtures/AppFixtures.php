@@ -158,10 +158,10 @@ class AppFixtures extends Fixture
 			$manager->persist($HowIMetYourMother);
 
 			// $Personnages
-			$$Personnages = new Theme();
-			$$Personnages->setName("$Personnages"); // Nom de la série 
-			$$Personnages->addThemeParent($parentTheme); // Serie TV
-			$manager->persist($personnage);
+			$Personnages = new Theme();
+			$Personnages->setName("$Personnages"); // Nom de la série 
+			$Personnages->addThemeParent($parentTheme); // Serie TV
+			$manager->persist($Personnages);
 
 			// Quizz builder
 
@@ -2548,7 +2548,7 @@ $manager->persist($questionHowIMetYourMother);
 	// 1
 $questionPersonnages = new Question();
 $questionPersonnages->setQuestion("Al Bundy");
-$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages); 
 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
 $manager->persist($questionPersonnages);
 
