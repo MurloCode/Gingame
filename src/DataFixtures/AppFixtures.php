@@ -153,13 +153,13 @@ class AppFixtures extends Fixture
 
 			// How i met your mother
 			$HowIMetYourMother = new Theme();
-			$HowIMetYourMother->setName("How_I_Met_Your_Mother"); // Nom de la série 
+			$HowIMetYourMother->setName("How I Met Your Mother"); // Nom de la série 
 			$HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($HowIMetYourMother);
 
 			// $Personnages
 			$Personnages = new Theme();
-			$Personnages->setName("$Personnages"); // Nom de la série 
+			$Personnages->setName("Personnages"); // Nom de la série 
 			$Personnages->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($Personnages);
 
