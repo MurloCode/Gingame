@@ -156,19 +156,27 @@ class AppFixtures extends Fixture
 			$HowIMetYourMother->setName("How_I_Met_Your_Mother"); // Nom de la série 
 			$HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($HowIMetYourMother);
+
+			// $Personnages
+			$$Personnages = new Theme();
+			$$Personnages->setName("$Personnages"); // Nom de la série 
+			$$Personnages->addThemeParent($parentTheme); // Serie TV
+			$manager->persist($personnage);
+
 			// Quizz builder
+
 				$quizzFriends = new Quizz();
-				$quizzFriends->setName("Aimez-vous Friends ?"); // Titre du Quizz, à modifier
+				$quizzFriends->setName("Connaissez-vous Friends ?"); // Titre du Quizz, à modifier
 				$quizzFriends->addTheme($friends)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzFriends);
 				
 				$quizzKaamelott = new Quizz();
-				$quizzKaamelott->setName("Aimez-vous Kaamelott ?");
+				$quizzKaamelott->setName("Connaissez-vous Kaamelott ?");
 				$quizzKaamelott->addTheme($kaamelott)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzKaamelott);
 
 				$quizzScrubs = new Quizz();
-				$quizzScrubs->setName("Aimez-vous Scrubs ?");
+				$quizzScrubs->setName("Connaissez-vous Scrubs ?");
 				$quizzScrubs->addTheme($Scrubs)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzScrubs);
 
@@ -182,7 +190,12 @@ class AppFixtures extends Fixture
 				$quizzHowIMetYourMother->addTheme($HowIMetYourMother)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzHowIMetYourMother);
 
-				// Quizz Aimez-vous Friends?
+				$quizzPersonnages = new Quizz();
+				$quizzPersonnages->setName("$Personnages de séries Tv"); // Titre du Quizz, à modifier
+				$quizzPersonnages->addTheme($$Personnages)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+				$manager->persist($quizzPersonnages);
+
+				// Quizz Connaissez-vous Friends?
 					
 
 					// 1
@@ -647,7 +660,7 @@ class AppFixtures extends Fixture
 			
 
 
-						// Quizz Aimez-vous Kaamelott?
+						// Quizz Connaissez-vous Kaamelott?
 
 						// 1
 					$questionkaamelott = new Question();
@@ -1109,7 +1122,7 @@ class AppFixtures extends Fixture
 						$proposition->setText("Mercorius")->setIsValid(false)->setQuestion($questionkaamelott);
 						$manager->persist($proposition);
 
-						// Quizz Aimez-vous Scrubs?
+						// Quizz Connaissez-vous Scrubs?
 					
 
 							// 1
@@ -2528,6 +2541,474 @@ $manager->persist($questionHowIMetYourMother);
 	$proposition = new Proposition();
 	$proposition->setText("Barack Obama")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
 	$manager->persist($proposition);
+
+
+	// $Personnages Séries TV
+
+	// 1
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Al Bundy");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mariés, deux enfants")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Madame est servie")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("LOST")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Heroes")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//2
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("DeeDee McCall");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Rick Hunter")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Les Dessous de Palm Beach")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Melrose Place")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Cosby Show")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//3
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Angus MacGyver");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("MacGyver")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Les Experts: Las Vegas")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("N.C.I.S")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Code Quantum")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//4
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Elliot Alderson");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mr. Robot")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("BlackList")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Stargate SG1.")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Supercopter")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//5
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Alec Ramsey");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("L' Etalon Noir")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Tonnerre Mécanique")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Le Rebelle")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Riptide")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//6
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Buffy Summers");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Buffy contre les vampires")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Charmed")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("The Sentinel")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Le Caméléon")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//7
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Sheldon Cooper");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("The Big Bang Theory")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("How i met your mother")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Au-delà du réel")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Propal4")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//8
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Jimmy McGill");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Breaking Bad")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Malcom")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("The middle")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("MacGyver")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//9
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Mickael Knight");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("K2000")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Supercopter")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("L'amour du risque")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("buffy contre les vampires")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//10
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Arthur Pendragon");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Kaamelott")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("LOST")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("The Wire")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Ally McBeal")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//11
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Jonathan Dorian");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Scrubs")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Urgences")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dr House")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Elite")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//12
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Sydney Bristow");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Sydney Bristow")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Melrose Place")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Beverly Hills")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("N.C.I.S")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//13
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Max Guevara");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dark Angel")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Angel")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("How i met your mother")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Pretty Little Liars")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//14
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Serena van der Woodsen");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Gossip Girl")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Revenge")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Desperates housewifes")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Numbers")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//15
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Michael Scott");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("The Office US")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Prison Break")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Angel")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Alias")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+
+//16
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Titus Pullo");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Rome")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Game of Thrones")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Spartacus")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Hercule")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+//17
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Jarod");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Le Caméléon")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Charmed")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("The Middle")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("X-Files")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+
+//18
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Meredith Grey");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Grey's Anatomy")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Dr House")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Urgences")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("9-1-1")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+
+//19
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("Tom Hanson");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("21 Jump Street")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("24")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Brooklyn Nine Nine")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Scrubs")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+
+//20
+$questionPersonnages = new Question();
+$questionPersonnages->setQuestion("James McNulty");
+$questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages); 
+$questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionPersonnages);
+
+	$proposition = new Proposition();
+	$proposition->setText("Sur écoute")->setIsValid(true)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("The Shield")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dexter")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Six feet under")->setIsValid(false)->setQuestion($questionPersonnages);
+	$manager->persist($proposition);
+
 
 						
 		$manager->flush();
