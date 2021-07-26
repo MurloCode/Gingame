@@ -65,6 +65,12 @@ h1,h2,h3, .navquizztext {
     display: flex;
     justify-content: space-around;
 }
+
+.cardmh {
+    height: 500px;
+    border-radius: 0%;
+}
+
 .themes{
     display: flex;
     justify-content: space-around;
