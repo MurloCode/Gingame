@@ -80,6 +80,12 @@ class QuizzController extends AbstractController
 		return $this->render('quizz/show.html.twig', [
 			'quizz' => $quizz,
 			'question' => $questions[$sessionQuizz->getQuestionNumber()],
+			// Progress. Send : Question n° / Question Total / %
+			'progress' => [
+				'questionNumber' => $sessionQuizz->getQuestionNumber() + 1,
+				'questionTotal' => $quizz->getQuestions()->count(),
+				'percentage' => ($sessionQuizz->getQuestionNumber() / $quizz->getQuestions()->count()) * 100
+			]
 		]);
 	
 		
@@ -165,4 +171,6 @@ class QuizzController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+	
 }

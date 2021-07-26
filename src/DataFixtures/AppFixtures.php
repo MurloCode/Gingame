@@ -158,17 +158,17 @@ class AppFixtures extends Fixture
 			$manager->persist($HowIMetYourMother);
 			// Quizz builder
 				$quizzFriends = new Quizz();
-				$quizzFriends->setName("Aimez-vous Friends ?"); // Titre du Quizz, à modifier
+				$quizzFriends->setName("Connaissez-vous Friends ?"); // Titre du Quizz, à modifier
 				$quizzFriends->addTheme($friends)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzFriends);
 				
 				$quizzKaamelott = new Quizz();
-				$quizzKaamelott->setName("Aimez-vous Kaamelott ?");
+				$quizzKaamelott->setName("Connaissez-vous Kaamelott ?");
 				$quizzKaamelott->addTheme($kaamelott)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzKaamelott);
 
 				$quizzScrubs = new Quizz();
-				$quizzScrubs->setName("Aimez-vous Scrubs ?");
+				$quizzScrubs->setName("Connaissez-vous Scrubs ?");
 				$quizzScrubs->addTheme($Scrubs)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzScrubs);
 
@@ -1593,7 +1593,7 @@ class AppFixtures extends Fixture
 			$manager->persist($proposition);
 
 			$proposition = new Proposition();
-			$proposition->setText("HArtley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$proposition->setText("Hartley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
 			$manager->persist($proposition);
 
 		// 2
@@ -1632,7 +1632,7 @@ class AppFixtures extends Fixture
 			$manager->persist($proposition);
 						
 			$proposition = new Proposition();
-			$proposition->setText("Propal2Hélène et les Garçons")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$proposition->setText("Hélène et les Garçons")->setIsValid(false)->setQuestion($questionAnnées8090);
 			$manager->persist($proposition);
 
 			$proposition = new Proposition();
