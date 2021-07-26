@@ -151,6 +151,11 @@ class AppFixtures extends Fixture
 			$Années8090->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($Années8090);
 
+			// How i met your mother
+			$HowIMetYourMother = new Theme();
+			$HowIMetYourMother->setName("How_I_Met_Your_Mother"); // Nom de la série 
+			$HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
+			$manager->persist($HowIMetYourMother);
 			// Quizz builder
 				$quizzFriends = new Quizz();
 				$quizzFriends->setName("Aimez-vous Friends ?"); // Titre du Quizz, à modifier
@@ -171,6 +176,11 @@ class AppFixtures extends Fixture
 				$quizzAnnées8090->setName("Années8090"); // Titre du Quizz, à modifier
 				$quizzAnnées8090->addTheme($Années8090)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzAnnées8090);
+
+				$quizzHowIMetYourMother = new Quizz();
+				$quizzHowIMetYourMother->setName("Connaissez vous How i met your mother ?"); // Titre du Quizz, à modifier
+				$quizzHowIMetYourMother->addTheme($HowIMetYourMother)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+				$manager->persist($quizzHowIMetYourMother);
 
 				// Quizz Aimez-vous Friends?
 					
@@ -2041,7 +2051,483 @@ class AppFixtures extends Fixture
 			$proposition->setText("Hulk")->setIsValid(false)->setQuestion($questionAnnées8090);
 			$manager->persist($proposition);
 
+// 1
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Où se sont rencontrés Ted et Barney");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
 
+	$proposition = new Proposition();
+	$proposition->setText("Dans les toilettes du Mc Laren")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Au LaserTag")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dans un salon de massage")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dans un club de strip")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+//2
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment Ted veut-il appeler ses enfants ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Luke et Leïa")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Dick et Tracy")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Lily et Marshall")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Batman et Robin")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//3
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Qu’est devenu l’appartement de Lily ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un restaurant Chinois")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Un squat")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un aéroport")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un bar à cocktail ")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//4
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel est le métier de Barney ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("PLEASE")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Ecrivain")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Trader")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Avocat")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//5
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quelle nationalité est Robin ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Canadienne")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Francaise")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Suisse")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mexicaine")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//6
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quelle couleur est le cor volé par Ted pour Robin au début de la série ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Bleu")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Rouge")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Jaune")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Ocre")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//7
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Sur qui les tableaux de Lily font-ils de l’effet ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Les animaux d'un cabinet vétérinaire")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Un couple de gay")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un dealer de crack")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un clown dépressif")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//8
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quelle couleur sont les bottes de Ted ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Rouge")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Bleu")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Jaune")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Ocre")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//9
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel est le nom du barman du McClaren ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Carl")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("José")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Marvin")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Rodrigo")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//10
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment s’appelle le mort qui empêche les amis de regarder en live le Super Bowl?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mark")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Carl")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Doug")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mike")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//11
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quel État vient Marshall ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Minnesota")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Nevada")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Nebraska")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Alaska")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//12
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quelle célébrité la bande pense-t-elle rencontrer lors d’un réveillon du nouvel an (S01E11) ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Moby")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Jacky Chan")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Ray Parker Jr")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Britney Spears")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//13
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quelle célèbre scène d’une célèbre saga a inspiré la “naissance” du Barney Stinson que nous connaissons ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("La naissance de Dark Vador")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("La mort de Mufasa")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Le naufrage du Titanic")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("L'attentat contre Vito Corleone")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//14
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Dans quel pays Victoria part étudier la patisserie ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Allemagne")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Suisse")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Canada")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Croatie")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//15
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Qu’utilise Marshall pour couvrir son “accident” de tondeuse le jour de son mariage ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un chapeau")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Il se rase complètement")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("un masque Spiderman")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Il ne vient pas")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//16
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel est le nom de l’ex-fiancé de Lily qui est toujours épris d’elle ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Scooter")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Hummer")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Beetle")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Trottinette")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//17
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment s’appelle le 2eme mari de la mère de Ted ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Clint")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Daniel")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Philip")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Paul")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//18
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment s’appelle le 2eme mari de la mère de Ted ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Daisy")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Claudie")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Lily Jr")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Robin")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//19
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quels sont les 2 bibles de Barney");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Le Bro Code et le Playbook")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Oliver Twist et Tom Sawyer")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Les 3 suisses et La redoute")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Cujo et Shinning")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//20
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel personnage Barney imagine-t-il pour draguer ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Lorenzo Von Matterhorn ")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Jeff Bezos")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Charlie Brown")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Barack Obama")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
 
 						
 		$manager->flush();
