@@ -4,99 +4,24 @@
 
 {% block body %}
 	<div class="container">
-		<h2 class="h1 my-5">Les O'Quizz du moment !</h2>
-		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-indicators">
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-			</div>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<a href="/quizz/1">
-						<img src="{{ asset('img/fri.png')}}" class="d-block w-100 tales" alt="...">
-					</a>
-				</div>
-				<div class="carousel-item">
-					<a href="/quizz/7">
-						<img src="{{ asset('img/scr.png')}}" class="d-block w-100 tales" alt="...">
-					</a>
-				</div>
-				<div class="carousel-item">
-					<a href="/quizz/14">
-						<img src="{{ asset('img/kaa.png')}}" class="d-block w-100 tales" alt="...">
-					</a>
-				</div>
-			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-		</div>
+		{% include 'cards/_cardcarousel.html.twig' %}
 		<br />
 		<br />
 			<h2 class="h1 my-5">Quizz les plus populaires</h2>
-			<div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                    <a href=""><div class="card">
-                        <img src="{{ asset('img/scr.png')}}" class="card-img-top" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title navquizztext quizzcard">Titre serie</h5>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <p class="card-text text-end navquizztext quizzcard">petite phrase</p>
-                        </div>
-                    </a></div>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card">
-                        <img src="{{ asset('img/scr.png')}}" class="card-img-top" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title navquizztext quizzcard">Titre serie</h5>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <p class="card-text text-end navquizztext quizzcard">petite phrase</p>
-                        </div>
-                    </a></div>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card">
-                        <img src="{{ asset('img/scr.png')}}" class="card-img-top" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title navquizztext quizzcard">Titre serie</h5>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <p class="card-text text-end navquizztext quizzcard">petite phrase</p>
-                        </div>
-                    </a></div>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card">
-                        <img src="{{ asset('img/scr.png')}}" class="card-img-top" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title navquizztext quizzcard">Titre serie</h5>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <p class="card-text text-end navquizztext quizzcard">petite phrase</p>
-                        </div>
-                    </a></div>
-                </div>
-            </div>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                {% for theme in themechild %}            
+                    {% include 'cards/_cardseries.html.twig' %}
+                {% endfor %}
+            </div>            
 		<br />
 		<br />
-			<h2 class="h1 my-5">Themes les plus populaires</h2>
+			<h2 class="h1 my-5">Nos derniers Quizz</h2>
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                    {% for quizz in lastquizz %}
+                        {% include 'cards/_cardlastquizz.html.twig' %}                
+                    {% endfor %}
+                </div>
+            <h2 class="h1 my-5">Themes les plus populaires</h2>
 		<br />
 		<br />
 			<h2 class="h1 my-5">Testez vos connaissances, creez vos quizz et testez vos amis</h2>

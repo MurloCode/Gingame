@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Notification\ContactNotification;
+use App\Repository\QuizzRepository;
+use App\Repository\ThemeRepository;
 use App\Service\MessageGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,12 +18,18 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(MessageGenerator $messageGenerator): Response
+    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository): Response
     {
         $this->addFlash('', $messageGenerator->randomMessage());
 
+        $lastquizz = $quizzRepository->findLastQuizz(4);
+
+        $themeChild = $themeRepository->findChildThemes(8);
+
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
+            'lastquizz' => $lastquizz,
+            'themechild' => $themeChild
         ]);
     }
 

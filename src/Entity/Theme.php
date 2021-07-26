@@ -49,98 +49,103 @@ class Theme
      */
     private $questions;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
 	public function __construct()
-                              	{
-                              		$this->themeParent = new ArrayCollection();
-                              		$this->themes = new ArrayCollection();
-                                $this->quizz = new ArrayCollection();
-                                $this->questions = new ArrayCollection();
-                              	}
+                                       	{
+                                       		$this->themeParent = new ArrayCollection();
+                                       		$this->themes = new ArrayCollection();
+                                         $this->quizz = new ArrayCollection();
+                                         $this->questions = new ArrayCollection();
+                                       	}
 
 	public function __toString()
-                              	{
-                              		return $this->name;
-                              	}
+                                       	{
+                                       		return $this->name;
+                                       	}
 
 	public function getId(): ?int
-                              	{
-                              		return $this->id;
-                              	}
+                                       	{
+                                       		return $this->id;
+                                       	}
 
 	public function getName(): ?string
-                              	{
-                              		return $this->name;
-                              	}
+                                       	{
+                                       		return $this->name;
+                                       	}
 
 	public function setName(string $name): self
-                              	{
-                              		$this->name = $name;
-                              
-                              		return $this;
-                              	}
+                                       	{
+                                       		$this->name = $name;
+                                       
+                                       		return $this;
+                                       	}
 
 	/**
 	 * @return Collection|self[]
 	 */
 	public function getThemeParent(): Collection
-                              	{
-                              		return $this->themeParent;
-                              	}
+                                       	{
+                                       		return $this->themeParent;
+                                       	}
 
 	public function addThemeParent(self $themeParent): self
-                              	{
-                              		if (!$this->themeParent->contains($themeParent)) {
-                              			$this->themeParent[] = $themeParent;
-                              		}
-                              
-                              		return $this;
-                              	}
+                                       	{
+                                       		if (!$this->themeParent->contains($themeParent)) {
+                                       			$this->themeParent[] = $themeParent;
+                                       		}
+                                       
+                                       		return $this;
+                                       	}
 
 	public function removeThemeParent(self $themeParent): self
-                              	{
-                              		$this->themeParent->removeElement($themeParent);
-                              
-                              		return $this;
-                              	}
+                                       	{
+                                       		$this->themeParent->removeElement($themeParent);
+                                       
+                                       		return $this;
+                                       	}
 
 	/**
 	 * @return Collection|self[]
 	 */
 	public function getThemes(): Collection
-                              	{
-                              		return $this->themes;
-                              	}
+                                       	{
+                                       		return $this->themes;
+                                       	}
 
 	public function addTheme(self $theme): self
-                              	{
-                              		if (!$this->themes->contains($theme)) {
-                              			$this->themes[] = $theme;
-                              			$theme->addThemeParent($this);
-                              		}
-                              
-                              		return $this;
-                              	}
+                                       	{
+                                       		if (!$this->themes->contains($theme)) {
+                                       			$this->themes[] = $theme;
+                                       			$theme->addThemeParent($this);
+                                       		}
+                                       
+                                       		return $this;
+                                       	}
 
 	public function removeTheme(self $theme): self
-                              	{
-                              		if ($this->themes->removeElement($theme)) {
-                              			$theme->removeThemeParent($this);
-                              		}
-                              
-                              		return $this;
-                              	}
+                                       	{
+                                       		if ($this->themes->removeElement($theme)) {
+                                       			$theme->removeThemeParent($this);
+                                       		}
+                                       
+                                       		return $this;
+                                       	}
 
 	public function getDescription(): ?string
-                              	{
-                              		return $this->description;
-                              	}
+                                       	{
+                                       		return $this->description;
+                                       	}
 
 	public function setDescription(?string $description): self
-                              	{
-                              		$this->description = $description;
-                              
-                              		return $this;
-                              	}
+                                       	{
+                                       		$this->description = $description;
+                                       
+                                       		return $this;
+                                       	}
 
     /**
      * @return Collection|Quizz[]
@@ -192,6 +197,18 @@ class Theme
         if ($this->questions->removeElement($question)) {
             $question->removeTheme($this);
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -50,5 +50,17 @@ class QuizzRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * Permet de renvoyer les 4 derniers Quizz de la bdd
+     * @return Quizz[] Returns an array of Product objects
+     */
+    public function findLastQuizz($value = 10)
+    {
+        return $this->createQueryBuilder('quizz')
+            ->orderBy('quizz.id', 'DESC')
+            ->setMaxResults($value)
+            ->getQuery()
+            ->getResult();
+    }
 
 }

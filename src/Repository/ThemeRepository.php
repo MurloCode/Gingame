@@ -35,10 +35,11 @@ class ThemeRepository extends ServiceEntityRepository
 	}
 
 
-	public function findChildThemes()
+	public function findChildThemes($value = 10)
 	{
 		return $this->createQueryBuilder('a')
         ->innerJoin('a.themeParent', 'b')
+		->setMaxResults($value)
         //->addSelect('a.name')
         //->addSelect('a.id')
         ->addSelect('COUNT(b.id)')
