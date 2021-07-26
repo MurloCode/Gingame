@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\Historic;
 use App\Entity\Question;
 use App\Entity\Quizz;
+use App\Entity\Theme;
 use App\Form\AnswerType;
 use App\Form\PropositionType;
 use App\Form\QuizzType;
 use App\Repository\PropositionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
+use App\Repository\ThemeRepository;
 use App\Service\SessionQuizzService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,6 +36,30 @@ class QuizzController extends AbstractController
 		
 		return $this->render('quizz/list.html.twig', [
 			'quizz' => $quizzRepository->findAll() ,
+		]);
+	}
+
+	/**
+	 * @Route("/theme/list", name="theme_list")
+	 */
+	public function themeIndex(ThemeRepository $themeRepository): Response
+	{      
+		
+		return $this->render('quizz/themelistindex.html.twig', [
+			'themes' => $themeRepository->findAll()
+		]);
+	}
+	
+
+	/**
+	 * @Route("/theme/list/{id}", name="theme_list_id")
+	 */
+	public function themeList(Theme $themes, Quizz $quizz): Response
+	{      
+		
+		return $this->render('quizz/themelist.html.twig', [
+			'themes' => $themes,
+			'quizz' => $quizz
 		]);
 	}
 

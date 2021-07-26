@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Liste 
+{% endblock %}
+
+{% block body %}
+	<div class="py-5">
+		<div class="container">
+			<section>
+				<h2>Quizz</h2>
+				{% for themes in themes %}
+				<ul>
+					<li>
+						#
+						{{ themes.id }}</li>
+					<li>{{ themes.name }}
+					<a href="{{ path('quizz_theme_list_id', {id:themes.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+					</li>
+				</ul>	
+				{% endfor %}
+				
+			</section>
+		</div>
+	</div>
+{% endblock %}
