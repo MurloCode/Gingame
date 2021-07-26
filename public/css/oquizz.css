@@ -31,7 +31,10 @@
 h1,h2,h3, .navquizztext { 
     font-family: 'code_nextextrabold';
  } 
-
+.quizzcard{
+    color: black;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
 .bg-oquizz {
     background-image: linear-gradient(to right, black, rgb(1, 1, 114),  black);
 }
@@ -123,4 +126,3 @@ h1{
 div.container, div.container-fluid {
     margin-top: 20px;
 }
-

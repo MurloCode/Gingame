@@ -2,14 +2,14 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Proposition;
-use App\Entity\Question;
+use App\Entity\User;
 use App\Entity\Quizz;
 use App\Entity\Theme;
-use App\Entity\User;
+use App\Entity\Question;
+use App\Entity\Proposition;
 use App\Repository\UserRepository;
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
@@ -139,6 +139,23 @@ class AppFixtures extends Fixture
 			$kaamelott->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($kaamelott);
 
+			// Scrubs
+			$Scrubs = new Theme();
+			$Scrubs->setName("Scrubs"); // Nom de la série 
+			$Scrubs->addThemeParent($parentTheme); // Serie TV
+			$manager->persist($Scrubs);
+
+			// Années 8090
+			$Années8090 = new Theme();
+			$Années8090->setName("Années8090"); // Nom de la série 
+			$Années8090->addThemeParent($parentTheme); // Serie TV
+			$manager->persist($Années8090);
+
+			// How i met your mother
+			$HowIMetYourMother = new Theme();
+			$HowIMetYourMother->setName("How_I_Met_Your_Mother"); // Nom de la série 
+			$HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
+			$manager->persist($HowIMetYourMother);
 			// Quizz builder
 				$quizzFriends = new Quizz();
 				$quizzFriends->setName("Aimez-vous Friends ?"); // Titre du Quizz, à modifier
@@ -149,6 +166,21 @@ class AppFixtures extends Fixture
 				$quizzKaamelott->setName("Aimez-vous Kaamelott ?");
 				$quizzKaamelott->addTheme($kaamelott)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
 				$manager->persist($quizzKaamelott);
+
+				$quizzScrubs = new Quizz();
+				$quizzScrubs->setName("Aimez-vous Scrubs ?");
+				$quizzScrubs->addTheme($Scrubs)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+				$manager->persist($quizzScrubs);
+
+				$quizzAnnées8090 = new Quizz();
+				$quizzAnnées8090->setName("Années8090"); // Titre du Quizz, à modifier
+				$quizzAnnées8090->addTheme($Années8090)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+				$manager->persist($quizzAnnées8090);
+
+				$quizzHowIMetYourMother = new Quizz();
+				$quizzHowIMetYourMother->setName("Connaissez vous How i met your mother ?"); // Titre du Quizz, à modifier
+				$quizzHowIMetYourMother->addTheme($HowIMetYourMother)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+				$manager->persist($quizzHowIMetYourMother);
 
 				// Quizz Aimez-vous Friends?
 					
@@ -1077,9 +1109,1425 @@ class AppFixtures extends Fixture
 						$proposition->setText("Mercorius")->setIsValid(false)->setQuestion($questionkaamelott);
 						$manager->persist($proposition);
 
+						// Quizz Aimez-vous Scrubs?
+					
+
+							// 1
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("”J.D” sont les initiales pour : ");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Jonathan Dorian")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
 						
+						$proposition = new Proposition();
+						$proposition->setText("John Dev")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Jules Derne")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Job Désiré")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 2
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Quelle série a vu Sarah Chalke (Elliot) débuter à la télévision ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Roseanne")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("How i met your mother")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Dallas")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("The Sentinel")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 3
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("De quelle manière Cox appelle-t-il souvent J.D ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Prénoms féminins")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Jean Jacques")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Hey !")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Machin")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 4
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Comment s’appelle le chien de Bob Kelso ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Baxter")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Dexter")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Laxter")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Lobster")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 5
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Pour quel établissement J?D quitte-t-il Sacred Heart ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("La Clinique Saint Vincent")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("L'Hotel Dieu")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Une clinique vétérinaire")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Un Hopital Militaire")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 6
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Comment Turk et J.D ont-ils appelé leur “chien” empaillé ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Rowdy")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Lechien")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Rufus")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Paf")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 7
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Quel acteur le Dr Cox déteste-t-il le plus ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Hugh Jackman")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Bradd Pitt")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Ryan Reynolds")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Clint Eastwood")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 8
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Comment s’appelle Le Concierge ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Glen Matthews")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Matthew Glenns")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Tommy Janitor")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("On ne le sait pas")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 9
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Avec qui Cox n’aura-t-il jamais le dernier mot tout au long de la série ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Jordan")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Kelso")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("J.D")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Turk")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 10
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Comment s’appelle le groupe de Ted ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("The Worthless Peons")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("The Lawyers")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("The Sacred Heart")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Anonymous")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 11
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Quel est le nom de la mère du fils de J.D. ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Kim Briggs")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Kim Bassinger")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Carla Shiffer")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Stella Wizeman")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 12
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Qui succède à Kelso dans les 3 premiers épisodes de la saison 8 ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Dr Taylor Maddox")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Dr Evelyn Codox")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Dr Mitchell Ronflex")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Lui-même")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 13
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Qui J.D appelle-t-il pour venir à bout de Neena ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Jordan")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Le Concierge")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Eliott")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Sa maman")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 14
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Quel souvenir Kelso a-t-il ramené de la guerre du Vietnam ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Un tatouage “Johnny”")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Son uniforme")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Des cauchemards")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Une femme")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 15
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Qui a crée la série ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Bill Lawrence")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Chuck Lorre")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Matha Kauffman")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Bil Clinton")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 16
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Combien de saisons compte la série ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("8+1")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("8")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("10")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("6")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 17
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("A quel célèbre docteur, Cox rend-il hommage en marchant avec une canne ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Dr House")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Dr Ross")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Dr Geller")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Dr Becker")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 18
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("De quel show médical Scrubs a-t-il été considéré comme un pastiche ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Grey's Anatomy")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Urgences")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("The Resident")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Dr House")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 19
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Quel est le 2eme prénom de Cox ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("Ulysse")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Achille")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Steven")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Rodney")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+							// 20
+					$questionScrubs = new Question();
+					$questionScrubs->setQuestion("Pourquoi la majorité des épisodes ont un titre qui commence par un adjectif possessif ?");
+					$questionScrubs->addQuizz($quizzScrubs)->addTheme($Scrubs); 
+					$questionScrubs->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionScrubs);
+
+						$proposition = new Proposition();
+						$proposition->setText("La série est le journal intime de J.D")->setIsValid(true)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+						
+						$proposition = new Proposition();
+						$proposition->setText("Ils appartiennent à l'auteur")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("Erreur de traduction")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+						$proposition = new Proposition();
+						$proposition->setText("A cause de l'égo du scénariste")->setIsValid(false)->setQuestion($questionScrubs);
+						$manager->persist($proposition);
+
+				//Quizz Années 8090
+							// 1
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Bayside");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Sauvés par le gong")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Buffy contre les vampires")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Beverly Hills")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("HArtley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+		// 2
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Maire de New York");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Spin City")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Seinfield")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("New York Police Judiciaire")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Happy Days")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
 
 
+		// 3
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Le Centre");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Le Caméléon")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Propal2Hélène et les Garçons")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Le Prince de Bel-Air")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Buffy contre les vampires")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 4
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Vendeur de chaussures");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Mariés, deux enfants")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Alf")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Sex and the city")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("La fête à la maison")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 5
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Homme de ménage");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Madame est servie")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Navarro")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("LA vie de Famille")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("7 à la maison")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 6
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Moto noire");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Tonnerre Mécanique")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Supercopter")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Manimal")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("K2000")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 7
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Robot Orange");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Riptide")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Les dessus de Palm Beach")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Melrose Place")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Le rebelle")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 8
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Moustache");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Arabesque")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Code Quantum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Profiler")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 9
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Lézards");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("V")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Code Lisa")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Ally McBeal")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Dynastie")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 10
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Chats");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Alf")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Une nounou d'enfer")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Friends")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 11
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Sens");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("The Sentinel")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Hartley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Mac Gyver")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Deux flics à Miami")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 12
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Commissariat dans une église");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("21 Jump Street")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Navarro")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Julie Lescaut")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("New York Police Judiciaire")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 13
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Le chevalier et sa monture");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("K2000")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Supercopter")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("La croisière s'amuse")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Chips")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 14
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Révérend");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("7 à la maison")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Seinfield")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Droles de dames")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hulk")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 15
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Couteau suisse");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("MacGyver")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Stargate SG 1")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Sliders les mondes parallèles")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 16
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Plan");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("L'agence tout risque")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("L'amour du risque")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Charmed")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Wonder Woman")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 17
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Journal");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Demain à la une")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Rick Hunter")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Cosby Show")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("The Sentinel")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 18
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Australie");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hartley Coeurs à vif")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Le rebelle")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Melrose Place")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Alere à Malibu")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 19
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Guerre du Vietnam");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("L'enfer du devoir")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Manimal")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Dawson")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Magnum")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+
+		// 20
+		$questionAnnées8090 = new Question();
+		$questionAnnées8090->setQuestion("Demi Dieu");
+		$questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090); 
+		$questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+		$manager->persist($questionAnnées8090);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hercule")->setIsValid(true)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+						
+			$proposition = new Proposition();
+			$proposition->setText("Ulysse 31")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("L'étalon noir")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+			$proposition = new Proposition();
+			$proposition->setText("Hulk")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$manager->persist($proposition);
+
+// 1
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Où se sont rencontrés Ted et Barney");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dans les toilettes du Mc Laren")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Au LaserTag")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dans un salon de massage")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Dans un club de strip")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+//2
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment Ted veut-il appeler ses enfants ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Luke et Leïa")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Dick et Tracy")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Lily et Marshall")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Batman et Robin")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//3
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Qu’est devenu l’appartement de Lily ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un restaurant Chinois")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Un squat")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un aéroport")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un bar à cocktail ")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//4
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel est le métier de Barney ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("PLEASE")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Ecrivain")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Trader")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Avocat")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//5
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quelle nationalité est Robin ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Canadienne")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Francaise")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Suisse")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mexicaine")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//6
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quelle couleur est le cor volé par Ted pour Robin au début de la série ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Bleu")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Rouge")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Jaune")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Ocre")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//7
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Sur qui les tableaux de Lily font-ils de l’effet ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Les animaux d'un cabinet vétérinaire")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Un couple de gay")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un dealer de crack")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un clown dépressif")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//8
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quelle couleur sont les bottes de Ted ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Rouge")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Bleu")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Jaune")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Ocre")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//9
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel est le nom du barman du McClaren ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Carl")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("José")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Marvin")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Rodrigo")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//10
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment s’appelle le mort qui empêche les amis de regarder en live le Super Bowl?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mark")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Carl")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Doug")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Mike")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//11
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("De quel État vient Marshall ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Minnesota")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Nevada")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Nebraska")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Alaska")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//12
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quelle célébrité la bande pense-t-elle rencontrer lors d’un réveillon du nouvel an (S01E11) ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Moby")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Jacky Chan")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Ray Parker Jr")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Britney Spears")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//13
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quelle célèbre scène d’une célèbre saga a inspiré la “naissance” du Barney Stinson que nous connaissons ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("La naissance de Dark Vador")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("La mort de Mufasa")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Le naufrage du Titanic")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("L'attentat contre Vito Corleone")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//14
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Dans quel pays Victoria part étudier la patisserie ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Allemagne")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Suisse")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Canada")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Croatie")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//15
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Qu’utilise Marshall pour couvrir son “accident” de tondeuse le jour de son mariage ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Un chapeau")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Il se rase complètement")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("un masque Spiderman")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Il ne vient pas")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//16
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel est le nom de l’ex-fiancé de Lily qui est toujours épris d’elle ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Scooter")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Hummer")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Beetle")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Trottinette")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//17
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment s’appelle le 2eme mari de la mère de Ted ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Clint")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Daniel")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Philip")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Paul")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//18
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Comment s’appelle le 2eme mari de la mère de Ted ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Daisy")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Claudie")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Lily Jr")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Robin")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//19
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quels sont les 2 bibles de Barney");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Le Bro Code et le Playbook")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Oliver Twist et Tom Sawyer")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Les 3 suisses et La redoute")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Cujo et Shinning")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+
+//20
+$questionHowIMetYourMother = new Question();
+$questionHowIMetYourMother->setQuestion("Quel personnage Barney imagine-t-il pour draguer ?");
+$questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother); 
+$questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+$manager->persist($questionHowIMetYourMother);
+
+	$proposition = new Proposition();
+	$proposition->setText("Lorenzo Von Matterhorn ")->setIsValid(true)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+						
+	$proposition = new Proposition();
+	$proposition->setText("Jeff Bezos")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Charlie Brown")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
+
+	$proposition = new Proposition();
+	$proposition->setText("Barack Obama")->setIsValid(false)->setQuestion($questionHowIMetYourMother);
+	$manager->persist($proposition);
 
 						
 		$manager->flush();

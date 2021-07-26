@@ -11,6 +11,7 @@ use App\Form\QuizzType;
 use App\Repository\PropositionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
+use App\Service\SessionQuizzService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,57 +42,44 @@ class QuizzController extends AbstractController
 	 *
 	 * @return Response
 	 */
-	public function show(Quizz $quizz, RequestStack $requestStack, PropositionRepository $proposition)
+	public function show(Quizz $quizz, RequestStack $requestStack ,PropositionRepository $proposition, SessionQuizzService $sessionQuizz)
 	{
-		$this->requestStack = $requestStack;
-		$session = $this->requestStack->getSession();
-
-		// Vérify if Session Exist
-		$sessionName = 'questionID'.$quizz->getId();
-		$questionSession = $session->get($sessionName);
-	
-		$sessionPoint = 'questionPoint'.$quizz->getId() ;
-		$quizzPoint = $session->get($sessionPoint);
+		
+		$sessionQuizz->start();
 
 		$questions = $quizz->getQuestions();
-		
-		// Verify if Quiz is started or ended
-		if ($questionSession === null) {
-			$session->set($sessionName, 0);
-			$session->set($sessionPoint, 0);
-			
-		} elseif (count($questions) <= $session->get($sessionName) +1 ) {
-			return $this->redirectToRoute('quizz_result', ['id' => $quizz->getId() ]);
-		}
 
 		// Verify if form is Sent
 		if (isset($_POST["options"])) {
 
-			// Verify if answer is valid
 			$reponse = $proposition->find($_POST["options"]);
 
-			// Verify if the answer are from the good question (Anti-Cheat !)
-			if ($questions[$questionSession]->getId() !== $reponse->getQuestion()->getId()) {
+			// Call NoCheat and Show the same last question if error
+			if($sessionQuizz->NoCheat() === false) {
 				return $this->render('quizz/show.html.twig', [
 					'quizz' => $quizz,
-					'question' => $questions[$session->get($sessionName)],
+					'question' => $questions[$sessionQuizz->getQuestionNumber()],
 				]);
 			}
 
-			// Increment Question in Session variable
-			$session->set($sessionName, $questionSession+1);
-
+			// Verify if answer is valid
 			if ($reponse->getIsValid() == true) {
-				$session->set($sessionPoint, $quizzPoint +1);
-				dump("Points : " . $session->get($sessionPoint));
-			} else {
-				dump('lose');
+				$sessionQuizz->addPoint();
 			}
-		}		
 
+			// Redirect to result if quizz Ended
+			if ($sessionQuizz->endQuizz() === true) {
+				//dd('redirect');
+				return $this->redirectToRoute('quizz_result', ['id' => $quizz->getId() ]);
+			}
+
+			$sessionQuizz->nextQuestion();
+
+		}		
+		
 		return $this->render('quizz/show.html.twig', [
 			'quizz' => $quizz,
-			'question' => $questions[$session->get($sessionName)],
+			'question' => $questions[$sessionQuizz->getQuestionNumber()],
 		]);
 	
 		
@@ -102,16 +90,12 @@ class QuizzController extends AbstractController
 	/**
 	 * @Route("/{id}/result", name="result")
 	 */
-	public function result(Quizz $quizz, RequestStack $requestStack){
+	public function result(Quizz $quizz, RequestStack $requestStack, SessionQuizzService $sessionQuizz){
 
-		$this->requestStack = $requestStack;
-		$session = $this->requestStack->getSession();
+		$sessionQuizz->start();
 
-		// Verify if quizz is finish
-		// if not : redirect to quizz
-		$sessionName = 'questionID'.$quizz->getId();
-		
-		if ($session->get($sessionName) +1 !== count($quizz->getQuestions())) {
+		// Redirect to quizz if quizz not Ended
+		if ($sessionQuizz->endQuizz() === false) {
 			return $this->redirectToRoute('quizz_show', ['id' => $quizz->getId() ]);
 		}
 
@@ -119,7 +103,7 @@ class QuizzController extends AbstractController
 		$historic = new Historic;
 		$historic->setUser($this->getUser());
 		$historic->setQuizz($quizz);
-		$historic->setScore($session->get('questionPoint'.$quizz->getId()));
+		$historic->setScore($sessionQuizz->scoreQuizz());
 		$historic->setOutOf(count($quizz->getQuestions()));
 
 		$em = $this->getDoctrine()->getManager();
@@ -128,10 +112,7 @@ class QuizzController extends AbstractController
 		// If user is connected : save into BDD and delete session's quizz
 		if ($this->getUser() !== null) {
 			$em->flush();
-
-			$session->remove('questionID'.$quizz->getId());
-			$session->remove('questionPoint'.$quizz->getId());
-
+			$sessionQuizz->remove();
 		}
 
 		return $this->render('quizz/result.html.twig',[
