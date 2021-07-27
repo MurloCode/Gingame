@@ -8,18 +8,13 @@
 	<div class="py-5">
 		<div class="container">
 			<section>
-				<h2>Quizz</h2>
-				{% for themes in themes %}
-				<ul>
-					<li>
-						#
-						{{ themes.id }}</li>
-					<li>{{ themes.name }}
-					<a href="{{ path('theme_list_id', {id:themes.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
-					</li>
-				</ul>	
-				{% endfor %}
-				
+				<h2>Type :</h2>
+				<br />
+				<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+					{% for themes in themeparent %}
+						{% include 'cards/_cardseries.html.twig' %}		
+					{% endfor %}
+				</div>
 			</section>
 		</div>
 	</div>

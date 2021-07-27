@@ -9,17 +9,12 @@
 		<div class="container">
 			<section>
 				<h2>Quizz</h2>
-				{% for quizz in quizz %}
-				<ul>
-					<li>
-						#
-						{{ quizz.id }}</li>
-					<li>{{ quizz.name }}
-					<a href="{{ path('quizz_show', {id:quizz.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
-					</li>
-				</ul>	
-				{% endfor %}
-				
+				<br />
+				<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+					{% for quizz in quizz %}
+						{% include 'cards/_cardlastquizz.html.twig' %}
+					{% endfor %}
+				</div>
 			</section>
 		</div>
 	</div>

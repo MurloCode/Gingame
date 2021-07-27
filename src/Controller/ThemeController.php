@@ -45,9 +45,11 @@ class ThemeController extends AbstractController
 	 */
 	public function themeIndex(ThemeRepository $themeRepository): Response
 	{      
+		$themeParent = $themeRepository->findRootThemes();
 		
 		return $this->render('quizz/themelistindex.html.twig', [
-			'themes' => $themeRepository->findAll()
+			'themes' => $themeRepository->findAll(),
+			'themeparent' => $themeParent
 		]);
 	}
 	
@@ -55,14 +57,15 @@ class ThemeController extends AbstractController
 	/**
 	 * @Route("/list/{id}", name="list_id")
 	 */
-	public function themeList(Theme $themes, QuizzRepository $quizz, $id): Response
+	public function themeList(Theme $themes,ThemeRepository $themeRepository, QuizzRepository $quizz, $id): Response
 	{      	
-	
-		
+
+		$themeChild = $themeRepository->findChildThemes();
 
 		return $this->render('quizz/themelist.html.twig', [
 			'themes' => $themes,
-			'quizz' => $quizz->find($id)
+			'quizz' => $quizz->find($id),
+			'themechild' => $themeChild,
 		]);
 	}
 
