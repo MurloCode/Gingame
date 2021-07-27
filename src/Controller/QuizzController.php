@@ -2,24 +2,24 @@
 
 namespace App\Controller;
 
-use App\Entity\Historic;
-use App\Entity\Question;
 use App\Entity\Quizz;
 use App\Entity\Theme;
+use App\Form\QuizzType;
+use App\Entity\Historic;
+use App\Entity\Question;
 use App\Form\AnswerType;
 use App\Form\PropositionType;
-use App\Form\QuizzType;
-use App\Repository\PropositionRepository;
-use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
 use App\Repository\ThemeRepository;
 use App\Service\SessionQuizzService;
+use App\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\PropositionRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 
@@ -44,7 +44,7 @@ class QuizzController extends AbstractController
 	 *
 	 * @return Response
 	 */
-	public function show(Quizz $quizz, RequestStack $requestStack ,PropositionRepository $proposition, SessionQuizzService $sessionQuizz)
+	public function show(int $id, Quizz $quizz, RequestStack $requestStack ,PropositionRepository $proposition, SessionQuizzService $sessionQuizz, QuizzRepository $quizzRepository)
 	{
 		
 		$sessionQuizz->start();
@@ -83,8 +83,16 @@ class QuizzController extends AbstractController
 			'quizz' => $quizz,
 			'question' => $questions[$sessionQuizz->getQuestionNumber()],
 		]);
-	
-		
+
+	// We want to display a 404 if the quizz doesn't exist.
+	// We order a quizz by its id
+		$quizz = $quizzRepository->findWithDetails($id);		
+		// If quizz existes we can play 
+		//else we receive a 404
+		if ($quizz === null) {
+			// We display a 404
+            return $this->render('Ce quizz n\'existe pas');
+        }
 		
 	}
 
