@@ -58,13 +58,13 @@ class ThemeController extends AbstractController
 	/**
 	 * @Route("/list/{id}", name="list_id")
 	 */
-	public function themeList(Theme $themes,ThemeRepository $themeRepository, QuizzRepository $quizz, $id): Response
+	public function themeList(Theme $theme,ThemeRepository $themeRepository, QuizzRepository $quizz, $id): Response
 	{      	
 
 		$themeChild = $themeRepository->findChildThemes();
 
 		return $this->render('quizz/themelist.html.twig', [
-			'themes' => $themes,
+			'theme' => $theme,
 			'quizz' => $quizz->find($id),
 			'themechild' => $themeChild,
 			'type' => 'enfant'
