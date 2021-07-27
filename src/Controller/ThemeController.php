@@ -49,7 +49,8 @@ class ThemeController extends AbstractController
 		
 		return $this->render('quizz/themelistindex.html.twig', [
 			'themes' => $themeRepository->findAll(),
-			'themeparent' => $themeParent
+			'themeparent' => $themeParent,
+			'type' => 'parent'
 		]);
 	}
 	
@@ -66,11 +67,8 @@ class ThemeController extends AbstractController
 			'themes' => $themes,
 			'quizz' => $quizz->find($id),
 			'themechild' => $themeChild,
+			'type' => 'enfant'
 		]);
 	}
 
 }
-
-
-
-

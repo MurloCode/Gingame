@@ -39,6 +39,17 @@ class QuizzController extends AbstractController
 		]);
 	}
 
+	/**
+	 * @Route("/list/{id}", name="themeQuizz")
+	 */
+	public function listThemeId(Theme $theme): Response
+	{      
+		
+		return $this->render('quizz/list.html.twig', [
+			'quizz' => $theme->getQuizz() ,
+		]);
+	}
+
 	 /**
 	 * @Route("/{id}", name="show", requirements={"id"="\d+"})
 	 *

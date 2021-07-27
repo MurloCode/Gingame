@@ -1,5 +1,9 @@
 <div class="col">
-	<a href="{{ path('theme_list_id', {id:themes.id}) }}"><div class="card">
+	{% if type is defined and type == 'parent' %}
+		<a href="{{ path('theme_list_id', {id:themes.id}) }}"><div class="card">
+	{% else %}
+		<a href="{{ path('quizz_themeQuizz', {id:themes.id}) }}"><div class="card">
+	{% endif %}
 		<img src="{{ themes.image }}" class="card-img-top img-fluid" alt="..."
 		style="height: 200px; width: 100%; display: block; object-fit:cover;">
 		<div class="card-img-overlay">
