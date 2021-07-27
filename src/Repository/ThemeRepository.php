@@ -54,13 +54,16 @@ class ThemeRepository extends ServiceEntityRepository
      * Permet de renvoyer les 4 dernieres serie de la bdd
      * @return Theme[] Returns an array of Product objects
      */
-    public function findLastTheme($value = 10)
+    public function findLastThemeChild($value = 10)
     {
         return $this->createQueryBuilder('theme')
-            ->orderBy('theme.id', 'DESC')
-            ->setMaxResults($value)
-            ->getQuery()
-            ->getResult();
+		->innerJoin('theme.themeParent', 'b')
+		->orderBy('theme.id', 'DESC')
+		->setMaxResults($value)
+		->addSelect('COUNT(b.id)')
+		->groupBy('theme.id')
+		->getQuery()
+		->getResult();
     }
 
 	/*

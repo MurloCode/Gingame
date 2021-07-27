@@ -26,7 +26,7 @@ class MainController extends AbstractController
 
         $themeChild = $themeRepository->findChildThemes(8);
 
-        $lastTheme = $themeRepository->findLastTheme(4);
+        $lastTheme = $themeRepository->findLastThemeChild(4);
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
