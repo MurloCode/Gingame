@@ -42,6 +42,7 @@ class ThemeRepository extends ServiceEntityRepository
 		->setMaxResults($value)
         //->addSelect('a.name')
         //->addSelect('a.id')
+		->orderBy('a.name', 'ASC')
         ->addSelect('COUNT(b.id)')
         ->groupBy('a.id')
         ->getQuery()

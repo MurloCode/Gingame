@@ -40,7 +40,7 @@ class ThemeController extends AbstractController
 		]);
 	}
 
-		/**
+	/**
 	 * @Route("/list", name="list")
 	 */
 	public function themeIndex(ThemeRepository $themeRepository): Response
