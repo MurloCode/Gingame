@@ -14,6 +14,7 @@ class SessionQuizzService
 		$this->proposition = $proposition;
 		$this->session = $this->requestStack->getSession();	
 		$this->quizz = $this->requestStack->getCurrentRequest()->attributes->get('quizz');
+		
 	}
 
 	/**
