@@ -42,6 +42,7 @@ class ThemeRepository extends ServiceEntityRepository
 		->setMaxResults($value)
         //->addSelect('a.name')
         //->addSelect('a.id')
+		->orderBy('a.name', 'ASC')
         ->addSelect('COUNT(b.id)')
         ->groupBy('a.id')
         ->getQuery()
@@ -49,7 +50,21 @@ class ThemeRepository extends ServiceEntityRepository
 		//return $qb;
 	}
 	
-
+	/**
+     * Permet de renvoyer les 4 dernieres serie de la bdd
+     * @return Theme[] Returns an array of Product objects
+     */
+    public function findLastThemeChild($value = 10)
+    {
+        return $this->createQueryBuilder('theme')
+		->innerJoin('theme.themeParent', 'b')
+		->orderBy('theme.id', 'DESC')
+		->setMaxResults($value)
+		->addSelect('COUNT(b.id)')
+		->groupBy('theme.id')
+		->getQuery()
+		->getResult();
+    }
 
 	/*
 	public function findOneBySomeField($value): ?Theme
