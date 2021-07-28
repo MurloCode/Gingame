@@ -76,13 +76,18 @@ class AppFixtures extends Fixture
 		$manager->persist($parentTheme);
 		
 		// Create Children Themes
-		$themes = ["Black Mirror", "Scrubs", "H", "Kaamelott"];
+		$themes = [
+			["Black Mirror", "/img/serietv/blackmirror.jpeg"], 
+			["H", "/img/serietv/h.jpeg"]
+		];
 		foreach ($themes as $theme) {
 			$childTheme = new Theme;
-			$childTheme->setName($theme)
+			$childTheme->setName($theme[0])
+				->setImage($theme[1])
 				->addThemeParent($parentTheme);
-
 				$manager->persist($childTheme);
+
+				$theme = $theme[0];
 
 			// Create Quizz
 			for ($i = 1; $i < 5; $i++) {
@@ -130,36 +135,42 @@ class AppFixtures extends Fixture
 			// Friends
 			$friends = new Theme();
 			$friends->setName("Friends"); // Nom de la série 
+			$friends->setImage("/img/serietv/friends.jpeg");
 			$friends->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($friends);
 
 			// Kaamelott
 			$kaamelott = new Theme();
 			$kaamelott->setName("Kaamelott"); // Nom de la série 
+			$kaamelott->setImage("/img/serietv/kaamelott.jpeg");
 			$kaamelott->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($kaamelott);
 
 			// Scrubs
 			$Scrubs = new Theme();
-			$Scrubs->setName("Scrubs"); // Nom de la série 
+			$Scrubs->setName("Scrubs"); // Nom de la série
+			$Scrubs->setImage("/img/serietv/scrubs.jpeg"); 
 			$Scrubs->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($Scrubs);
 
 			// Années 8090
 			$Années8090 = new Theme();
 			$Années8090->setName("Années8090"); // Nom de la série 
+			$Années8090->setImage("/img/1.png");
 			$Années8090->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($Années8090);
 
 			// How i met your mother
 			$HowIMetYourMother = new Theme();
 			$HowIMetYourMother->setName("How I Met Your Mother"); // Nom de la série 
+			$HowIMetYourMother->setImage("/img/serietv/howimetyourmother.jpeg");
 			$HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($HowIMetYourMother);
 
 			// $Personnages
 			$Personnages = new Theme();
 			$Personnages->setName("Personnages"); // Nom de la série 
+			$Personnages->setImage("/img/serietv/personnages.jpeg");
 			$Personnages->addThemeParent($parentTheme); // Serie TV
 			$manager->persist($Personnages);
 

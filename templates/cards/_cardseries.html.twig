@@ -4,8 +4,13 @@
 	{% else %}
 		<a href="{{ path('quizz_themeQuizz', {id:themes.id}) }}"><div class="card">
 	{% endif %}
+		{% if themes.image is empty %}
+		<img src="{{ asset('img/1.png') }}" class="card-img-top img-fluid" alt="..."
+		style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);">
+		{% else %}
 		<img src="{{ themes.image }}" class="card-img-top img-fluid" alt="..."
 		style="height: 200px; width: 100%; display: block; object-fit:cover;">
+		{% endif %}
 		<div class="card-img-overlay">
 			<br />
 			<br />
