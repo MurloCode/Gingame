@@ -17,9 +17,6 @@ class PropositionType extends AbstractType
             //->add('text')
             ->add('text')
             ->add('is_valid')
-            // ->add('type')
-            // ->add('media')
-            // ->add('question')
         ;
     }
 

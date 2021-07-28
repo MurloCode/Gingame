@@ -29,7 +29,7 @@ class QuizzCrudController extends AbstractCrudController
 				->allowAdd()
 				->allowDelete()
 				//->setEntryType(PropositionType::class)
-				->setEntryIsComplex(true)
+				//->setEntryIsComplex(true)
 		;
 
 		$newQuestion2 = 

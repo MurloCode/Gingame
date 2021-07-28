@@ -17,22 +17,6 @@ class QuestionType extends AbstractType
 	{
 		$builder
 			->add('question')
-
-			->add()
-
-			->add('proposition[0]', TextType::class, [
-				'mapped' => false,
-			])
-			->add('proposition[1]', TextType::class, [
-				'mapped' => false,
-			])
-			->add('proposition[2]', TextType::class, [
-				'mapped' => false,
-			])
-			->add('proposition[3]', TextType::class, [
-				'mapped' => false,
-			])
-
 			// ->add('right_text')
 			// ->add('right_elem')
 			// ->add('wrong_text')
@@ -44,12 +28,31 @@ class QuestionType extends AbstractType
 			// 	'mapped' => false
 			// ])
 			//->add('createdBy')
+
+			->add('proposition[1]', TextType::class, [
+				'label' => 'Proposition 1',
+				'mapped' => false
+			])
+			->add('proposition2', TextType::class, [
+				'label' => 'Proposition 1',
+				'mapped' => false
+			])
+			->add('proposition3', TextType::class, [
+				'label' => 'Proposition 1',
+				'mapped' => false
+			])
+			->add('proposition1', TextType::class, [
+				'label' => 'Proposition 1',
+				'mapped' => false
+			])
+
 			// ->add('propositions', CollectionType::class, [
 			// 	'mapped' => false,
-			// 	'entry_type' => PropositionType::class,
+			// 	'entry_type' => TextType::class,
 			// 	'allow_add' => true,
 			// 	'allow_delete' => true
 			// ])
+
 			// ->add('propositions', EntityType::class, [
 			// 	'class' => Proposition::class,
 			// 	'allow_extra_fields' => true,
