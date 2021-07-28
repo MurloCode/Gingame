@@ -72,8 +72,16 @@ class AppFixtures extends Fixture
 		// 1st Parent Theme : Serie TV
 		$parentTheme = new Theme();
 		$parentTheme->setName("Serie TV");
+		$parentTheme->setImage("/img/serietv.jpeg");
 		
 		$manager->persist($parentTheme);
+
+		// second Parent Theme : Serie TV
+		$movietheme = new Theme();
+		$movietheme->setName("Films");
+		$movietheme->setImage("/img/cinema.jpeg");
+
+		$manager->persist($movietheme);
 		
 		// Create Children Themes
 		$themes = [
