@@ -1,41 +1,66 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+{{parent()}}
+<link rel="stylesheet" href="{{ asset('css/oquizzabout.css')}}">
+{% endblock %}
 {% block title %}Qui sommes nous{% endblock %}
 
 {% block body %}
-<div class="about">
-<div class="cardTom" style="width: 18rem;">
-  <img src="{{ asset('img/pp/memojitom.jpg')}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text-name">Tom</p>
-    <p class="card-text-role">Product Owner</p>
-    <p class="card-text-mail">Tom@gmail.com</p>
-  </div>
+
+<h1> Qui sommes-nous ?</h1>
+<div class="container tartiflette">
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 navquizztext quizzcard">
+		<div class="col">
+			<div class="card reblochon">
+				<img src="{{ asset('img/pp/memojitom.png')}}" class="card-img-top img-fluid" alt="..."
+				style="height: auto; width: 100%; display:block; object-fit:cover;">
+				<div class="card-body">
+					<h5 class="card-title">Tom</h5>
+					<p class="card-text">Product Owner</p>
+					<p class="card-text">Je ne sais pas coder mais je connais des séries</p>
+					<p class="card-text">Tom@gmail.com</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card reblochon">
+				<img src="{{ asset('img/pp/memojicorentin.png')}}" class="card-img-top img-fluid" alt="..."
+				style="height: auto; width: 100%; display:block; object-fit:cover;">
+				<div class="card-body">
+					<h5 class="card-title">Corentin</h5>
+					<p class="card-text">Scrum Master</p>
+					<p class="card-text">Dis, tu es sûr qu'il n'y a pas de conflit ?</p>
+					<p class="card-text">Corentin@gmail.com</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card reblochon">
+				<img src="{{ asset('img/pp/memojitom.png')}}" class="card-img-top img-fluid" alt="..."
+				style="height: auto; width: 100%; display:block; object-fit:cover;">
+				<div class="card-body">
+					<h5 class="card-title">Fanou</h5>
+					<p class="card-text">Lead Dev</p>
+					<p class="card-text">Je ne connais pas trop les séries mais je sais coder</p>
+					<p class="card-text">Fanou@gmail.com</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card reblochon">
+				<img src="{{ asset('img/pp/memojitom.png')}}" class="card-img-top img-fluid" alt="..."
+				style="height: auto; width: 100%; display:block; object-fit:cover;">
+				<div class="card-body">
+					<h5 class="card-title">Robin</h5>
+					<p class="card-text">Git Master</p>
+					<p class="card-text">C'est bon les gars j'ai merge vous pouvez push !</p>
+					<p class="card-text">Robin@gmail.com</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="cardCorentin" style="width: 18rem;">
-  <img src="{{ asset('img/pp/memojicorentin.jpg')}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text-name">Corentin</p>
-    <p class="card-text-role">Scrum Master</p>
-    <p class="card-text-mail">Corentin@gmail.com</p>
-  </div>
-</div>
-<div class="cardFanou" style="width: 18rem;">
-  <img src="{{ asset('img/pp/memojifanou.jpg')}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text-name">Fanou</p>
-    <p class="card-text-role">Lead Dev</p>
-    <p class="card-text-mail">Fanou@gmail.com</p>
-  </div>
-</div>
-<div class="cardRobin" style="width: 18rem;">
-  <img src="{{ asset('img/pp/memojirobin.jpg')}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text-name">Robin</p>
-    <p class="card-text-role">Product Owner</p>
-    <p class="card-text-mail">Robin@gmail.com</p>
-  </div>
-</div>
-</div>
+
+    
 {% endblock %}
 

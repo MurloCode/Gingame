@@ -156,34 +156,4 @@ text-align: center;
 }
 
 /* About */
-
-.about {
-
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.cardTom {
-    border: 1px solid black;
-    border-radius: 25%;
-    text-align: center;
-    justify-content: center;
-    text-align: center;
-}
-.cardCorentin {
-    border: 1px solid black;
-    border-radius: 25%;
-    text-align: center;
-}
-.cardFanou {
-    border: 1px solid black;
-    border-radius: 25%;
-    text-align: center;
-}
-.cardRobin {
-    border: 1px solid black;
-    border-radius: 25%;
-    text-align: center;
-}
+/* cf oquizzabout.css */
