@@ -17,7 +17,7 @@ class CreateQuizzSubscriber implements EventSubscriberInterface
 			$request = Request::createFromGlobals();
 			$newQuestions = $request->request->all()['Quizz']["new_questions"];
 			//$newPropositions = $request->request->all()['Quizz']["new_propositions"];
-			//dd($newQuestions);
+			dd($request->request->all());
 			if($newQuestions) {
 				foreach ($newQuestions as $newQuestion) {
 					$question = new Question();

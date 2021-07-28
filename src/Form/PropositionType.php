@@ -15,7 +15,9 @@ class PropositionType extends AbstractType
     {
         $builder
             //->add('text')
-            ->add('text')
+            ->add('text', TextType::class, [
+                'mapped' => false,            
+            ])
             ->add('is_valid')
         ;
     }

@@ -26,34 +26,11 @@ class QuizzCrudController extends AbstractCrudController
 			CollectionField::new('new_questions')
 				->setFormtypeOption("mapped",false)
 				->setEntryType(QuestionType::class)
-				->allowAdd()
-				->allowDelete()
+				->setEntryIsComplex(true)
+				 ->allowAdd()
+				 ->allowDelete()
 				//->setEntryType(PropositionType::class)
 				//->setEntryIsComplex(true)
-		;
-
-		$newQuestion2 = 
-			CollectionField::new('new_questions')
-				->setFormtypeOption("mapped",false)
-				->allowAdd()
-				->allowDelete()
-				->setEntryType(CollectionType::class)
-				//->setEntryType(PropositionType::class)
-				->setEntryIsComplex(true)
-		;
-
-		// $newQuestion = 
-		// 	ArrayField::new('new_questions')
-		// 		-->setFormType(CollectionType::class)
-		// ;
-
-		$newProposition = 
-			CollectionField::new('new_propositions')
-				->setFormtypeOption("mapped",false)
-				->allowAdd()
-				->allowDelete()
-				->setEntryType(PropositionType::class)
-				->setEntryIsComplex(true)
 		;
 
 		$fields =  [
