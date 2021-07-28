@@ -27,13 +27,13 @@ class MessageGenerator
             '“ Jean-Claude Dusse avec un D comme Dusse ” Les bronzés', // index 11
             '" Je vais lui faire une offre qu\'il ne pourra pas refuser. ” Le Parrain', // index 12
             '“ Houston, nous avons un problème ! ” Apollo XIII', // index 13
-            '“ Luke, je suis ton père ! ” L\’Empire Contre Attaque', // index 14
+            '“ Luke, je suis ton père ! ” L\'Empire Contre Attaque', // index 14
             '“ T’es mauvais Jack ! ” OSS 117, Le Caire nid d’espions', // index 15
             '“ Pas de bras, pas de chocolat ! ” Intouchables', // index 16
             '“ C’est une bonne situation ça scribe ? ” Astérix et Obélix : Mission Cléopâtre', // index 17
             '" Hashtag Cestmoiquiaipété ! " Deadpool', // index 18
             '“ Mais on avait rompu ! ” Friends', // index 19
-            '“ Un jour à un stage d\’été … “ American Pie',// index 20
+            '“ Un jour à un stage d\'été … “ American Pie',// index 20
             '“ C’est hallu, attends la suite, cinant, Hallucinant ! ” How i met your mother', // index 21
             '“ Sans blagues ! et vous croyez que j’appelle pour commander une pizza ? ” Piege de cristal', // index 22
             '“ Sssssssssssssssplendide ! ” The Mask', // index 23
@@ -74,7 +74,7 @@ class MessageGenerator
             '" T\'es comme le « c cédille » de surf... t\'existes pas ! " Brice de Nice', // index 10
             '" Qui a deux pouces et qui s’en tape ? Bob Kelso, enchanté ! " Scrubs', // index 11
             '“ Je suis trop vieux pour ces conneries ” L’arme fatale', // index 12
-            '“ Je ne suis pas fou, ma mère m\’a fait tester. ” The big bang Theory', // index 13
+            '“ Je ne suis pas fou, ma mère m\'a fait tester. ” The big bang Theory', // index 13
             '“ Ouais, c\'est pas faux. ” Kaamelott', // index 14
 
         ];

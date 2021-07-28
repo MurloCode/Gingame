@@ -1,0 +1,86 @@
+/**
+ * Background
+ * ----------
+*/
+
+.stargate {
+    background: #111 url('https://res.cloudinary.com/shanomurphy/image/upload/v1520182770/stargate_tztoon.jpg') no-repeat center;
+    background-size: cover;
+    width: 177vh;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /**
+   * The Portal
+   * ----------
+   *
+   * Looping video of water ripples with animated CSS filters to make it more
+   * "supernatural" in appearance. Bounding div clips the bottom of the video.
+  */
+  
+  .stargate__portal {
+    
+    width: 77vh;
+    height: 73vh;
+    position: absolute;
+    top: 18vh;
+    left: 50vh;
+    overflow: hidden; /* clip bottom of video*/
+    z-index: 1000;
+    
+    
+    
+  }
+  video {
+      width: 100%;
+      border-radius: 50%;
+      width: 77vh;
+      height: 77vh;
+      animation: portal-animation 15s infinite;
+      }
+  @keyframes portal-animation {
+    
+    0% {
+      filter: hue-rotate(0deg) contrast(3) saturate(1);
+    }
+    
+    50% {
+      filter: hue-rotate(45deg) contrast(1) saturate(6);
+    }
+    
+    100% {
+      filter: hue-rotate(0deg) contrast(3) saturate(1);
+    }
+    
+  }
+  
+  
+  body{
+    background: black;
+  }
+
+  .overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+.bigtext{
+	font-size: 1000%;
+}
+
+.blue404{
+	color: rgb(1, 1, 114);
+	text-align: center;
+}
+
+.footerbot{    
+    position: absolute;    
+    bottom:0;    
+    width:100%;    
+    padding-top:200px;    
+    height:50px;
+}

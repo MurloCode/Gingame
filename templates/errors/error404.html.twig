@@ -1,5 +1,10 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+{{parent()}}
+<link rel="stylesheet" href="{{ asset('css/oquizz404.css')}}">
+{% endblock %}
+
 {% block title %}
 Ce quizz n'existe pas. Essaie en un autre !
 {% endblock %}
@@ -7,9 +12,22 @@ Ce quizz n'existe pas. Essaie en un autre !
 
 
 {% block body %}
+<div class="stargate">
+	<div class="stargate__portal">
+		<video autoplay muted playsinline loop>
+			<source src="https://res.cloudinary.com/shanomurphy/video/upload/v1520181785/water_obm8lb.webm" type="video/webm">
+			<source src="https://res.cloudinary.com/shanomurphy/video/upload/v1520181785/water_obm8lb.mp4" type="video/mp4"> 
+		</video>
+		<div class="overlay py-5">
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<h1 class="bigtext navquizztext quizzcard blue404 mx-auto pt-5">404 !</h1>
+			<h1 class="navquizztext quizzcard blue404 mx-auto pt-5 ms-3">Cette page n'existe pas. Essaie en une autre !</h1>
+		</div>
+	</div>
+</div>
 
-<h1 class="errortitle">
-Cette page n'existe pas. Essaie en une autre !
-</h1>
     
 {% endblock %}
