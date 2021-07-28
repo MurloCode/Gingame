@@ -29,29 +29,29 @@ class QuestionType extends AbstractType
 			// ])
 			//->add('createdBy')
 
-			->add('proposition[1]', TextType::class, [
-				'label' => 'Proposition 1',
-				'mapped' => false
-			])
-			->add('proposition2', TextType::class, [
-				'label' => 'Proposition 1',
-				'mapped' => false
-			])
-			->add('proposition3', TextType::class, [
-				'label' => 'Proposition 1',
-				'mapped' => false
-			])
-			->add('proposition1', TextType::class, [
-				'label' => 'Proposition 1',
-				'mapped' => false
-			])
-
-			// ->add('propositions', CollectionType::class, [
-			// 	'mapped' => false,
-			// 	'entry_type' => TextType::class,
-			// 	'allow_add' => true,
-			// 	'allow_delete' => true
+			// ->add('proposition1', TextType::class, [
+			// 	'label' => 'Proposition 1',
+			// 	'mapped' => false
 			// ])
+			// ->add('proposition2', TextType::class, [
+			// 	'label' => 'Proposition 2',
+			// 	'mapped' => false
+			// ])
+			// ->add('proposition3', TextType::class, [
+			// 	'label' => 'Proposition 3',
+			// 	'mapped' => false
+			// ])
+			// ->add('proposition1', TextType::class, [
+			// 	'label' => 'Proposition 4',
+			// 	'mapped' => false
+			// ])
+
+			->add('propositions', CollectionType::class, [
+				'mapped' => false,
+				'entry_type' => TextType::class,
+				'allow_add' => true,
+				'allow_delete' => true
+			])
 
 			// ->add('propositions', EntityType::class, [
 			// 	'class' => Proposition::class,
