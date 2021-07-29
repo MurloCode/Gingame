@@ -1,49 +1,67 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-oquizz">
-  <div class="container-fluid">
-  		<a class="nav-link" aria-current="page" href="{{ path('home') }}"><img class="d-block headerlogo" src="{{ asset('img/1.png')}}" alt=""></a>
-    <a class="navbar-brand navquizztext" href="#">Quizz Random !</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDarkDropdown">
-		<ul class="navbar-nav me-auto mb-2 mb-lg-0">			
-			<li class="nav-item">
-				<a class="nav-link navquizztext" aria-current="page" href="{{ path('home') }}">Accueil<span class="sr-only"></span></a>
-			</li>
-				<a class="nav-link navquizztext" aria-current="page" href="{{ path('quizz_list') }}">Liste des quizz<span class="sr-only"></span></a>
-			</li>
-				<a class="nav-link navquizztext" aria-current="page" href="{{ path('theme_list') }}">Liste des themes<span class="sr-only"></span></a>
-			</li>
-		{% if not is_granted('ROLE_USER') %}
-			<li class="nav-item">
-				<a class="nav-link navquizztext" href="{{ path('app_register') }}">inscription<span class="sr-only"></span></a>
-			</li>		
-		{% endif %}
-		</ul>
-	{% if is_granted('ROLE_USER') %}
-      	<ul class="navbar-nav mr-auto">
-        	<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle navquizztext" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					{{ app.user.login }}
-				</a>
-				<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDarkDropdownMenuLink">
-					<li><a class="dropdown-item navquizztext" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button">Profil</a></li>
-				{% if is_granted('ROLE_ADMIN') %}
-					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item navquizztext bg-warning" href="{{ path('user_index') }}" type="button">Liste utilisateurs</a></li>
-					<li><a class="dropdown-item navquizztext bg-warning" href="{{ path('user_new') }}" type="button">Créer un nouvel utilisateur</a></li>
+	<div class="container-fluid">
+		<a class="nav-link" aria-current="page" href="{{ path('home') }}"><img class="d-block headerlogo" src="{{ asset('img/1.png')}}" alt=""></a>
+		<a class="navbar-brand navquizztext" href="#">Quizz Random !</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNavDarkDropdown">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link navquizztext" aria-current="page" href="{{ path('home') }}">Accueil<span class="sr-only"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link navquizztext" aria-current="page" href="{{ path('quizz_list') }}">Liste des quizz<span class="sr-only"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link navquizztext" aria-current="page" href="{{ path('theme_list') }}">Liste des themes<span class="sr-only"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link navquizztext" aria-current="page" href="{{ path('random_generate') }}">Random Quizz<span class="sr-only"></span>
+					</a>
+				</li>
+				{% if not is_granted('ROLE_USER') %}
+					<li class="nav-item">
+						<a class="nav-link navquizztext" href="{{ path('app_register') }}">inscription<span class="sr-only"></span>
+						</a>
+					</li>
 				{% endif %}
-					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item navquizztext bg-danger" href="{{ path('app_logout') }}" type="button">Déconnexion</a></li>
+			</ul>
+			{% if is_granted('ROLE_USER') %}
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle navquizztext" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							{{ app.user.login }}
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li>
+								<a class="dropdown-item navquizztext" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button">Profil</a>
+							</li>
+							{% if is_granted('ROLE_ADMIN') %}
+								<li><hr class="dropdown-divider"></li>
+								<li>
+									<a class="dropdown-item navquizztext bg-warning" href="{{ path('user_index') }}" type="button">Liste utilisateurs</a>
+								</li>
+								<li>
+									<a class="dropdown-item navquizztext bg-warning" href="{{ path('user_new') }}" type="button">Créer un nouvel utilisateur</a>
+								</li>
+							{% endif %}
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item navquizztext bg-danger" href="{{ path('app_logout') }}" type="button">Déconnexion</a>
+							</li>
+						</ul>
+					</li>
 				</ul>
-        	</li>
-     	</ul>
-    </div>
-	{% else %}
-		<a class="btn btn-lg btn-primary btn-sm proposal" href="{{ path('app_login') }}" role="button">Connexion</a>
-		{# option class="btn btn-primary"#}
-		{# <button class="btn btn-outline-success" type="submit">Search</button> #}
-	{% endif %}
-  </div>
+			</div>
+		{% else %}
+			<a class="btn btn-lg btn-primary btn-sm proposal" href="{{ path('app_login') }}" role="button">Connexion</a>
+			{# option class="btn btn-primary"#}
+			{# <button class="btn btn-outline-success" type="submit">Search</button> #}
+		{% endif %}
+	</div>
 </nav>
 <div class="navbar navbar-expand-lg navbar-light bg-oquizzblue mb-2"></div>

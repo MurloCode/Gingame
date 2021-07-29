@@ -18,15 +18,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class RandomQuizzController extends AbstractController
 {
-	/**
-	 * @Route("/empty", name="quizz")
-	 */
-	public function index(): Response
-	{
-		return $this->render('random_quizz/index.html.twig', [
-			'controller_name' => 'RandomQuizzController',
-		]);
-	}
 
 	/**
 	 * @Route("/", name="generate")
