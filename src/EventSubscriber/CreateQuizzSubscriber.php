@@ -17,20 +17,20 @@ class CreateQuizzSubscriber implements EventSubscriberInterface
 			$request = Request::createFromGlobals();
 			$newQuestions = $request->request->all()['Quizz']["new_questions"];
 			//$newPropositions = $request->request->all()['Quizz']["new_propositions"];
-			dd($request->request->all());
+			//dd($newQuestions);
 			if($newQuestions) {
 				foreach ($newQuestions as $newQuestion) {
 					$question = new Question();
 					$question->setQuestion($newQuestion['question']);
 
-					dd($newQuestion);
+					//dd($newQuestion);
 					if ($newQuestion['propositions']) {
 						foreach ($newQuestion['propositions'] as $newProposition) {
 							//$newProposition = $newQuestion['propositions'];
-							
+							//dd($newProposition);
 							$proposition = new Proposition();
-							$proposition->setText($newProposition);
-							$proposition->setIsValid(true);
+							$proposition->setText($newProposition['text']);
+							$proposition->setIsValid((isset($newProposition['is_valid']) && $newProposition['is_valid'] == 1) ? true : false);
 							$question->addProposition($proposition);
 						}
 					}

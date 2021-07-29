@@ -27,10 +27,8 @@ class QuizzCrudController extends AbstractCrudController
 				->setFormtypeOption("mapped",false)
 				->setEntryType(QuestionType::class)
 				->setEntryIsComplex(true)
-				 ->allowAdd()
-				 ->allowDelete()
-				//->setEntryType(PropositionType::class)
-				//->setEntryIsComplex(true)
+				->allowAdd()
+				->allowDelete()
 		;
 
 		$fields =  [

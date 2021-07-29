@@ -11,21 +11,18 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PropositionType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            //->add('text')
-            ->add('text', TextType::class, [
-                'mapped' => false,            
-            ])
-            ->add('is_valid')
-        ;
-    }
+	public function buildForm(FormBuilderInterface $builder, array $options)
+	{
+		$builder
+			->add('text')
+			->add('is_valid')
+		;
+	}
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => Proposition::class,
-        ]);
-    }
+	public function configureOptions(OptionsResolver $resolver)
+	{
+		$resolver->setDefaults([
+			'data_class' => Proposition::class,
+		]);
+	}
 }

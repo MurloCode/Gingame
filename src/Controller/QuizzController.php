@@ -67,9 +67,7 @@ class QuizzController extends AbstractController
 			$this->addFlash('', $messageGenerator->randomErrorMessage());
 			return $this->render('errors/error404.html.twig');
 		}
-
 		
-
 		$sessionQuizz->start();
 
 		$questions = $quizz->getQuestions();
