@@ -21,6 +21,9 @@
     width: auto;
 }
 
+.reblochon:hover {
+    transform: scale(1.1);
+}
 
 h5{
     font-weight: 800;
@@ -37,5 +40,5 @@ h5{
 
 h1 {
     text-align: center;
-    color: rgb(1, 1, 114);
+    color:  rgb(1, 1, 114);
 }
