@@ -1,44 +1,79 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %} #}
+<html>
+	<head>
+		<meta charset="UTF-8">
 
-{% block title %}Hello QuizzController!
-{% endblock %}
+		<title>{{quizz.name}}
+			- O'Quizz</title>
 
-{% block body %}
-	<p><a class="btn btn-danger btn-sm m-2" href="{{path('home')}}" role="button"> < retour </a></p>
-	<section class="text-center container">
-		<div class="row">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<h2 class="fw-light">{{quizz.name}}</h2>
+		{% block stylesheets %}
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+			<link rel="stylesheet" href="{{ asset('css/oquizz.css')}}">
+			<link rel="stylesheet" href="{{ asset('css/quizzpage.css')}}">
+		{% endblock %}
+
+		{% block javascripts %}
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		{% endblock %}
+
+	</head>
+
+	<body class="d-flex flex-column h-100">
+		<div class="header-quizz">
+			<div class="container-progress-bar">
+				<div class="text-center">
+					<span>{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }}</span>
+					<h1>{{quizz.name}}</h1>
+				</div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" style="width: {{ progress['percentage'] }}%" aria-valuemax="100"></div>
 			</div>
 		</div>
-	</section>
-	<div class="container">
-		<div class="container d-grid mx-auto">
-			{{ question.question }}
-			<form action={{ path('quizz_show', {id: quizz.id } ) }} method="POST">
-				<div class="row">
-					{% for proposition in question.propositions|oShuffle %}
-						<div class="col-lg-6 col-sm-12">
-							<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
-							<label class="btn btn-outline-primary quizzbutton navquizztext proposal" for="{{proposition.id}}">{{proposition.text}}</label>
-						</div>
-					{% endfor %}
-					<hr class="dropdown-divider">
-					<button id="bt" type="submit" disabled="enabled" class="btn btn-info quizzbutton navquizztext validquizz">Valider la réponse !</button>
+		<div class="container">
+			<div class="container d-grid mx-auto">
+				<div class="questionBlock question-quizz" p-2 text-center">
+					<span>{{ question.question }}</span>
 				</div>
-				<br/>				
-				<br />
-				<br />
-				<br />
-				<br />
-			</form>
+				<form id="quizz" action={{ path('quizz_show', {id: quizz.id } ) }} method="POST">
+					<div class="row propositions">
+						{% for proposition in question.propositions|oShuffle %}
+							<div class="col-lg-6 col-sm-12">
+								<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
+								<label class="btn btn-outline-primary formbutton" for="{{proposition.id}}">{{proposition.text}}</label>
+							</div>
+						{% endfor %}
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</body>
+</html></div><!-- Button trigger modal --><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="position:absolute; top:10px; right:10px;">
+X</button><!-- Modal --><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="myModalLabel">Quitter le Quizz</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			Êtes-vous sûr de vouloir quitter le Quizz
+			{{ quizz.name }}?
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non, je veux finir !</button>
+			<a href="{{path('home')}}" class="btn btn-primary">J'abandonne, c'est trop dur</a>
 		</div>
 	</div>
-</div>
-{% block javascript %}
-	<script>
-		function enableButton() {
+</div></div><div class="footer footer-quizz  mt-auto">
+<button class="sendQuizz formbutton" form="quizz" id="bt" type="submit" disabled="enabled" class="btn btn-info">Valider</button></div><script>
+function enableButton() {
 document.getElementById("bt").disabled = false;
 }
-	</script>
-{% endblock %}{% endblock %}
+
+var myModal = document.getElementById('myModal');
+var myInput = document.getElementById('myInput');
+myModal.addEventListener('shown.bs.modal', function () {
+myInput.focus();
+});</script></body></html>

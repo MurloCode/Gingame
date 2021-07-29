@@ -1,0 +1,90 @@
+body {
+	font-family: "Montserrat", sans-serif;
+	background: #52a3fe;
+}
+
+.header-quizz,
+.footer-quizz {
+	height: 10vh;
+}
+.question-quizz {
+	height: 35vh;
+}
+.proposition-quizz {
+	height: 45vh;
+}
+
+.container-progress-bar {
+	color: #fff8bb;
+	background: #52a5ff;
+	box-shadow: 0 0.2em 0.4em #4593f5;
+	font-size: 0.9em;
+}
+
+.progress {
+	height: 0.2rem;
+	background: transparent;
+}
+.progress-bar {
+	background: linear-gradient(to right, #1ec7f9, #30e9ff);
+	border-radius: 0 0.5em 0.5em 0;
+}
+
+.questionBlock {
+	background: #25d8df linear-gradient(#25d8df, #0ac2f8);
+	box-shadow: 0 0.2em 0.5em rgba(29, 42, 58, 0.2);
+	min-height: 20vh;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 1.3em;
+	font-weight: 500;
+}
+
+.propositions input[type="radio"] + .formbutton {
+	font-family: "Montserrat", sans-serif;
+	background: #fff;
+	color: #52a3fe;
+	text-shadow: 0 -1px #e9f3ff;
+	padding: 0.5rem;
+	border: 0;
+	border-radius: 0.5rem;
+	position: relative;
+	top: 0;
+	transition: all 100ms ease-in-out;
+	box-shadow: 0 0.3em #69beff, 0 0.5em 0.2em rgba(29, 42, 58, 0.4);
+	width: 100%;
+	margin: 0.8rem 0;
+}
+.propositions input[type="radio"]:checked + .formbutton,
+.propositions input[type="radio"]:hover + .formbutton {
+	color: #fff;
+	text-shadow: 0 -1px #75c03f;
+	background: #87dd4a;
+	box-shadow: 0 0.3em #37b128, 0 0.3em rgba(135, 221, 74, 0.2);
+	top: 0.2em;
+	/* box-shadow: 0 0.2em rgba(0, 0, 0, 0.4); */
+}
+
+h1 {
+	font-family: "Montserrat", sans-serif;
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 200;
+	text-align: center;
+	margin: auto 0;
+}
+
+button.sendQuizz:disabled {
+	background: #fff;
+	opacity: 1;
+	color: #52a3fe;
+	text-shadow: 0 -1px #e9f3ff;
+}
+button.sendQuizz {
+	background: #87dd4a;
+	width: 100%;
+	height: 10vh;
+	border: 0;
+	color: #fff;
+	text-shadow: 0 -1px #75c03f;
+}

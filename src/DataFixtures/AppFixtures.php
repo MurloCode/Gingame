@@ -1625,7 +1625,7 @@ class AppFixtures extends Fixture
 			$manager->persist($proposition);
 
 			$proposition = new Proposition();
-			$proposition->setText("HArtley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$proposition->setText("Hartley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
 			$manager->persist($proposition);
 
 		// 2
@@ -1664,7 +1664,7 @@ class AppFixtures extends Fixture
 			$manager->persist($proposition);
 						
 			$proposition = new Proposition();
-			$proposition->setText("Propal2Hélène et les Garçons")->setIsValid(false)->setQuestion($questionAnnées8090);
+			$proposition->setText("Hélène et les Garçons")->setIsValid(false)->setQuestion($questionAnnées8090);
 			$manager->persist($proposition);
 
 			$proposition = new Proposition();
