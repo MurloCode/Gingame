@@ -57,6 +57,15 @@ class RandomQuizzController extends AbstractController
         $em->persist($quizz);
         $em->flush();
 
+        // Set New Name to Random Quizz
+        $quizzId = $quizz->getId();
+        $quizz->setName('Random Quizz N°' . $quizzId);
+        $em->persist($quizz);
+        $em->flush();
+
+
+        return($this->redirectToRoute('quizz_show', ['id' => $quizzId]));
+
         return $this->render('random_quizz/index.html.twig', [
             'controller_name' => 'RandomQuizzController',
         ]);
