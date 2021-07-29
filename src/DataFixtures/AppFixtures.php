@@ -164,7 +164,7 @@ public function load(ObjectManager $manager)
 
 			// Cinéma
 			$cinéma = new Theme();
-			$cinéma->setName("nom_de_a_série"); // Nom du quizz 
+			$cinéma->setName("Cinéma"); // Nom du quizz 
 			$cinéma->addThemeParent($parentTheme); // Cinéma
 			$manager->persist($cinéma);
 
