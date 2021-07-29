@@ -1,6 +1,7 @@
+
 body {
 	font-family: "Montserrat", sans-serif;
-
+	background: #52a3fe;
 }
 
 .header-quizz,
@@ -8,15 +9,15 @@ body {
 	height: 10vh;
 }
 .question-quizz {
-	height: 50vh;
+	height: 35vh;
 }
 .proposition-quizz {
-	/* height: 45vh; */
+	height: 45vh;
 }
 
 .container-progress-bar {
-	color: rgb(200, 200, 219);
-	background: rgb(1, 1, 114);
+	color: #fff8bb;
+	background: #52a5ff;
 	box-shadow: 0 0.2em 0.4em #4593f5;
 	font-size: 0.9em;
 }
@@ -26,54 +27,41 @@ body {
 	background: transparent;
 }
 .progress-bar {
-	background: linear-gradient(to right, #0074d9, #30e9ff);
+	background: linear-gradient(to right, #1ec7f9, #30e9ff);
 	border-radius: 0 0.5em 0.5em 0;
 }
 
 .questionBlock {
-	background-color: rgb(212, 212, 212);
+	background: #25d8df linear-gradient(#25d8df, #0ac2f8);
 	box-shadow: 0 0.2em 0.5em rgba(29, 42, 58, 0.2);
 	min-height: 20vh;
 	border-radius: 5px;
 	color: #fff;
 	font-size: 1.3em;
 	font-weight: 500;
-	position: relative;
-}
-
-.questionBlock::after{
-	content: "";
-	background: url("/img/old-tv.png");
-	background-size: cover;
-    margin: 0 auto;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	right: 0;
 }
 
 .propositions input[type="radio"] + .formbutton {
 	font-family: "Montserrat", sans-serif;
-	background: rgb(1, 1, 114);
-	color: black;
-    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+	background: #fff;
+	color: #52a3fe;
+	text-shadow: 0 -1px #e9f3ff;
 	padding: 0.5rem;
 	border: 0;
 	border-radius: 0.5rem;
 	position: relative;
 	top: 0;
 	transition: all 100ms ease-in-out;
-	box-shadow: 0 0.3em #0074d9, 0 0.5em 0.2em rgba(29, 42, 58, 0.4);
+	box-shadow: 0 0.3em #69beff, 0 0.5em 0.2em rgba(29, 42, 58, 0.4);
 	width: 100%;
 	margin: 0.8rem 0;
 }
 .propositions input[type="radio"]:checked + .formbutton,
 .propositions input[type="radio"]:hover + .formbutton {
-	color: black;
+	color: #fff;
 	text-shadow: 0 -1px #75c03f;
-	background: #0074d9;	
-    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+	background: #87dd4a;
+	box-shadow: 0 0.3em #37b128, 0 0.3em rgba(135, 221, 74, 0.2);
 	top: 0.2em;
 	/* box-shadow: 0 0.2em rgba(0, 0, 0, 0.4); */
 }
@@ -88,7 +76,7 @@ h1 {
 }
 
 button.sendQuizz:disabled {
-	background: rgb(199, 199, 199);
+	background: #fff;
 	opacity: 1;
 	color: #52a3fe;
 	text-shadow: 0 -1px #e9f3ff;
@@ -101,20 +89,3 @@ button.sendQuizz {
 	color: #fff;
 	text-shadow: 0 -1px #75c03f;
 }
-
-.oldtv {
-	background: url("/img/old-tv.png");
-    background-size: cover;
-    margin: 0 auto;
-	width: 100%;
-	height: auto;
-    position: relative;
-	text-align: center;
-  }
-  
-  .texte_centrer {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-  }

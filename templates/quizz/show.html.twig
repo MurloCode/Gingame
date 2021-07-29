@@ -21,9 +21,9 @@
 	<body class="d-flex flex-column h-100">
 		<div class="header-quizz">
 			<div class="container-progress-bar">
-				<div class="text-center">
-					<span>{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }}</span>
-					<h1>{{quizz.name}}</h1>
+				<div class="text-center navquizztext">
+					<a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="d-block headerlogo" src="{{ asset('img/1.png')}}" alt=""></a>
+					<h1 class="navquizztext">{{quizz.name}}</h1>
 				</div>
 			</div>
 			<div class="progress">
@@ -31,16 +31,22 @@
 			</div>
 		</div>
 		<div class="container">
+			<div class="texte_centrer">{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }}</div>
+			<div class="questionBlock question-quizz p-2 text-center">
+				<br />
+				<br />
+				<br />
+				<span class="quizzcard navquizztext">{{ question.question }}</span>
+			</div>
+		</div>
+		<div class="container">
 			<div class="container d-grid mx-auto">
-				<div class="questionBlock question-quizz" p-2 text-center">
-					<span>{{ question.question }}</span>
-				</div>
 				<form id="quizz" action={{ path('quizz_show', {id: quizz.id } ) }} method="POST">
 					<div class="row propositions">
 						{% for proposition in question.propositions|oShuffle %}
 							<div class="col-lg-6 col-sm-12">
 								<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
-								<label class="btn btn-outline-primary formbutton" for="{{proposition.id}}">{{proposition.text}}</label>
+								<label class="btn btn-outline-primary formbutton " for="{{proposition.id}}">{{proposition.text}}</label>
 							</div>
 						{% endfor %}
 					</div>
