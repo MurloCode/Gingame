@@ -92,14 +92,14 @@ class AppFixtures extends Fixture
             ["Black Mirror", "/img/serietv/blackmirror.jpeg"],
             ["H", "/img/serietv/h.jpeg"]
         ];
-        // Create Themes
-        // 1st Parent Theme : Serie TV
-        $parentTheme = new Theme();
-        $parentTheme->setName("Serie TV");
-        $manager->persist($parentTheme);
+    //     // Create Themes
+    //     // 1st Parent Theme : Serie TV
+    //     $parentTheme = new Theme();
+    //     $parentTheme->setName("Serie TV");
+    //     $manager->persist($parentTheme);
     
-        // Create Children Themes
-        $themes = ["Black Mirror", "Scrubs", "H", "Kaamelott"];
+    //     // Create Children Themes
+    //    //  $themes = ["Black Mirror", "Scrubs", "H", "Kaamelott"];
         foreach ($themes as $theme) {
             $childTheme = new Theme;
             $childTheme->setName($theme[0])
