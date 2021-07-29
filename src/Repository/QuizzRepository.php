@@ -63,4 +63,14 @@ class QuizzRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findAllNotRandom() {
+
+        return $this->createQueryBuilder('quizz')
+            ->orderBy('quizz.id', 'DESC') 
+            ->innerJoin('quizz.themes', 'tp')     
+            ->where('tp.name != :Random')
+            ->setParameter(':Random', 'Random')
+            ->getQuery()
+            ->getResult();
+    }
 }

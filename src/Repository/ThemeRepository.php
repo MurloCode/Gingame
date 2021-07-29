@@ -27,20 +27,19 @@ class ThemeRepository extends ServiceEntityRepository
 	{
 		return $this->createQueryBuilder('t')
 		->leftJoin('t.themeParent', 'b')
+		->andWhere('t.name != :Random')
+		->setParameter(':Random', 'Random')
 		->having('COUNT(b.id) = 0')
 		->groupBy('t.id')
 		->getQuery()
 		->getResult();
 	}
 
-
 	public function findChildThemes($value = 10)
 	{
 		return $this->createQueryBuilder('a')
         ->innerJoin('a.themeParent', 'b')
 		->setMaxResults($value)
-        //->addSelect('a.name')
-        //->addSelect('a.id')
 		->orderBy('a.name', 'ASC')
         ->addSelect('COUNT(b.id)')
         ->groupBy('a.id')
@@ -72,7 +71,7 @@ class ThemeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('theme')
 		->innerJoin('theme.themeParent', 'tp')
-		->where('tp.id =  '.$parent)
+		->where('tp.id = '. $parent)
 		->orderBy('theme.id', 'DESC')
 		->setMaxResults($value)
 		->addSelect('tp.id')
