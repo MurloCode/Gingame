@@ -30,7 +30,7 @@ class Quizz
 	private $description;
 
 	/**
-	 * @ORM\ManyToMany(targetEntity=Question::class, inversedBy="quizzs")
+	 * @ORM\ManyToMany(targetEntity=Question::class, inversedBy="quizzs", cascade={"persist"})
 	 */
 	private $questions;
 

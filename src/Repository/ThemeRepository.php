@@ -31,7 +31,6 @@ class ThemeRepository extends ServiceEntityRepository
 		->groupBy('t.id')
 		->getQuery()
 		->getResult();
-
 	}
 
 
