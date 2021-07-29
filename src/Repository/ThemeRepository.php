@@ -66,6 +66,22 @@ class ThemeRepository extends ServiceEntityRepository
 		->getResult();
     }
 
+/**
+ * Get Themes from Parent ID.
+ */	
+    public function findChildFromParent($parent, $value = 30)
+    {
+        return $this->createQueryBuilder('theme')
+		->innerJoin('theme.themeParent', 'tp')
+		->where('tp.id =  '.$parent)
+		->orderBy('theme.id', 'DESC')
+		->setMaxResults($value)
+		->addSelect('tp.id')
+		->groupBy('theme.id')
+		->getQuery()
+		->getResult();
+    }
+
 	/*
 	public function findOneBySomeField($value): ?Theme
 	{
