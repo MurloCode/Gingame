@@ -6,7 +6,46 @@
 {% block title %}Profil de {{ user.login }}{% endblock %}
 
 {% block body %}
-
+	<p><a class="btn btn-primary btn-sm m-2" href="{{ path('user_index') }}" role="button"> liste utilisateurs</a></p>
+	
+	<h1>{{ user.login }}</h1>
+	
+	<div class="card mb-3 container" style="min-height:80vh" id="profil">
+		<div class="row g-0 container">
+			<div class="col-md-4 container">
+				
+				<img src="{{ asset('avatars/person-circle.svg')}}" class="img-fluid rounded-start" alt="..." id="avatar">
+				
+			</div>
+			
+			<div class="col-md-8">
+				<div class="card-body">
+					<br />
+					<p class="card-text"><th>Pseudo : </th>
+						<td>{{ user.login }}</td></p>
+					{# <p class="card-text"><th>Email : </th>
+					<td>{{ user.email }}</td></p> #}
+					<p class="card-text"><th>Date d'inscription :</th>
+						<td>{{ user.CreatedAt ? user.CreatedAt|date('d-m-Y') : '' }}</td></p>
+						
+					<p class="card-text"><th>Amis :</th>
+					{%for friends in user.friends%}
+						<td>{{friends.login}}</td>
+					{% endfor %}</p>
+					<table class="card-text"><caption style="caption-side:top">Historique</caption>
+				
+					{% for historic in historic %}
+					<tr><td>{{historic.quizz}} : </td> <th> {{historic.score}} / {{historic.outOf}}</th> <td>le</td> <td> {{historic.playedAt | date("d/m/Y")}}</td></tr>
+					{% endfor %}</table>
+					
+					<p><a class="btn btn-primary me-md-2" href="{{ path('user_edit', {'id': user.id}) }}" role="button"> Modifier </a></p>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	{{ include('user/_delete_form.html.twig') }}	
 
 	<div class="container">
     <div class="main-body">
