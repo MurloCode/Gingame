@@ -82,6 +82,10 @@ class AppFixtures extends Fixture
 		$movietheme->setImage("/img/cinema.jpeg");
 
 		$manager->persist($movietheme);
+
+		$randomtheme = new Theme();
+		$randomtheme->setName("Random");
+		$manager->persist($randomtheme);
 		
 		// Create Children Themes
 		$themes = [
