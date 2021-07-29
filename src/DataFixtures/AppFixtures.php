@@ -2703,7 +2703,7 @@ $manager->persist($questionPersonnages);
 	$manager->persist($proposition);
 
 	$proposition = new Proposition();
-	$proposition->setText("Propal4")->setIsValid(false)->setQuestion($questionPersonnages);
+	$proposition->setText("24")->setIsValid(false)->setQuestion($questionPersonnages);
 	$manager->persist($proposition);
 
 //8
@@ -2806,7 +2806,7 @@ $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas 
 $manager->persist($questionPersonnages);
 
 	$proposition = new Proposition();
-	$proposition->setText("Sydney Bristow")->setIsValid(true)->setQuestion($questionPersonnages);
+	$proposition->setText("Alias")->setIsValid(true)->setQuestion($questionPersonnages);
 	$manager->persist($proposition);
 						
 	$proposition = new Proposition();
@@ -2887,7 +2887,7 @@ $manager->persist($questionPersonnages);
 	$manager->persist($proposition);
 
 	$proposition = new Proposition();
-	$proposition->setText("Alias")->setIsValid(false)->setQuestion($questionPersonnages);
+	$proposition->setText("Les frères Scott")->setIsValid(false)->setQuestion($questionPersonnages);
 	$manager->persist($proposition);
 
 
