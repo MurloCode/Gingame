@@ -155,5 +155,17 @@ text-align: center;
     height:50px;
 }
 
+.result-title{
+    text-align: center;
+}
+.result-container{
+    text-align: center;
+    
+}
+.result-main{
+    display: flex;
+    flex-direction: column;
+}
+
 /* About */
 /* cf oquizzabout.css */
