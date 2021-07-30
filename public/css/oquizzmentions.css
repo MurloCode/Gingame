@@ -1,0 +1,68 @@
+
+body{
+    background-image:url(../img/space.webp);
+}
+
+@font-face{
+  font-family: 'Starjedi';
+  src: url('/police/Starjedi.woff');
+}
+
+#scroll-container {
+  border-radius: 5px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+ 
+#scroll-text {
+  height: 100%;
+  text-align: center;
+  color:rgb(245, 241, 42);
+  text-align: center;
+  font-size:x-large;
+  font-weight: 800;
+  width: 80%;
+
+/* animation properties */
+  -moz-transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  
+  -moz-animation: my-animation 50s linear infinite;
+  -webkit-animation: my-animation 50s linear infinite;
+  animation: my-animation 50s linear infinite;
+}
+
+
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateY(100%); }
+  to { -moz-transform: translateY(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateY(100%); }
+  to { -webkit-transform: translateY(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  to {
+    -moz-transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+
+.titreMentions{
+    text-align: center;
+    color: rgb(245, 241, 42) 
+}
