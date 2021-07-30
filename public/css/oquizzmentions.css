@@ -15,16 +15,16 @@ body{
   display: flex;
   justify-content: center;
   /* transform-origin: 50% 20%; */
-  transform:perspective(40rem) rotateX(30deg);
+  transform:perspective(40rem) rotateX(25deg);
 }
  
 #scroll-text {
-  /* height: 80vh;  */
+  height: 80vh;  
   text-align: center;
   color:rgb(245, 241, 42);
   text-align: center;
-  font-size:x-large;
-  font-weight: 800;
+  font-size: large;
+  font-weight: bold;
   width: 80%;
 
 /* animation properties */
@@ -60,8 +60,8 @@ body{
     color: rgb(245, 241, 42) 
 }
 
-.footerbot {
-  position:sticky;
+/* .footerbot {
+  position:fixed;
   height:auto;
   padding-top:0;
 }
@@ -69,9 +69,10 @@ body{
 .bg-oquizz {
   position: fixed;
   height:10vh;
+  width:100%
 }
 
 .bg-oquizzblue {
   position:fixed;
   top:10vh;
-}
+} */
