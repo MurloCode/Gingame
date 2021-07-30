@@ -1,12 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-	<div class="container">
-		<h1>Résultats :</h1>
-		{{ dump(result) }}
-		<h2>Tu as
-			{{ result.score }}
-			/
-			{{ result.outOf }}</h2>
+<main class="result-main">
+<h1 class="result-title"> Nom du quizz </h1>
+	<div class="container result-container">
+	<h2>Félicitations tu as obtenue la note de : {{ result.score }} / {{ result.outOf }} </h2>
+	<img src="{{ asset('img/homer.png') }}" alt="">
 	</div>
+			</main>
 {% endblock %}
+	
