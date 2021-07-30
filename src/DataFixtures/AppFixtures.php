@@ -3407,7 +3407,7 @@ public function load(ObjectManager $manager)
 					$manager->persist($questionCinéma);
 
 					$proposition = new Proposition();
-					$proposition->setText("Fuck")->setIsValid(true)->setQuestion($questionCinéma);
+					$proposition->setText("F*ck")->setIsValid(true)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
 										
 					$proposition = new Proposition();
