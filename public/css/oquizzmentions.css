@@ -1,6 +1,6 @@
 
 body{
-    background-image:url(../img/space.webp);
+  background-image:url(../img/space.webp);
 }
 
 @font-face{
@@ -10,14 +10,16 @@ body{
 
 #scroll-container {
   border-radius: 5px;
-  height: 100%;
+  /* height: 100%; */
   overflow: hidden;
   display: flex;
   justify-content: center;
+  /* transform-origin: 50% 20%; */
+  transform:perspective(40rem) rotateX(30deg);
 }
  
 #scroll-text {
-  height: 100%;
+  /* height: 80vh;  */
   text-align: center;
   color:rgb(245, 241, 42);
   text-align: center;
@@ -30,20 +32,11 @@ body{
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
   
-  -moz-animation: my-animation 50s linear infinite;
-  -webkit-animation: my-animation 50s linear infinite;
-  animation: my-animation 50s linear infinite;
+  -moz-animation: my-animation 30s linear infinite;
+  -webkit-animation: my-animation 30s linear infinite;
+  animation: my-animation 30s linear infinite;
 }
 
-
-
-/* for Firefox */
-@-moz-keyframes my-animation {
-  from { -moz-transform: translateY(100%); }
-  to { -moz-transform: translateY(-100%); }
-}
-
-/* for Chrome */
 @-webkit-keyframes my-animation {
   from { -webkit-transform: translateY(100%); }
   to { -webkit-transform: translateY(-100%); }
@@ -65,4 +58,20 @@ body{
 .titreMentions{
     text-align: center;
     color: rgb(245, 241, 42) 
+}
+
+.footerbot {
+  position:sticky;
+  height:auto;
+  padding-top:0;
+}
+
+.bg-oquizz {
+  position: fixed;
+  height:10vh;
+}
+
+.bg-oquizzblue {
+  position:fixed;
+  top:10vh;
 }
