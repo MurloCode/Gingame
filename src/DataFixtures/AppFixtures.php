@@ -3468,13 +3468,13 @@ class AppFixtures extends Fixture
                 $manager->persist($proposition);
                 //18
                 $questionCinéma = new Question();
-                $questionCinéma->setQuestion("Quel mmot est prononcé 226 fois dans Scarface ?");
+                $questionCinéma->setQuestion("Quel mot est prononcé 226 fois dans Scarface ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
                 $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
-                $proposition->setText("Fuck")->setIsValid(true)->setQuestion($questionCinéma);
+                $proposition->setText("F*ck")->setIsValid(true)->setQuestion($questionCinéma);
                 $manager->persist($proposition);
                                         
                 $proposition = new Proposition();
