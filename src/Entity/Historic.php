@@ -47,6 +47,10 @@ class Historic
         $this->playedAt = new DateTime(); 
     }
 
+    public function __toString(){
+        return $this->playedAt;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Historic;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\HistoricRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,10 +53,15 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}", name="user_profil", methods={"GET"})
      */
-    public function show(User $user): Response
-    {
+    public function show(User $user, HistoricRepository $historic): Response
+    {   
+        $historidisplay = $historic->findAll();
+        
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'historic' => $historidisplay
+            
+            
         ]);
     }
 
