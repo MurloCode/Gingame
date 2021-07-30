@@ -3421,7 +3421,7 @@ public function load(ObjectManager $manager)
 					$proposition = new Proposition();
 					$proposition->setText("Money")->setIsValid(false)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
-					//19
+					//190
 					$questionCinéma = new Question();
 					$questionCinéma->setQuestion("Quelle célèbre réalisatrice joue le bébé dans la scène du baptème dans Le Parrain ?");
 					$questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma)); 
