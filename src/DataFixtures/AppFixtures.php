@@ -3053,7 +3053,7 @@ public function load(ObjectManager $manager)
 					$manager->persist($questionCinéma);
 
 					$proposition = new Proposition();
-					$proposition->setText("Ca devait etre une série")->setIsValid(true)->setQuestion($questionCinéma);
+					$proposition->setText("Cela devait etre une série")->setIsValid(true)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
 										
 					$proposition = new Proposition();
@@ -3070,7 +3070,7 @@ public function load(ObjectManager $manager)
 
 					//3
 					$questionCinéma = new Question();
-					$questionCinéma->setQuestion("A l'origine, de quel film Die Hard: Piège de cristal devait il etre la suite ?");
+					$questionCinéma->setQuestion("A l'origine, de quel film Die Hard:Piège de cristal devait-il etre la suite ?");
 					$questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma)); 
 					$questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
 					$manager->persist($questionCinéma);
@@ -3190,7 +3190,7 @@ public function load(ObjectManager $manager)
 					$manager->persist($proposition);
 										
 					$proposition = new Proposition();
-					$proposition->setText("Philips Hue")->setIsValid(false)->setQuestion($questionCinéma);
+					$proposition->setText("Néon")->setIsValid(false)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
 
 					$proposition = new Proposition();
@@ -3379,29 +3379,29 @@ public function load(ObjectManager $manager)
 					$manager->persist($proposition);
 					//17
 					$questionCinéma = new Question();
-					$questionCinéma->setQuestion("énoncéDeLaQuestion");
+					$questionCinéma->setQuestion("Sur les 6 films de la franchise Transformers, combien en a réalisé Michael Bay ?");
 					$questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma)); 
 					$questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
 					$manager->persist($questionCinéma);
 
 					$proposition = new Proposition();
-					$proposition->setText("propal1")->setIsValid(true)->setQuestion($questionCinéma);
+					$proposition->setText("5")->setIsValid(true)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
 										
 					$proposition = new Proposition();
-					$proposition->setText("Propal2")->setIsValid(false)->setQuestion($questionCinéma);
+					$proposition->setText("6")->setIsValid(false)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
 
 					$proposition = new Proposition();
-					$proposition->setText("Propal3")->setIsValid(false)->setQuestion($questionCinéma);
+					$proposition->setText("4")->setIsValid(false)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
 
 					$proposition = new Proposition();
-					$proposition->setText("Propal4")->setIsValid(false)->setQuestion($questionCinéma);
+					$proposition->setText("3")->setIsValid(false)->setQuestion($questionCinéma);
 					$manager->persist($proposition);
 					//18
 					$questionCinéma = new Question();
-					$questionCinéma->setQuestion("Quel mmot est prononcé 226 fois dans Scarface ?");
+					$questionCinéma->setQuestion("Quel mot est prononcé 226 fois dans Scarface ?");
 					$questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma)); 
 					$questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
 					$manager->persist($questionCinéma);
