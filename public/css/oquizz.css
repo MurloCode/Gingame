@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'code_nextextrabold';
     src: url('/police/codenext-extrabold-webfont.eot');
@@ -165,7 +166,9 @@ text-align: center;
 .result-main{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 /* About */
 /* cf oquizzabout.css */
+
