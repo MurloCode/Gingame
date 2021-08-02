@@ -38,7 +38,7 @@ class RegisterType extends AbstractType
             'options' => ['attr' => ['autocomplete' => 'new-password', 'class' => 'form-control', 'placeholder' => 'Exemple: 0Qu1zz@123'],],
             'required' => true,
             'first_options'  => ['label' => 'Mot de passe'],
-            'second_options' => ['label' => 'Confirmation mot de passe'],
+            'second_options' => ['label' => 'Confirmation du mot de passe'],
             'constraints' => [
                 new NotBlank([
                     'message' => 'Veuillez saisir un mot de passe',
