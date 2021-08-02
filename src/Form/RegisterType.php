@@ -5,6 +5,7 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
@@ -31,10 +32,13 @@ class RegisterType extends AbstractType
         //     ],
         // ])
        // plain password to record the registration
-        ->add('plainPassword', PasswordType::class, [
-            
-            'mapped' => false,
-            'attr' => ['autocomplete' => 'new-password', 'class' => 'form-control', 'placeholder' => 'Exemple: 0Qu1zz@123'],
+        ->add('password', RepeatedType::class, [
+            'type' => PasswordType::class,
+            'invalid_message' => 'Le mot de passe doit être le même',
+            'options' => ['attr' => ['class' => 'password-field']],
+            'required' => true,
+            'first_options'  => ['label' => 'Mot de passe'],
+            'second_options' => ['label' => 'Confirmation mot de passe'],
             'constraints' => [
                 new NotBlank([
                     'message' => 'Veuillez saisir un mot de passe',
