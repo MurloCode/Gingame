@@ -206,14 +206,14 @@ class AppFixtures extends Fixture
                 // Années 8090
                 $Années8090 = new Theme();
                 $Années8090->setName("Années8090"); // Nom de la série
-                $Années8090->setImage("/img/1.png");
+                $Années8090->setImage("");
                 $Années8090->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($Années8090);
 
                 // How i met your mother
                 $HowIMetYourMother = new Theme();
                 $HowIMetYourMother->setName("How I Met Your Mother"); // Nom de la série
-                $HowIMetYourMother->setImage("/img/serietv/howimetyourmother.jpeg");
+                $HowIMetYourMother->setImage("");
                 $HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($HowIMetYourMother);
 
@@ -226,10 +226,15 @@ class AppFixtures extends Fixture
 
                 // Cinéma
                 $cinéma = new Theme();
-                $cinéma->setName("nom_de_a_série"); // Nom du quizz
-            $cinéma->addThemeParent($parentTheme); // Cinéma
-            $manager->persist($cinéma);
+                $cinéma->setName("Cinéma"); // Nom du quizz
+                $cinéma->addThemeParent($parentTheme); // Cinéma
+                $manager->persist($cinéma);
 
+                // Demo
+                $demo = new Theme();
+                $demo->setName("Démo"); // Nom de la série 
+                $demo->addThemeParent($parentTheme); // Serie TV
+                $manager->persist($demo);
                 // Quizz builder
 
                 $quizzFriends = new Quizz();
@@ -266,6 +271,12 @@ class AppFixtures extends Fixture
                 $quizzCinéma->setName("Cinéma"); // Titre du Quizz, à modifier
                 $quizzCinéma->addTheme($cinéma)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzCinéma);
+
+
+                $quizzDemo = new Quizz();
+                $quizzDemo->setName("Demo oQuizz"); // Titre du Quizz, à modifier
+                $quizzDemo->addTheme($demo)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+                $manager->persist($quizzDemo);
 
                 // Quizz Connaissez-vous Friends?
                 
@@ -3528,6 +3539,243 @@ class AppFixtures extends Fixture
                 $proposition->setText("Iron Man")->setIsValid(false)->setQuestion($questionCinéma);
                 $manager->persist($proposition);
                     
+
+
+                // 1
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Quel formateur aurait pu être commandant de bord pour la compagnie o'Clock Airlines ?");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Michael")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("Alexis")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Charles")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Julien")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                //2
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("De quel animal Morgan est-il fan ?");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Les poneys")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("Les licornes")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Les guêpes")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Les chats")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                //3
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Quel est le titre du prochain livre de Charles ?");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Plus tard")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("symfony pour les noobs")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Guillaume Musso, le best-of")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("L'aube vue du ciel sur googlemaps")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+
+                //4
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Quelle est l'autre passion d'Alexis ?");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("La musique")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("Nous")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("La bataille navale")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Les faits divers en Drôme occidentale")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+
+                //5
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Qui place des WC DANS la cuisine et pour le coup est super méga archi nul aux sims ? ");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Greg")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("Charles")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Alexis")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Morgan")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+
+                //6
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Comment s'appelle le chien d'Alexis ?");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Buster")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("Remorqueur")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Milou")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Achetéaimèlee")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+
+                //7
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Quelle est la couleur préférée de la promo");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("fof")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("bof")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("pof")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("rohff")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+
+                //8
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Si on vous dit Ascenseur, vous pensez à :");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Charles")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("Greg")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Julien")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Morgan")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                //9
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Qui casse le code à la majorité de ses visites ? ");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Alexis")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("Michael")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Greg")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("Morgane")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                //10
+                $questionDemo = new Question();
+                $questionDemo->setQuestion("Complète ces paroles : On fait le bilan, calmement ...");
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
+                $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $manager->persist($questionDemo);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("...en se remémorant chaque instant ")->setIsValid(true)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+                                        
+                    $proposition = new Proposition();
+                    $proposition->setText("... on a kiffé tranquillement")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("... on se rappellera chaque moment")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
+                    $proposition = new Proposition();
+                    $proposition->setText("... faut que j'aille chercher mes enfants")->setIsValid(false)->setQuestion($questionDemo);
+                    $manager->persist($proposition);
+
                 $manager->flush();
             }
         }
