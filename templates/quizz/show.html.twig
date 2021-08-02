@@ -20,8 +20,8 @@
 
 	<body class="d-flex flex-column h-100">
 		<div class="header-quizz">
-			<div class="container-fluid container-progress-bar">
-				<div class="row navquizztext d-flex align-items-center">
+			<div class="container-progress-bar">
+				<div class="navquizztext d-flex align-items-center">
 					<div class="col-2 "><a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a></div>
 					<div class="col-8"><h1 class="navquizztext">{{quizz.name}}</h1></div>
 					<div class="col-2 closebutton"><button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal">X</button></div>
@@ -57,7 +57,7 @@
 						{% for proposition in question.propositions|oShuffle %}
 							<div class="col-lg-6 col-sm-12">
 								<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
-								<label class="btn btn-outline-primary formbutton navquizztext" for="{{proposition.id}}">{{proposition.text}}</label>
+								<label class="btn btn-outline-primary formbutton navquizztext d-flex align-items-center justify-content-center" for="{{proposition.id}}">{{proposition.text}}</label>
 							</div>
 						{% endfor %}
 					</div>
