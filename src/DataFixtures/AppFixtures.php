@@ -275,7 +275,7 @@ class AppFixtures extends Fixture
 
                 $quizzDemo = new Quizz();
                 $quizzDemo->setName("Demo oQuizz"); // Titre du Quizz, à modifier
-                $quizzDemo->addTheme($Demo)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+                $quizzDemo->addTheme($demo)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzDemo);
 
                 // Quizz Connaissez-vous Friends?
@@ -3544,7 +3544,7 @@ class AppFixtures extends Fixture
                 // 1
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Quel formateur aurait pu être commandant de bord pour la compagnie o'Clock Airlines ?");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3567,7 +3567,7 @@ class AppFixtures extends Fixture
                 //2
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("De quel animal Morgan est-il fan ?");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3590,7 +3590,7 @@ class AppFixtures extends Fixture
                 //3
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Quel est le titre du prochain livre de Charles ?");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3614,7 +3614,7 @@ class AppFixtures extends Fixture
                 //4
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Quelle est l'autre passion d'Alexis ?");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3638,7 +3638,7 @@ class AppFixtures extends Fixture
                 //5
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Qui place des WC DANS la cuisine et pour le coup est super méga archi nul aux sims ? ");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3662,7 +3662,7 @@ class AppFixtures extends Fixture
                 //6
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Comment s'appelle le chien d'Alexis ?");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3686,7 +3686,7 @@ class AppFixtures extends Fixture
                 //7
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Quelle est la couleur préférée de la promo");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3710,7 +3710,7 @@ class AppFixtures extends Fixture
                 //8
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Si on vous dit Ascenseur, vous pensez à :");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3733,7 +3733,7 @@ class AppFixtures extends Fixture
                 //9
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Qui casse le code à la majorité de ses visites ? ");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
@@ -3756,7 +3756,7 @@ class AppFixtures extends Fixture
                 //10
                 $questionDemo = new Question();
                 $questionDemo->setQuestion("Complète ces paroles : On fait le bilan, calmement ...");
-                $questionDemo->addQuizz($quizzDemo)->addTheme($Demo); 
+                $questionDemo->addQuizz($quizzDemo)->addTheme($demo); 
                 $questionDemo->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionDemo);
 
