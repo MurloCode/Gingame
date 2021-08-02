@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Quizz;
 use App\Form\PropositionType;
 use App\Form\QuestionType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -22,29 +23,30 @@ class QuizzCrudController extends AbstractCrudController
 	
 	public function configureFields(string $pageName): iterable
 	{
-		$newQuestion = 
+		return  [
+			'name',
+			'description',
 			CollectionField::new('new_questions')
+				//->setCssClass("myClass")
+				//->setProperty('Property_Question')
 				->setFormtypeOption("mapped",false)
-				->setEntryType(QuestionType::class)
 				->setEntryIsComplex(true)
 				->allowAdd()
 				->allowDelete()
-		;
-
-		$fields =  [
-			'name',
-			'description',
-			$newQuestion,
-			AssociationField::new('questions'),
+				->setEntryType(QuestionType::class)
+				->hideOnIndex(),
+			
 			AssociationField::new('themes'),
-		
+				//AssociationField::new('questions'),
 		];
-	   /* $monsuperparamdurl = true;
-		if($monsuperparamdurl){
-			$fields[] = AssociationField::new('questions');
-		}*/
 		
-		return $fields;
 	}
 	
+	public function configureCrud(Crud $crud): Crud
+	{
+		return $crud
+			->setDefaultSort(['id' => 'DESC'])
+			->addFormTheme('admin/dashboard/index.html.twig');
+	}
+
 }

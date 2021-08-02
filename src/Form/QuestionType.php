@@ -25,12 +25,20 @@ class QuestionType extends AbstractType
 			// ->add('wrong_elem')
 			// ->add('quizzs')
 			// ->add('themes')
+
 			->add('propositions', CollectionType::class, [
 				'entry_type' => PropositionType::class,
 				'allow_add' => true,
 				'allow_delete' => true,
 				'prototype_name' => 'props',
 			])
+
+			// ->add('propositions', CollectionType::class, [
+			// 	'entry_type' => PropositionType::class,
+			// 	'allow_add' => true,
+			// 	'allow_delete' => true,
+			// 	'prototype_name' => 'props',
+			// ])
 			
 		;
 	}
