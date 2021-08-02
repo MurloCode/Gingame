@@ -35,7 +35,7 @@ class RegisterType extends AbstractType
         ->add('password', RepeatedType::class, [
             'type' => PasswordType::class,
             'invalid_message' => 'Le mot de passe doit être le même',
-            'options' => ['attr' => ['class' => 'password-field']],
+            'options' => ['attr' => ['autocomplete' => 'new-password', 'class' => 'form-control', 'placeholder' => 'Exemple: 0Qu1zz@123'],],
             'required' => true,
             'first_options'  => ['label' => 'Mot de passe'],
             'second_options' => ['label' => 'Confirmation mot de passe'],
