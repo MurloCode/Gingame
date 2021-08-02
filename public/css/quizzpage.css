@@ -18,7 +18,7 @@ body {
 .container-progress-bar {
 	color: rgb(200, 200, 219);
 	background: rgb(1, 1, 114);
-	box-shadow: 0 0.2em 0.4em #4593f5;
+	box-shadow: 0 0.5em 0.8em #4593f5;
 	font-size: 0.9em;
 	margin-top:0 !important;
 }
@@ -160,12 +160,6 @@ button.sendQuizz {
 	  z-index: -1;
   }
 
-
-
-
-
-
-
   canvas {
     z-index: 1;
     position: absolute;
@@ -281,4 +275,10 @@ button.sendQuizz {
     100% {
         text-shadow: 0 0 40px rgba(0, 0, 0, .8);
     }
+}
+
+@media screen and (min-width: 900px) {
+	.propositions input[type="radio"] + .formbutton {
+		height: 100px;
+	}
 }
