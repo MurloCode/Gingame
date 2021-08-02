@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Historic;
 use App\Entity\User;
 use App\Form\UserEditType;
+use App\Form\UserType;
 use App\Repository\HistoricRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -79,7 +80,7 @@ class UserController extends AbstractController
          
            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_profil', [['id' => $user->getId()]]);
+            return $this->redirectToRoute('user_profil', ['id' => $user->getId()]);
         }
         
 
