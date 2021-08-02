@@ -3252,7 +3252,7 @@ class AppFixtures extends Fixture
                 $manager->persist($proposition);
                                         
                 $proposition = new Proposition();
-                $proposition->setText("Philips Hue")->setIsValid(false)->setQuestion($questionCinéma);
+                $proposition->setText("Néon")->setIsValid(false)->setQuestion($questionCinéma);
                 $manager->persist($proposition);
 
                 $proposition = new Proposition();
@@ -3441,26 +3441,26 @@ class AppFixtures extends Fixture
                 $manager->persist($proposition);
                 //17
                 $questionCinéma = new Question();
-                $questionCinéma->setQuestion("énoncéDeLaQuestion");
-                $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
-                $manager->persist($questionCinéma);
+					$questionCinéma->setQuestion("Sur les 6 films de la franchise Transformers, combien en a réalisé Michael Bay ?");
+					$questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma)); 
+					$questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$manager->persist($questionCinéma);
 
-                $proposition = new Proposition();
-                $proposition->setText("propal1")->setIsValid(true)->setQuestion($questionCinéma);
-                $manager->persist($proposition);
-                                        
-                $proposition = new Proposition();
-                $proposition->setText("Propal2")->setIsValid(false)->setQuestion($questionCinéma);
-                $manager->persist($proposition);
+					$proposition = new Proposition();
+					$proposition->setText("5")->setIsValid(true)->setQuestion($questionCinéma);
+					$manager->persist($proposition);
+										
+					$proposition = new Proposition();
+					$proposition->setText("6")->setIsValid(false)->setQuestion($questionCinéma);
+					$manager->persist($proposition);
 
-                $proposition = new Proposition();
-                $proposition->setText("Propal3")->setIsValid(false)->setQuestion($questionCinéma);
-                $manager->persist($proposition);
+					$proposition = new Proposition();
+					$proposition->setText("4")->setIsValid(false)->setQuestion($questionCinéma);
+					$manager->persist($proposition);
 
-                $proposition = new Proposition();
-                $proposition->setText("Propal4")->setIsValid(false)->setQuestion($questionCinéma);
-                $manager->persist($proposition);
+					$proposition = new Proposition();
+					$proposition->setText("3")->setIsValid(false)->setQuestion($questionCinéma);
+					$manager->persist($proposition);
                 //18
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel mot est prononcé 226 fois dans Scarface ?");
