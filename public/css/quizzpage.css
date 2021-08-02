@@ -54,7 +54,7 @@ body {
 }
 
 .propositions input[type="radio"] + .formbutton {
-	font-family: "Montserrat", sans-serif;
+	/* font-family: "Montserrat", sans-serif; */
 	background: rgb(1, 1, 114);
 	color: black;
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
@@ -90,16 +90,18 @@ h1 {
 button.sendQuizz:disabled {
 	background: rgb(199, 199, 199);
 	opacity: 1;
-	color: #52a3fe;
-	text-shadow: 0 -1px #e9f3ff;
+	color: white;
+    text-shadow: 2px 0 0 rgb(128, 128, 128), -2px 0 0 rgb(128, 128, 128), 0 2px 0 rgb(128, 128, 128), 0 -2px 0 rgb(128, 128, 128), 1px 1px rgb(128, 128, 128), -1px -1px 0 rgb(128, 128, 128), 1px -1px 0 rgb(128, 128, 128), -1px 1px 0 rgb(128, 128, 128);
+
 }
 button.sendQuizz {
 	background: #87dd4a;
 	width: 100%;
 	height: 10vh;
 	border: 0;
-	color: #fff;
-	text-shadow: 0 -1px #75c03f;
+	color: black;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
 }
 
 .oldtv {

@@ -21,16 +21,17 @@
 	<body class="d-flex flex-column h-100">
 		<div class="header-quizz">
 			<div class="container-progress-bar">
-				<div class="text-center navquizztext">
-					<a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="d-block headerlogo" src="{{ asset('img/1.png')}}" alt=""></a>
-					<h1 class="navquizztext">{{quizz.name}}</h1>
+				<div class="row navquizztext">
+					<div class="col-1 "><a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a></div>
+					<div class="col-10 mx-auto navquizztext"><h1 class="navquizztext">{{quizz.name}}</h1></div>
+					<div class="col-1 mx-auto text-center ps-1"><button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal">X</button></div>
 				</div>
 			</div>
 			<div class="progress">
 				<div class="progress-bar" role="progressbar" style="width: {{ progress['percentage'] }}%" aria-valuemax="100"></div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="texte_centrer">{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }}</div>
 			<div class="questionBlock question-quizz p-2 text-center">
 				<br />
@@ -46,7 +47,7 @@
 						{% for proposition in question.propositions|oShuffle %}
 							<div class="col-lg-6 col-sm-12">
 								<input onclick="enableButton()" type="radio" class="btn-check btn-lg" name="options" value="{{proposition.id}}" id="{{proposition.id}}" autocomplete="off">
-								<label class="btn btn-outline-primary formbutton " for="{{proposition.id}}">{{proposition.text}}</label>
+								<label class="btn btn-outline-primary formbutton navquizztext" for="{{proposition.id}}">{{proposition.text}}</label>
 							</div>
 						{% endfor %}
 					</div>
@@ -55,8 +56,7 @@
 
 		</div>
 	</body>
-</html></div><!-- Button trigger modal --><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="position:absolute; top:10px; right:10px;">
-X</button><!-- Modal --><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+</html></div><!-- Button trigger modal --><!-- Modal --><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
 	<div class="modal-content">
 		<div class="modal-header">
