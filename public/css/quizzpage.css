@@ -8,21 +8,23 @@ body {
 	height: 10vh;
 }
 .question-quizz {
-	height: 50vh;
 }
 .proposition-quizz {
 	/* height: 45vh; */
 }
-
+.closebutton {
+	text-align: right;
+}
 .container-progress-bar {
 	color: rgb(200, 200, 219);
 	background: rgb(1, 1, 114);
 	box-shadow: 0 0.2em 0.4em #4593f5;
 	font-size: 0.9em;
+	margin-top:0 !important;
 }
 
 .progress {
-	height: 0.2rem;
+	height: 0.4rem;
 	background: transparent;
 }
 .progress-bar {
@@ -30,20 +32,41 @@ body {
 	border-radius: 0 0.5em 0.5em 0;
 }
 
-.questionBlock {
+.quizz-tv-container {
 	background-color: rgb(212, 212, 212);
 	box-shadow: 0 0.2em 0.5em rgba(29, 42, 58, 0.2);
-	min-height: 20vh;
 	border-radius: 5px;
+}
+
+.questionBlock {
+	min-height: 20vh;
 	color: #fff;
 	font-size: 1.3em;
 	font-weight: 500;
 	position: relative;
 }
 
+.quizz-tv-img-text-wrapper {
+	position: relative;
+	max-width: 100%;
+	width: 800px;
+	margin: 0 auto;
+}
+
+.questionBlock img {
+	width: 100%;
+}
+
+.quizzcard {
+	position: absolute;
+	top: 44%;
+	left: 42%;
+	transform: translate(-50%, -50%);
+}
+
 .questionBlock::after{
 	content: "";
-	background: url("/img/old-tv.png");
+	/* background: url("/img/old-tv.png"); */
 	background-size: cover;
     margin: 0 auto;
 	width: 100%;
@@ -51,6 +74,12 @@ body {
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+@media screen and (max-width: 600px) {
+	.quizzcard {
+		font-size: 0.8em !important;
+	}
 }
 
 .propositions input[type="radio"] + .formbutton {

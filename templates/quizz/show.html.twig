@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{{quizz.name}}
 			- O'Quizz</title>
 
@@ -20,24 +20,23 @@
 
 	<body class="d-flex flex-column h-100">
 		<div class="header-quizz">
-			<div class="container-progress-bar">
-				<div class="row navquizztext">
-					<div class="col-1 "><a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a></div>
-					<div class="col-10 mx-auto navquizztext"><h1 class="navquizztext">{{quizz.name}}</h1></div>
-					<div class="col-1 mx-auto text-center ps-1"><button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal">X</button></div>
+			<div class="container-fluid container-progress-bar">
+				<div class="row navquizztext d-flex align-items-center">
+					<div class="col-2 "><a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a></div>
+					<div class="col-8"><h1 class="navquizztext">{{quizz.name}}</h1></div>
+					<div class="col-2 closebutton"><button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal">X</button></div>
 				</div>
 			</div>
 			<div class="progress">
 				<div class="progress-bar" role="progressbar" style="width: {{ progress['percentage'] }}%" aria-valuemax="100"></div>
 			</div>
 		</div>
-		<div class="container-fluid">
-			<div class="texte_centrer">{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }}</div>
-			<div class="questionBlock question-quizz p-2 text-center">
-				<br />
-				<br />
-				<br />
-				<span class="quizzcard navquizztext">{{ question.question }}</span>
+		<div class="container-fluid quizz-tv-container">
+			<div class="quizz-tv-img-text-wrapper">
+				<div class="questionBlock question-quizz text-center">
+					<img src="{{ asset ("/img/old-tv.png")}}" alt="">
+					<span class="quizzcard navquizztext">{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }} <br /> {{ question.question }}</span>
+				</div>
 			</div>
 		</div>
 		<div class="container">
