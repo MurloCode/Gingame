@@ -3,13 +3,28 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-<p><a class="btn btn-danger m-2" href="{{ path('user_index') }}" role="button"> < retour </a></p>
-    <br />
-    <h1>Edit User</h1>
-    <br />
-    <main class="container">
-{% block content %}
-	{{ form(form) }}{% endblock %}
-    </main>
-    {{ include('user/_delete_form.html.twig') }}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://bootdey.com/img/Content/avatar/avatar7.png"><span class="font-weight-bold">{{user.login}}</span><span class="text-black-50">{{user.email}}</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                {{ form_start(form) }}
+                    <div class="col-md-6">{{form_row(form.login, { label:'Login:'} )}}</div>
+                    <div class="col-md-6">{{form_row(form.email, { label:'Mail:'} )}}</div>
+                    <div class="col-md-6">{{form_widget(form._token)}}</div>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{{ form_end(form, {render_rest: false}) }}
 {% endblock %}

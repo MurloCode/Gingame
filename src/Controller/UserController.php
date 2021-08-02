@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Historic;
 use App\Entity\User;
+use App\Form\UserEditType;
 use App\Form\UserType;
 use App\Repository\HistoricRepository;
 use App\Repository\UserRepository;
@@ -73,11 +74,15 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+        if ($form->isSubmitted() && $form->isValid())  {
+         
+         
+         
+           $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('user_profil', ['id' => $user->getId()]);
         }
+        
 
         return $this->renderForm('user/edit.html.twig', [
             'user' => $user,
