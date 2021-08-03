@@ -13,9 +13,16 @@ class UserVoter extends Voter
 
     protected function supports(string $attribute, $subject): bool
     {
+         // $attribute ==> USER_EDIT
+        // $subject ==> $user
+        // dump($attribute, $subject);
+
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, [self::USER_EDIT])
+        // Cette ligne retournera VRAI si les deux conditions
+        // sont respectées : 
+        // 
+        return in_array($attribute, ['USER_EDIT', 'USER_VIEW'])
             && $subject instanceof \App\Entity\User;
     }
 
@@ -29,7 +36,10 @@ class UserVoter extends Voter
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'POST_EDIT':
+            case 'USER_EDIT':
+                if($user == $subject){
+                    return true;
+                }
                 // logic to determine if the user can EDIT
                 // return true or false
                 break;
