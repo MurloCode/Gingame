@@ -14,3 +14,18 @@ section.content-header::before,
 section.content-header::after {
 	background-color: transparent;
 }
+
+@media (min-width: 1280px) {
+	.form-group label,
+	.form-group legend.col-form-label {
+		flex: 0% 0 0;
+	}
+}
+@media (min-width: 1024px) {
+	.form-group label,
+	.form-group legend.col-form-label {
+		flex: 0% 0 0;
+		margin: 5px 5px 0 0;
+		text-align: right;
+	}
+}

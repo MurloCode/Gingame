@@ -31,6 +31,7 @@ class QuestionType extends AbstractType
 				'allow_add' => true,
 				'allow_delete' => true,
 				'prototype_name' => 'props',
+				'block_name' => 'propositions',
 			])
 
 			// ->add('propositions', CollectionType::class, [

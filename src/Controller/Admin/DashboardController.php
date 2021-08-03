@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Question;
 use App\Entity\Quizz;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Asset;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -50,11 +51,16 @@ class DashboardController extends AbstractDashboardController
 		
 	}
 
+
+	
 	public function configureAssets(): Assets
 	{
 		return Assets::new()
 			->addCssFile('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css')
-			->addCssFile('css/admin/admin.css');
+			->addCssFile('css/admin/admin.css')
+			->addJsFile('js/admin/admin.js')
+			// ->addJsFile(Asset::new('js/admin/admin.js')->defer())
+		;
 	}
 
 	// public function configureCrud(): Crud

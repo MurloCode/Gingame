@@ -41,7 +41,7 @@ class QuizzCrudController extends AbstractCrudController
 		];
 		
 	}
-	
+
 	public function configureCrud(Crud $crud): Crud
 	{
 		return $crud
