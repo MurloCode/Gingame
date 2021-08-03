@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Proposition;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,12 +16,21 @@ class PropositionType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
-			->add('text')
+			->add('text', TextType::class, [
+
+				'label' => 'Proposition',
+				'attr' => [
+					'class' => 'testCSS'
+				],
+
+			])
 			// ->add('text', TextType::class, [
 			// 	'label' => 'Proposition',
 
 			// ])
-			->add('is_valid')
+			->add('is_valid', CheckboxType::class, [
+				'label' => 'Bonne réponse',
+			])
 		;
 	}
 
@@ -28,6 +38,9 @@ class PropositionType extends AbstractType
 	{
 		$resolver->setDefaults([
 			'data_class' => Proposition::class,
+			'attr' => [
+				'class' => 'eaPropositionCSS',
+			],
 		]);
 	}
 

@@ -1,31 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
 :root {
 	/* make the backend contents as wide as the browser window */
 	--body-max-width: 90%;
 	/* change the background color of the <body> */
-	--body-bg: #f5f5f5;
+	--body-bg: #fff;
 	/* make the base font size smaller */
 	--font-size-base: 13px;
 	/* remove all border radius to make corners straight */
 	--border-radius: 0px;
 }
 
+body {
+	font-family: Roboto, sans-serif;
+}
+
+input {
+	width: 100%;
+}
+
 section.content-header,
 section.content-header::before,
 section.content-header::after {
-	background-color: transparent;
+	background-color: var(--body-bg);
 }
 
-@media (min-width: 1280px) {
-	.form-group label,
-	.form-group legend.col-form-label {
-		flex: 0% 0 0;
-	}
+.form-widget .form-select,
+.form-widget input.form-control,
+.form-widget textarea.form-control {
+	max-width: 100%;
 }
-@media (min-width: 1024px) {
-	.form-group label,
-	.form-group legend.col-form-label {
-		flex: 0% 0 0;
-		margin: 5px 5px 0 0;
-		text-align: right;
-	}
+.form-group label,
+.form-group legend.col-form-label {
+	text-align: left;
+}
+/* Reset Flex to Block */
+.field-collection-item,
+.form-widget-compound .form-group,
+.form-group,
+.form-inline .form-inline {
+	display: block;
+}
+
+.form-widget-compound .form-group {
+	padding: 5px;
+}
+
+.field-collection-item-complex {
+	position: relative;
+}
+
+.form-widget input#Quizz_name {
+	height: 2em;
+	font-size: 1.6em;
+	flex: 100%;
+}
+
+.field-collection-delete-button {
+	position: absolute;
+	top: 8px;
+	right: 12px;
+}
+
+.content-panel {
+	max-width: 1300px;
+}
+
+.quizzCSS {
+	position: relative;
+}
+
+.field-collection-add-button {
+	position: absolute;
+	display: block;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+}
+
+.quizzProps legend {
+	display: none;
 }

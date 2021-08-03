@@ -1,13 +1,12 @@
 window.addEventListener("load", function () {
+	let BtnQuestion = document.getElementsByClassName("field-collection-add-button")[0];
+	BtnQuestion.click();
+	let btnProposition = document.getElementsByClassName("field-collection-add-button")[0];
+	doClick(btnProposition);
 
-	let addButton = document.getElementsByClassName("field-collection-add-button")[0];
-	addButton.click();
-	let addButton2 = document.getElementsByClassName("field-collection-add-button")[0];
-	doClick(addButton2);
-
-	addButton.addEventListener("click", function () {
-		addButton2 = document.getElementsByClassName("field-collection-add-button")[0];
-		doClick(addButton2);
+	BtnQuestion.addEventListener("click", function () {
+		btnProposition = document.getElementsByClassName("field-collection-add-button")[0];
+		doClick(btnProposition);
 	});
 });
 
