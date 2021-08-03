@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -52,6 +53,9 @@ class RegisterType extends AbstractType
                 ]),
             ],
         ]);
+
+        // Use captcha to securise registration
+        $builder->add('captcha', CaptchaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
