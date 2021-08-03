@@ -22,7 +22,7 @@ body{
   height: 80vh;  
   text-align: center;
   color:rgb(245, 241, 42);
-  text-align: center;
+  
   font-size: large;
   font-weight: bold;
   width: 80%;
@@ -56,23 +56,7 @@ body{
 }
 
 .titreMentions{
-    text-align: center;
-    color: rgb(245, 241, 42) 
+    color: rgb(245, 241, 42);
+    margin-left: auto;
+    margin-right: auto;
 }
-
-/* .footerbot {
-  position:fixed;
-  height:auto;
-  padding-top:0;
-}
-
-.bg-oquizz {
-  position: fixed;
-  height:10vh;
-  width:100%
-}
-
-.bg-oquizzblue {
-  position:fixed;
-  top:10vh;
-} */
