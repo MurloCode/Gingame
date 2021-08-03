@@ -38,28 +38,28 @@ Ce quizz n'existe pas. Essaie en un autre !
 			<div class="row propositions">
 				
 					<div class="col-lg-6 col-sm-12">
-						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Accueil</button>
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('home') }}" for="">Accueil</a>
 					</div>
 
 					<div class="col-lg-6 col-sm-12">
-						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Liste des themes</button>
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('theme_list') }}" for="">Liste des themes</a>
 					</div>
 
 					{% if is_granted('ROLE_USER') %}
 					<div class="col-lg-6 col-sm-12">
-						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Quizz random</button>
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('random_generate') }}" for="">Quizz random</a>
 					</div>
 
 					<div class="col-lg-6 col-sm-12">
-						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Mon profil</button>
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('user_profil', {'id': app.user.id}) }}" for="">Mon profil</a>
 					</div>
 					{% else %}
 					<div class="col-lg-6 col-sm-12">
-						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">S'inscrire</button>
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('app_register') }}" for="">S'inscrire</a>
 					</div>
 
 					<div class="col-lg-6 col-sm-12">
-						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Se connecter</button>
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('app_login') }}" for="">Se connecter</a>
 					</div>
 					{% endif %}
 			</div>
