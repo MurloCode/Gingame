@@ -12,20 +12,58 @@ Ce quizz n'existe pas. Essaie en un autre !
 
 
 {% block body %}
-<div class="stargate">
-	<div class="stargate__portal">
-		<video autoplay muted playsinline loop>
-			<source src="https://res.cloudinary.com/shanomurphy/video/upload/v1520181785/water_obm8lb.webm" type="video/webm">
-			<source src="https://res.cloudinary.com/shanomurphy/video/upload/v1520181785/water_obm8lb.mp4" type="video/mp4"> 
-		</video>
-		<div class="overlay py-5">
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<h1 class="bigtext navquizztext quizzcard blue404 mx-auto pt-5">404 !</h1>
-			<h1 class="navquizztext quizzcard blue404 mx-auto pt-5 ms-3">Cette page n'existe pas. Essaie en une autre !</h1>
+<div class="container-fluid quizz-tv-container">
+	<div class="quizz-tv-img-text-wrapper">
+		<div class="questionBlock question-quizz text-center">
+			<div class="tvscreen">
+				<div class="frame">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="caps"></div>
+				<canvas id="canvas"></canvas>
+			</div>
+			<img src="{{ asset ("/img/old-tv.png")}}" alt="">
+			<span title="404" class="quizzcardcolor quizzcard glitchy navquizztext">404</span>
+			<span class="quizzcardcolor quizzcard2 navquizztext">Cette page n'existe pas! essayer l'une des proposition?</span>
 		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="container d-grid mx-auto">
+		<form id="quizz" method="POST">
+			<div class="row propositions">
+				
+					<div class="col-lg-6 col-sm-12">
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('home') }}" for="">Accueil</a>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('theme_list') }}" for="">Liste des themes</a>
+					</div>
+
+					{% if is_granted('ROLE_USER') %}
+					<div class="col-lg-6 col-sm-12">
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('random_generate') }}" for="">Quizz random</a>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('user_profil', {'id': app.user.id}) }}" for="">Mon profil</a>
+					</div>
+					{% else %}
+					<div class="col-lg-6 col-sm-12">
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('app_register') }}" for="">S'inscrire</a>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<a type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" href="{{ path('app_login') }}" for="">Se connecter</a>
+					</div>
+					{% endif %}
+			</div>
+		</form>
 	</div>
 </div>
 
