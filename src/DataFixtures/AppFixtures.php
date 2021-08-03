@@ -1669,7 +1669,7 @@ class AppFixtures extends Fixture
                 //Quizz Années 8090
                 // 1
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Bayside");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Bayside ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1687,12 +1687,12 @@ class AppFixtures extends Fixture
                 $manager->persist($proposition);
 
                 $proposition = new Proposition();
-                $proposition->setText("HArtley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
+                $proposition->setText("Hartley coeurs à vif")->setIsValid(false)->setQuestion($questionAnnées8090);
                 $manager->persist($proposition);
 
                 // 2
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Maire de New York");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Maire de New York ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1716,7 +1716,7 @@ class AppFixtures extends Fixture
 
                 // 3
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Le Centre");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Le Centre ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1740,7 +1740,7 @@ class AppFixtures extends Fixture
 
                 // 4
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Vendeur de chaussures");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Vendeur de chaussures ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1764,7 +1764,7 @@ class AppFixtures extends Fixture
 
                 // 5
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Homme de ménage");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Homme de ménage ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1788,7 +1788,7 @@ class AppFixtures extends Fixture
 
                 // 6
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Moto noire");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Moto noire ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1812,7 +1812,7 @@ class AppFixtures extends Fixture
 
                 // 7
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Robot Orange");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Robot Orange ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1836,7 +1836,7 @@ class AppFixtures extends Fixture
 
                 // 8
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Moustache");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Moustache ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1860,7 +1860,7 @@ class AppFixtures extends Fixture
 
                 // 9
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Lézards");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Lézards ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1884,7 +1884,7 @@ class AppFixtures extends Fixture
 
                 // 10
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Chats");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Chats ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1908,7 +1908,7 @@ class AppFixtures extends Fixture
 
                 // 11
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Sens");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Sens ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1932,7 +1932,7 @@ class AppFixtures extends Fixture
 
                 // 12
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Commissariat dans une église");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Commissariat dans une église ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1956,7 +1956,7 @@ class AppFixtures extends Fixture
 
                 // 13
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Le chevalier et sa monture");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Le chevalier et sa monture ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -1980,7 +1980,7 @@ class AppFixtures extends Fixture
 
                 // 14
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Révérend");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Révérend ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -2004,7 +2004,7 @@ class AppFixtures extends Fixture
 
                 // 15
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Couteau suisse");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Couteau suisse ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -2028,7 +2028,7 @@ class AppFixtures extends Fixture
 
                 // 16
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Plan");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Plan ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -2052,7 +2052,7 @@ class AppFixtures extends Fixture
 
                 // 17
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Journal");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Journal ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -2076,7 +2076,7 @@ class AppFixtures extends Fixture
 
                 // 18
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Australie");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Australie ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -2100,7 +2100,7 @@ class AppFixtures extends Fixture
 
                 // 19
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Guerre du Vietnam");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Guerre du Vietnam ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -2124,7 +2124,7 @@ class AppFixtures extends Fixture
 
                 // 20
                 $questionAnnées8090 = new Question();
-                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Demi Dieu");
+                $questionAnnées8090->setQuestion("A quelle série des années 80/90 pensez-vous si on vous dit : Demi Dieu ?");
                 $questionAnnées8090->addQuizz($quizzAnnées8090)->addTheme($Années8090);
                 $questionAnnées8090->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionAnnées8090);
@@ -2147,7 +2147,7 @@ class AppFixtures extends Fixture
 
                 // 1
                 $questionHowIMetYourMother = new Question();
-                $questionHowIMetYourMother->setQuestion("Où se sont rencontrés Ted et Barney");
+                $questionHowIMetYourMother->setQuestion("Où se sont rencontrés Ted et Barney ?");
                 $questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother);
                 $questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionHowIMetYourMother);
@@ -2362,7 +2362,7 @@ class AppFixtures extends Fixture
 
                 //10
                 $questionHowIMetYourMother = new Question();
-                $questionHowIMetYourMother->setQuestion("Comment s’appelle le mort qui empêche les amis de regarder en live le Super Bowl?");
+                $questionHowIMetYourMother->setQuestion("Comment s’appelle le mort qui empêche les amis de regarder en live le Super Bowl ?");
                 $questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother);
                 $questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionHowIMetYourMother);
@@ -2554,7 +2554,7 @@ class AppFixtures extends Fixture
 
                 //18
                 $questionHowIMetYourMother = new Question();
-                $questionHowIMetYourMother->setQuestion("Comment s’appelle la première fille de MArshall et Lily ?");
+                $questionHowIMetYourMother->setQuestion("Comment s’appelle la première fille de Marshall et Lily ?");
                 $questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother);
                 $questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionHowIMetYourMother);
@@ -2578,7 +2578,7 @@ class AppFixtures extends Fixture
 
                 //19
                 $questionHowIMetYourMother = new Question();
-                $questionHowIMetYourMother->setQuestion("Quelles sont les 2 bibles de Barney");
+                $questionHowIMetYourMother->setQuestion("Quelles sont les 2 bibles de Barney ?");
                 $questionHowIMetYourMother->addQuizz($quizzHowIMetYourMother)->addTheme($HowIMetYourMother);
                 $questionHowIMetYourMother->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionHowIMetYourMother);
@@ -2628,7 +2628,7 @@ class AppFixtures extends Fixture
 
                 // 1
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Al Bundy");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Al Bundy ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2651,7 +2651,7 @@ class AppFixtures extends Fixture
 
                 //2
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...DeeDee McCall");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...DeeDee McCall ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2674,7 +2674,7 @@ class AppFixtures extends Fixture
 
                 //3
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Angus MacGyver");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Angus MacGyver ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2697,7 +2697,7 @@ class AppFixtures extends Fixture
 
                 //4
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Elliot Alderson");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Elliot Alderson ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2720,7 +2720,7 @@ class AppFixtures extends Fixture
 
                 //5
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Alec Ramsey");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Alec Ramsey ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2743,7 +2743,7 @@ class AppFixtures extends Fixture
 
                 //6
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Buffy Summers");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Buffy Summers ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2766,7 +2766,7 @@ class AppFixtures extends Fixture
 
                 //7
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Sheldon Cooper");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Sheldon Cooper ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2789,7 +2789,7 @@ class AppFixtures extends Fixture
 
                 //8
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jimmy McGill");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jimmy McGill ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2812,7 +2812,7 @@ class AppFixtures extends Fixture
 
                 //9
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Mickael Knight");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Mickael Knight ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2835,7 +2835,7 @@ class AppFixtures extends Fixture
 
                 //10
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Arthur Pendragon");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Arthur Pendragon ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2858,7 +2858,7 @@ class AppFixtures extends Fixture
 
                 //11
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jonathan Dorian");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jonathan Dorian ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2881,7 +2881,7 @@ class AppFixtures extends Fixture
 
                 //12
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Sydney Bristow");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Sydney Bristow ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2904,7 +2904,7 @@ class AppFixtures extends Fixture
 
                 //13
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Max Guevara");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Max Guevara ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2927,7 +2927,7 @@ class AppFixtures extends Fixture
 
                 //14
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Serena van der Woodsen");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Serena van der Woodsen ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2950,7 +2950,7 @@ class AppFixtures extends Fixture
 
                 //15
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Michael Scott");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Michael Scott ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2974,7 +2974,7 @@ class AppFixtures extends Fixture
 
                 //16
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Titus Pullo");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Titus Pullo ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -2997,7 +2997,7 @@ class AppFixtures extends Fixture
 
                 //17
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jarod");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jarod ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -3021,7 +3021,7 @@ class AppFixtures extends Fixture
 
                 //18
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Meredith Grey");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Meredith Grey ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -3045,7 +3045,7 @@ class AppFixtures extends Fixture
 
                 //19
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Tom Hanson");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Tom Hanson ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
@@ -3069,7 +3069,7 @@ class AppFixtures extends Fixture
 
                 //20
                 $questionPersonnages = new Question();
-                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...James McNulty");
+                $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...James McNulty ?");
                 $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
