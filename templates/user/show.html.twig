@@ -25,7 +25,11 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
+                  {% if app.user.imageurl is empty %}
+                    <img src="{{ asset('img/pngLogo.png') }}" class="mt-5 avatar mb-3">
+                  {% else %}
                     <img src="{{ asset('uploads/'~ user.imageurl) }}" alt="Admin" class="avatar">
+                  {% endif %}
                     <div class="mt-3">
                       <h4>{{ user.login }}</h4>
                       <p class="text-secondary mb-1">O'Clock Student</p>

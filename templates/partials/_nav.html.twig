@@ -30,7 +30,11 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle navquizztext" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							{% if app.user.imageurl is empty %}
+							<img src="{{ asset('img/pngLogo.png') }}" class="avatar avatar-mini" alt="Avatar de {{app.user.login}}"> {{ app.user.login }}
+							{% else %}
 							<img src="{{ asset('uploads/'~ app.user.imageurl) }}" class="avatar avatar-mini" alt="Avatar de {{app.user.login}}"> {{ app.user.login }}
+							{% endif %}
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDarkDropdownMenuLink">
 							<li>
