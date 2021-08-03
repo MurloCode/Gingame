@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -51,6 +52,11 @@ class RegisterType extends AbstractType
                     'max' => 4096,
                 ]),
             ],
+        ]);
+
+        // Use captcha to securise registration
+        $builder->add('captcha', CaptchaType::class,[
+            'invalid_message' => 'Les caractères doivent être identiques.',
         ]);
     }
 
