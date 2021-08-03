@@ -68,6 +68,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $imageurl;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $reset_token;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -286,6 +291,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setImageurl(?string $imageurl): self
     {
         $this->imageurl = $imageurl;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->reset_token;
+    }
+
+    public function setResetToken(?string $reset_token): self
+    {
+        $this->reset_token = $reset_token;
 
         return $this;
     }
