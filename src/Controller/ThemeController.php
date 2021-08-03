@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/theme", name="theme_")
+ * @Route("/theme", name="theme_", requirements={"id"="\d+"})
  */
 class ThemeController extends AbstractController
 {
@@ -55,7 +55,7 @@ class ThemeController extends AbstractController
 	}
 
 	/**
-	 * @Route("/list", name="list")
+	 * @Route("/list", name="list", requirements={"id"="\d+"})
 	 */
 	public function themeIndex(ThemeRepository $themeRepository): Response
 	{      
@@ -70,7 +70,7 @@ class ThemeController extends AbstractController
 	
 
 	/**
-	 * @Route("/list/{id}", name="list_id")
+	 * @Route("/list/{id}", name="list_id", requirements={"id"="\d+"})
 	 */
 	public function themeList(Theme $theme,ThemeRepository $themeRepository, QuizzRepository $quizz, $id): Response
 	{      	

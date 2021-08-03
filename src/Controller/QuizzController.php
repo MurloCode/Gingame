@@ -25,12 +25,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
- * @Route("/quizz", name="quizz_")
+ * @Route("/quizz", name="quizz_", requirements={"id"="\d+"})
  */
 class QuizzController extends AbstractController
 {
 	/**
-	 * @Route("/list", name="list")
+	 * @Route("/list", name="list", requirements={"id"="\d+"})
 	 */
 	public function index(QuizzRepository $quizzRepository): Response
 	{
@@ -42,7 +42,7 @@ class QuizzController extends AbstractController
 	}
 
 	/**
-	 * @Route("/list/{id}", name="themeQuizz")
+	 * @Route("/list/{id}", name="themeQuizz", requirements={"id"="\d+"})
 	 */
 	public function listThemeId(Theme $theme): Response
 	{      
@@ -113,7 +113,7 @@ class QuizzController extends AbstractController
 
 
 	/**
-	 * @Route("/{id}/result", name="result")
+	 * @Route("/{id}/result", name="result", requirements={"id"="\d+"})
 	 */
 	public function result(Quizz $quizz, RequestStack $requestStack, SessionQuizzService $sessionQuizz)
 	{
@@ -148,7 +148,7 @@ class QuizzController extends AbstractController
 
 
 	/**
-	 * @Route("/add", name="add")
+	 * @Route("/add", name="add", requirements={"id"="\d+"})
 	 */
 	public function add(Request $request): Response
 	{
