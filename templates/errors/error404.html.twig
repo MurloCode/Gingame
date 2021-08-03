@@ -12,20 +12,58 @@ Ce quizz n'existe pas. Essaie en un autre !
 
 
 {% block body %}
-<div class="stargate">
-	<div class="stargate__portal">
-		<video autoplay muted playsinline loop>
-			<source src="https://res.cloudinary.com/shanomurphy/video/upload/v1520181785/water_obm8lb.webm" type="video/webm">
-			<source src="https://res.cloudinary.com/shanomurphy/video/upload/v1520181785/water_obm8lb.mp4" type="video/mp4"> 
-		</video>
-		<div class="overlay py-5">
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<h1 class="bigtext navquizztext quizzcard blue404 mx-auto pt-5">404 !</h1>
-			<h1 class="navquizztext quizzcard blue404 mx-auto pt-5 ms-3">Cette page n'existe pas. Essaie en une autre !</h1>
+<div class="container-fluid quizz-tv-container">
+	<div class="quizz-tv-img-text-wrapper">
+		<div class="questionBlock question-quizz text-center">
+			<div class="tvscreen">
+				<div class="frame">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="caps"></div>
+				<canvas id="canvas"></canvas>
+			</div>
+			<img src="{{ asset ("/img/old-tv.png")}}" alt="">
+			<span title="404" class="quizzcardcolor quizzcard glitchy navquizztext">404</span>
+			<span class="quizzcardcolor quizzcard2 navquizztext">Cette page n'existe pas! essayer l'une des proposition?</span>
 		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="container d-grid mx-auto">
+		<form id="quizz" method="POST">
+			<div class="row propositions">
+				
+					<div class="col-lg-6 col-sm-12">
+						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Accueil</button>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Liste des themes</button>
+					</div>
+
+					{% if is_granted('ROLE_USER') %}
+					<div class="col-lg-6 col-sm-12">
+						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Quizz random</button>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Mon profil</button>
+					</div>
+					{% else %}
+					<div class="col-lg-6 col-sm-12">
+						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">S'inscrire</button>
+					</div>
+
+					<div class="col-lg-6 col-sm-12">
+						<button type="button" class="formbutton navquizztext d-flex align-items-center justify-content-center" for="">Se connecter</button>
+					</div>
+					{% endif %}
+			</div>
+		</form>
 	</div>
 </div>
 
