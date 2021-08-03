@@ -264,12 +264,12 @@ class AppFixtures extends Fixture
 
                 $quizzPersonnages = new Quizz();
                 $quizzPersonnages->setName("$Personnages de séries Tv"); // Titre du Quizz, à modifier
-                $quizzPersonnages->addTheme($$Personnages)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+                $quizzPersonnages->addTheme($Personnages)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzPersonnages);
 
                 $quizzCinéma = new Quizz();
                 $quizzCinéma->setName("Cinéma"); // Titre du Quizz, à modifier
-                $quizzCinéma->addTheme($cinéma)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
+                $quizzCinéma->addTheme($cinéma)->addTheme($movietheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzCinéma);
 
 
@@ -2652,7 +2652,7 @@ class AppFixtures extends Fixture
                 //2
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...DeeDee McCall ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2675,7 +2675,7 @@ class AppFixtures extends Fixture
                 //3
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Angus MacGyver ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2698,7 +2698,7 @@ class AppFixtures extends Fixture
                 //4
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Elliot Alderson ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2721,7 +2721,7 @@ class AppFixtures extends Fixture
                 //5
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Alec Ramsey ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2744,7 +2744,7 @@ class AppFixtures extends Fixture
                 //6
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Buffy Summers ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2767,7 +2767,7 @@ class AppFixtures extends Fixture
                 //7
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Sheldon Cooper ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2790,7 +2790,7 @@ class AppFixtures extends Fixture
                 //8
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jimmy McGill ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2813,7 +2813,7 @@ class AppFixtures extends Fixture
                 //9
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Mickael Knight ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2836,7 +2836,7 @@ class AppFixtures extends Fixture
                 //10
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Arthur Pendragon ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2859,7 +2859,7 @@ class AppFixtures extends Fixture
                 //11
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jonathan Dorian ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2882,7 +2882,7 @@ class AppFixtures extends Fixture
                 //12
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Sydney Bristow ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2905,7 +2905,7 @@ class AppFixtures extends Fixture
                 //13
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Max Guevara ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2928,7 +2928,7 @@ class AppFixtures extends Fixture
                 //14
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Serena van der Woodsen ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2951,7 +2951,7 @@ class AppFixtures extends Fixture
                 //15
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Michael Scott ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2975,7 +2975,7 @@ class AppFixtures extends Fixture
                 //16
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Titus Pullo ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -2998,7 +2998,7 @@ class AppFixtures extends Fixture
                 //17
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Jarod ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -3022,7 +3022,7 @@ class AppFixtures extends Fixture
                 //18
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Meredith Grey ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -3046,7 +3046,7 @@ class AppFixtures extends Fixture
                 //19
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...Tom Hanson ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -3070,7 +3070,7 @@ class AppFixtures extends Fixture
                 //20
                 $questionPersonnages = new Question();
                 $questionPersonnages->setQuestion("Dans quelle série peut-on retrouver...James McNulty ?");
-                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($$Personnages);
+                $questionPersonnages->addQuizz($quizzPersonnages)->addTheme($Personnages);
                 $questionPersonnages->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionPersonnages);
 
@@ -3096,7 +3096,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel acteur a joué le premier Batman au cinéma en 1989 ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3119,7 +3119,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quelle est la particularité du film Mullholland Drive de David Lynch ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3142,7 +3142,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("A l'origine, de quel film Die Hard: Piège de cristal devait il etre la suite ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3164,7 +3164,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel est le bruitage le plus célèbre du cinéma ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3186,7 +3186,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Combien d'acteurs ont joué James Bond ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3208,7 +3208,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("A l'origine quelle devait être la machine à remonter le temps de Retour vers le Futur ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3230,7 +3230,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel créateur de comics apparaissait en caméo dans tous les films des héros qu'il a crée ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3252,7 +3252,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Comment s'appelle la lampe mascotte de Pixar ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3274,7 +3274,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel film de Pixar a été le premier à mettre en scène des personnages humains ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3296,7 +3296,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("De quelle nationalité était le catcheur qui a inspiré la silhouette de Shrek ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3318,7 +3318,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel acteur est apparu dans les 9 films de la Saga Star Wars ? ");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3341,7 +3341,7 @@ class AppFixtures extends Fixture
                 $questionCinéma->setQuestion("Quelle autre couleur que le noir et blanc est visible dans le film La Liste de Schindler de Steven Spielberg ?
 					");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3363,7 +3363,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Comment s’appelle le meilleur ami de Tom Hanks dans Seul au monde ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3385,7 +3385,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Pour quel film de Disney les Daft Punk ont ils composé la Bande Originale ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3407,7 +3407,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Comment se nomme le requin des Dents de la mer ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3429,7 +3429,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Comment s'appelle la pizzéria de Toy Story dont la camionnette apparait dans la plupart des films Pixar ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3451,7 +3451,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
 					$questionCinéma->setQuestion("Sur les 6 films de la franchise Transformers, combien en a réalisé Michael Bay ?");
 					$questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma)); 
-					$questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+					$questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
 					$manager->persist($questionCinéma);
 
 					$proposition = new Proposition();
@@ -3473,7 +3473,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel mot est prononcé 226 fois dans Scarface ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3495,7 +3495,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quelle célèbre réalisatrice joue le bébé dans la scène du baptème dans Le Parrain ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
@@ -3517,7 +3517,7 @@ class AppFixtures extends Fixture
                 $questionCinéma = new Question();
                 $questionCinéma->setQuestion("Quel est le dernier film du personnage Charlot ?");
                 $questionCinéma->addQuizz($quizzCinéma->addTheme($cinéma));
-                $questionCinéma->addTheme($parentTheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
+                $questionCinéma->addTheme($movietheme)->setCreatedBy($tomUser); // Ne pas modifier cette ligne (Ajout de parent Série TV et Créer par Tom)
                 $manager->persist($questionCinéma);
 
                 $proposition = new Proposition();
