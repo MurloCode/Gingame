@@ -4,7 +4,8 @@
 <main class="result-main">
 <h1 class="result-title"> Nom du quizz </h1>
 	<div class="container result-container">
-	<h2>Félicitations tu as obtenue la note de : {{ result.score }} / {{ result.outOf }} </h2>
+	
+	<h2>Félicitations {{ result.user }} tu as obtenue la note de : {{ result.score }} / {{ result.outOf }} </h2>
 	
 		{% if (result.score / result.outOf) * 100 <= 25 %}
 			<img src="{{ asset('img/homer0.png') }}" alt="">
