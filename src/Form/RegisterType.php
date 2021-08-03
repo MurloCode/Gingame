@@ -55,7 +55,9 @@ class RegisterType extends AbstractType
         ]);
 
         // Use captcha to securise registration
-        $builder->add('captcha', CaptchaType::class);
+        $builder->add('captcha', CaptchaType::class,[
+            'invalid_message' => 'Les caractères doivent être identiques.',
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
