@@ -7,11 +7,14 @@ body {
 .footer-quizz {
 	height: 10vh;
 }
-.question-quizz {
+
+/* .question-quizz {
 }
+
 .proposition-quizz {
 	/* height: 45vh; */
-}
+} */
+
 .closebutton {
 	text-align: right;
 }
