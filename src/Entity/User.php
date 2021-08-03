@@ -63,6 +63,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $Created_At;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageurl;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -269,6 +274,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(?\DateTimeInterface $Created_At): self
     {
         $this->Created_At = $Created_At;
+
+        return $this;
+    }
+
+    public function getImageurl(): ?string
+    {
+        return $this->imageurl;
+    }
+
+    public function setImageurl(?string $imageurl): self
+    {
+        $this->imageurl = $imageurl;
 
         return $this;
     }
