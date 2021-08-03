@@ -59,7 +59,9 @@ class UserType extends AbstractType
                 if ($userData->getId() === null) {
                     // Mode création
                     // Le mot de passe sera obligatoire
-                    $required = true;
+                    $form->add('password', PasswordType::class, [
+                        'mapped' => false,
+                    ]);
                     // $form->add('password', PasswordType::class, [
                     //     'mapped' => false,
                     //     'required' => $required
@@ -67,18 +69,11 @@ class UserType extends AbstractType
                 } else {
                     // Mode édition
                     // Le mot de passe ne pas sera obligatoire
-                    $required = false;
-                
-                }
-
-                // On ajoute dynamiquement le champ Password
-                // Qui est obligatoire en création
-                // et optionnel en édition
-                $form->add('password', PasswordType::class, [
-                    'mapped' => false,
-                    'required' => $required
-                ]);
-               
+                    $form->remove('roles')
+                        ->remove('password')
+                        ->remove('Created_At')
+                        ->remove('friends');         
+                }  
             });
     }
 
