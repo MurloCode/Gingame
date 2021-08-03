@@ -4,9 +4,11 @@
 <main class="result-main">
 <h1 class="result-title"> Nom du quizz </h1>
 	<div class="container result-container">
-	
+	{% if is_granted('ROLE_USER') %}
 	<h2>Félicitations {{ result.user }} tu as obtenue la note de : {{ result.score }} / {{ result.outOf }} </h2>
-	
+	{% else %}
+	<h2>Félicitations  tu as obtenu la note de : {{ result.score }} / {{ result.outOf }} </h2>
+	{% endif %}
 		{% if (result.score / result.outOf) * 100 <= 25 %}
 			<img src="{{ asset('img/homer0.png') }}" alt="">
 			{% elseif (result.score / result.outOf) * 100 > 25 and (result.score / result.outOf) * 100 <= 50 %}
@@ -22,6 +24,9 @@
 	<div class="button-choice text-center mt-5">
 		<a href="{{ path('home') }}" class="btn btn-primary" type="button">Retour au Menu</a>
 		<a href="{{ path('quizz_list') }}" class="btn btn-primary" type="button">Pret à rejouer ?</a>
+		{% if not is_granted('ROLE_USER') %}
+		<a href="{{ path('app_register') }}" class="btn btn-primary" type="button">Alors on s'inscrit ?</a>
+		{% endif %}
 	</div>
 
 </main>
