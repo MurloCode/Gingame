@@ -173,6 +173,22 @@ main{
     justify-content: center;
 }
 
+.avatar {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 20%;
+}
+
+.avatar-medium {
+    max-width: 64px;
+    max-height: 64px;
+    
+}
+
+.avatar-mini {
+    max-width: 24px;
+    max-height: 24px;
+}
 /* About */
 /* cf oquizzabout.css */
 
