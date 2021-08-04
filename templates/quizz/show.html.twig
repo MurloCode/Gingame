@@ -69,18 +69,19 @@
 </html></div><!-- Button trigger modal --><!-- Modal --><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
 	<div class="modal-content">
-		<div class="modal-header">
+		{# <div class="modal-header">
 			<h5 class="modal-title" id="myModalLabel">Quitter le Quizz</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div> #}
+		<div class="modal-body text-center navquizztext">
+			Êtes-vous sûr de vouloir quitter le Quizz <br />
+			{{ quizz.name }} ?
 		</div>
-		<div class="modal-body">
-			Êtes-vous sûr de vouloir quitter le Quizz
-			{{ quizz.name }}?
+		<div class="d-grid gap-2 col-10 mx-auto">
+			<button type="button" class="btn btn-secondary modalbutton" data-bs-dismiss="modal">Non, je veux finir !</button>
+			<a href="{{path('home')}}" class="btn btn-dark modalbutton">J'abandonne, c'est trop dur</a>
 		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non, je veux finir !</button>
-			<a href="{{path('home')}}" class="btn btn-primary">J'abandonne, c'est trop dur</a>
-		</div>
+		<br />
 	</div>
 </div></div><div class="footer footer-quizz  mt-auto">
 <button class="sendQuizz formbutton" form="quizz" id="bt" type="submit" disabled="enabled" class="btn btn-info">Valider</button></div><script>
