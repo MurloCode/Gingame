@@ -34,7 +34,7 @@ class ThemeController extends AbstractController
      */
 	public function show(Theme $theme=null, MessageGenerator $messageGenerator): Response
 	{
-// We want to display a 404 if the quizz doesn't exist.
+		// We want to display a 404 if the quizz doesn't exist.
 		// We order a quizz by its id
 		// If quizz existes we can play 
 		//else we receive a 404
@@ -43,14 +43,10 @@ class ThemeController extends AbstractController
 			return $this->render('errors/error404.html.twig');
 		}
 
-
-
 		// Send Child Theme to template
 		return $this->render('theme/show.html.twig', [
 			'theme' => $theme
 		]);
-		
-		
 
 	}
 
@@ -78,6 +74,8 @@ class ThemeController extends AbstractController
 		// Demander pourquoi une telle requête ne fonctionne pas.
 		//$childTheme = $themeRepository->findBy(['themeParent' => $theme]);
 		$childTheme = $themeRepository->findChildFromParent($theme->getId());
+
+		//dd($childTheme[0][0]->getImage());
 
 		return $this->render('quizz/themelist.html.twig', [
 			'theme' => $theme,
