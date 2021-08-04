@@ -10,8 +10,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class QuizzCrudController extends AbstractCrudController
@@ -44,6 +46,14 @@ class QuizzCrudController extends AbstractCrudController
 			TextareaField::new('description')
 				->setLabel('Description de votre Quizz'),
 			AssociationField::new('themes'),
+			ImageField::new('image')
+				->setLabel('Image du Quizz')
+				->setBasePath('/img/quizz')
+				// ->setUploadDir('public/uploads')
+				->setUploadDir('public/img/quizz')
+		 		->setFormType(FileUploadType::class)
+				->setUploadedFileNamePattern('[randomhash].[extension]')
+				->setRequired(false),
 			CollectionField::new('new_questions')
 				->setLabel('Vos questions')
 				->setCssClass('quizzCSS')
@@ -54,7 +64,7 @@ class QuizzCrudController extends AbstractCrudController
 				// ->allowDelete()
 				->hideOnIndex(),
 			
-				//AssociationField::new('questions'),
+				AssociationField::new('questions'),
 
 		];
 		

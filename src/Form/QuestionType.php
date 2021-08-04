@@ -32,7 +32,7 @@ class QuestionType extends AbstractType
 				'allow_delete' => false,
 				'prototype_name' => 'props',
 				'block_name' => 'propositions',
-				
+				'mapped' => false,
 				'attr' => [
 					'class' => 'quizzProps row row-cols-1 row-cols-md-2',
 				]

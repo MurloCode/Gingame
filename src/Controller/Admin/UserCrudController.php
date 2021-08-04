@@ -26,5 +26,4 @@ class UserCrudController extends AbstractCrudController
 			AssociationField::new('friends'),
 		];
 	}
-
 }

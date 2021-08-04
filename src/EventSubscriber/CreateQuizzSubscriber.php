@@ -10,28 +10,38 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+use function PHPUnit\Framework\isEmpty;
+
 class CreateQuizzSubscriber implements EventSubscriberInterface
 {
 	public function onBeforeEntitySavedEvent ($event) {
 		if ($event->getEntityInstance() instanceof Quizz) {
 			$request = Request::createFromGlobals();
-			$newQuestions = $request->request->all()['Quizz']["new_questions"];
+			$newQuestions = $request->request->all()['Quizz'];
 			//$newPropositions = $request->request->all()['Quizz']["new_propositions"];
 			// dd($newQuestions);
-			if($newQuestions) {
+			// dd($Quizz[image][file]);
+
+
+			
+			if(isset($newQuestions["new_questions"]) && $newQuestions["new_questions"] != null){				
+				$newQuestions = $newQuestions["new_questions"];
+
 				foreach ($newQuestions as $newQuestion) {
 					$question = new Question();
 					$question->setQuestion($newQuestion['question']);
 
 					//dd($newQuestion);
-					if ($newQuestion['propositions']) {
+					if ($newQuestion['propositions'] && $newQuestion['propositions'] != null) {
 						foreach ($newQuestion['propositions'] as $newProposition) {
 							//$newProposition = $newQuestion['propositions'];
 							//dd($newProposition);
-							$proposition = new Proposition();
-							$proposition->setText($newProposition['text']);
-							$proposition->setIsValid((isset($newProposition['is_valid']) && $newProposition['is_valid'] == 1) ? true : false);
-							$question->addProposition($proposition);
+							if ( !empty($newProposition['text']) || is_null($newProposition['text'])) {
+								$proposition = new Proposition();
+								$proposition->setText($newProposition['text']);
+								$proposition->setIsValid((isset($newProposition['is_valid']) && $newProposition['is_valid'] == 1) ? true : false);
+								$question->addProposition($proposition);
+							}
 						}
 					}
 					$event->getEntityInstance()->addQuestion($question);
