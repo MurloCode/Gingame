@@ -8,7 +8,7 @@
 	/* make the base font size smaller */
 	--font-size-base: 13px;
 	/* remove all border radius to make corners straight */
-	--border-radius: 0px;
+	--border-radius: 0.25rem;
 }
 
 body {
@@ -81,3 +81,43 @@ section.content-header::after {
 .quizzProps legend {
 	display: none;
 }
+
+.eaPropositionCSS .form-group:nth-child(2) {
+	display: none;
+}
+
+.eaPropositionCSS .form-group:nth-child(1)::before {
+	content: "✔";
+	position: absolute;
+	display: block;
+	margin: 29px 0 0 6px;
+	/* width: 100px; */
+	padding: 4px 7px;
+	height: 30px;
+	background-color: green;
+	border-radius: var(--border-radius) 0 0 var(--border-radius);
+	color: #fff;
+}
+
+.eaPropositionCSS input.propsIsValid {
+	border: 1px solid green;
+}
+
+.eaPropositionCSS input.propsIsValid {
+	border: 1px solid green;
+}
+
+/* .eaPropositionCSS input.answerField::before {
+	content: "TEXTE";
+	position: absolute;
+	display: block;
+	margin-bottom: 20px;
+	width: 100px;
+	height: 100px;
+	background-color: green;
+	z-index: 9999;
+} */
+
+/* input[type="checkbox"].isValid {
+	display: none;
+} */
