@@ -1,9 +1,16 @@
 <div class="col">
 	<a href="{{ path('quizz_show', {id:quizz.id}) }}"><div class="card">
+{% if quizz.image is empty %}
 		<img src="{{ asset('img/1.png') }}" class="card-img-top img-fluid" alt="..."
+		{# style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);"> #}
+		{% else %}
+		<img src="{{ quizz.image }}" class="card-img-top img-fluid" alt="..."
+		{# style="height: 200px; width: 100%; display: block; object-fit:cover;"> #}
+		{% endif %}
+		{# <img src="{{ asset('img/1.png') }}" class="card-img-top img-fluid" alt="..." #}
 		style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);">
 		<div class="card-img-overlay">
-			<h5 class="card-title navquizztext quizzcard">{{ quizz.name }}</h5>
+			<h5 class="card-title position-absolute bottom-0 start-50 translate-middle-x navquizztext quizzcard">{{ quizz.name }}</h5>
 			<br />
 			<br />
 			<br />
