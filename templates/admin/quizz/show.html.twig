@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizz{% endblock %}
+
+{% block body %}
+    <h1>Quizz</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ quizz.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ quizz.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ quizz.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_quizz_index') }}">back to list</a>
+
+    <a href="{{ path('admin_quizz_edit', {'id': quizz.id}) }}">edit</a>
+
+    {{ include('admin_quizz/_delete_form.html.twig') }}
+{% endblock %}

@@ -25,20 +25,39 @@ class QuestionType extends AbstractType
 			// ->add('wrong_elem')
 			// ->add('quizzs')
 			// ->add('themes')
+
 			->add('propositions', CollectionType::class, [
 				'entry_type' => PropositionType::class,
 				'allow_add' => true,
-				'allow_delete' => true,
+				'allow_delete' => false,
 				'prototype_name' => 'props',
+				'block_name' => 'propositions',
+				
+				'attr' => [
+					'class' => 'quizzProps row row-cols-1 row-cols-md-2',
+				]
 			])
 			
+
+			// ->add('propositions', CollectionType::class, [
+			// 	'entry_type' => PropositionType::class,
+			// 	'allow_add' => true,
+			// 	'allow_delete' => true,
+			// 	'prototype_name' => 'props',
+			// ])
+			
 		;
+
+		//dd($builder);
 	}
 
 	public function configureOptions(OptionsResolver $resolver)
 	{
 		$resolver->setDefaults([
 			'data_class' => Question::class,
+			'attr' => [
+				'class' => 'eaQuestionCSS',
+			],
 		]);
 	}
 }
