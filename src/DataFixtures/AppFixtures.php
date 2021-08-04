@@ -89,8 +89,17 @@ class AppFixtures extends Fixture
         
         // Create Children Themes
         $themes = [
-            ["Black Mirror", "/img/serietv/blackmirror.jpeg"],
-            ["H", "/img/serietv/h.jpeg"]
+            // ["Black Mirror", "/img/serietv/blackmirror.jpeg"],
+            // ["H", "/img/serietv/h.jpeg"]
+            ["Friends", "/img/serietv/friends.jpeg"],
+            ["Kaamelott", "/img/serietv/kaamelott.jpeg"],
+            ["Scrubs", "/img/serietv/scrubs.jpeg"],
+            ["Années8090", "/img/annees8090.png"],
+            ["How i met your mother", "/img/serietv/howimetyourmother.jpeg"],
+            ["Personnages", "/img/serietv/personnages.jpeg"],
+            ["Cinéma", "/img/ciné.png"],
+            ["Démo", "/img/ladiesman.jpg"]
+
         ];
     //     $manager->persist($parentTheme);
     
@@ -206,18 +215,18 @@ class AppFixtures extends Fixture
                 // Années 8090
                 $Années8090 = new Theme();
                 $Années8090->setName("Années8090"); // Nom de la série
-                $Années8090->setImage("");
+                $Années8090->setImage("/img/annees8090.png");
                 $Années8090->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($Années8090);
 
                 // How i met your mother
                 $HowIMetYourMother = new Theme();
                 $HowIMetYourMother->setName("How I Met Your Mother"); // Nom de la série
-                $HowIMetYourMother->setImage("");
+                $HowIMetYourMother->setImage("/img/serietv/howimetyourmother.jpeg");
                 $HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($HowIMetYourMother);
 
-                // $Personnages
+                // Personnages
                 $Personnages = new Theme();
                 $Personnages->setName("Personnages"); // Nom de la série
                 $Personnages->setImage("/img/serietv/personnages.jpeg");
@@ -227,14 +236,17 @@ class AppFixtures extends Fixture
                 // Cinéma
                 $cinéma = new Theme();
                 $cinéma->setName("Cinéma"); // Nom du quizz
+                $cinéma->setImage("/img/ciné.png");
                 $cinéma->addThemeParent($parentTheme); // Cinéma
                 $manager->persist($cinéma);
 
                 // Demo
                 $demo = new Theme();
                 $demo->setName("Démo"); // Nom de la série 
+                $demo->setImage("/img/ladiesman.jpg");
                 $demo->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($demo);
+               
                 // Quizz builder
 
                 $quizzFriends = new Quizz();
