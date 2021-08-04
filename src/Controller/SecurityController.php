@@ -8,6 +8,8 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -44,7 +46,7 @@ class SecurityController extends AbstractController
      /**
     * @Route("/oubli-pass", name="app_forgotten_password")
     */
-    public function forgottenPass(Request $request, UserRepository $users, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator
+    public function forgottenPass(Request $request, UserRepository $users, MailerInterface $mailer, TokenGeneratorInterface $tokenGenerator
     ): Response
     {
     
@@ -79,16 +81,18 @@ class SecurityController extends AbstractController
 
         $url = $this->generateUrl('app_reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
-        $message = (new \Swift_Message('Mot de passe oublié'))
-            ->setFrom('robin78670@gmail.com')
-            ->setTo($user->getEmail())
-            ->setBody(
-                "Bonjour,<br><br><p>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant : <p>" . $url,
-                'text/html'
-            )
-        ;
+        $email = (new Email())
+        ->from('robin78670@gmail.com')
+        ->to($user->getEmail())
+        //->cc('cc@example.com')
+        //->bcc('bcc@example.com')
+        //->replyTo('fabien@example.com')
+        //->priority(Email::PRIORITY_HIGH)
+        ->subject('Time for Symfony Mailer!')
+        ->text('Sending emails is fun again!')
+        ->html('<p>See Twig integration for better HTML integration!</p>');
 
-        $mailer->send($message);
+    $mailer->send($email);
 
         $this->addFlash('message', 'E-mail de réinitialisation du mot de passe envoyé !');
 
