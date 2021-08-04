@@ -71,7 +71,7 @@ class AppFixtures extends Fixture
         // Create Themes
         // 1st Parent Theme : Serie TV
         $parentTheme = new Theme();
-        $parentTheme->setName("Serie TV");
+        $parentTheme->setName("Série TV");
         $parentTheme->setImage("/img/serietv.jpeg");
         
         $manager->persist($parentTheme);
@@ -87,18 +87,18 @@ class AppFixtures extends Fixture
         $randomtheme->setName("Random");
         $manager->persist($randomtheme);
         
+        
         // Create Children Themes
         $themes = [
-            // ["Black Mirror", "/img/serietv/blackmirror.jpeg"],
-            // ["H", "/img/serietv/h.jpeg"]
-            ["Friends", "/img/serietv/friends.jpeg"],
-            ["Kaamelott", "/img/serietv/kaamelott.jpeg"],
-            ["Scrubs", "/img/serietv/scrubs.jpeg"],
-            ["Années8090", "/img/annees8090.png"],
-            ["How i met your mother", "/img/serietv/howimetyourmother.jpeg"],
-            ["Personnages", "/img/serietv/personnages.jpeg"],
-            ["Cinéma", "/img/ciné.png"],
-            ["Démo", "/img/ladiesman.jpg"]
+            
+            // ["Friends", "/img/serietv/friends.jpeg"],
+            // ["Kaamelott", "/img/serietv/kaamelott.jpeg"],
+            // ["Scrubs", "/img/serietv/scrubs.jpeg"],
+            // ["Années8090", "/img/annees8090.png"],
+            // ["How i met your mother", "/img/serietv/howimetyourmother.jpeg"],
+            // ["Personnages", "/img/serietv/personnages.jpeg"],
+            // ["Cinéma", "/img/ciné.png"],
+            // ["Fixtures", "/img/ladiesman.jpg"]
 
         ];
     //     $manager->persist($parentTheme);
@@ -107,8 +107,8 @@ class AppFixtures extends Fixture
         //  $themes = ["Black Mirror", "Scrubs", "H", "Kaamelott"];
         foreach ($themes as $theme) {
             $childTheme = new Theme;
-            $childTheme->setName($theme[0])
-                ->setImage($theme[1]);
+            $childTheme->setName($theme[0])->setImage($theme[1]);
+            
             $manager->persist($childTheme);
 
             $theme = $theme[0];
@@ -147,47 +147,11 @@ class AppFixtures extends Fixture
 
                         $manager->persist($proposition);
                     }
-
-                    $manager->persist($childTheme);
-
-                    // Create Quizz
-                    for ($i = 1; $i < 5; $i++) {
-                        $quizz = new Quizz();
-                        $quizz->setName("Questionnaire $theme $i");
-                        $quizz->addTheme($childTheme);
-                        $quizz->addTheme($parentTheme);
-                        $quizz->setCreatedBy($oquizzUser);
-            
-                        $manager->persist($quizz);
-            
-                        for ($j = 1; $j < 21; $j++) {
-                            // Create Question (20 per theme)
-                            $question = new Question();
-                            $question->setQuestion("Question n°$j ( $theme )");
-                            $question->addQuizz($quizz);
-                            $question->addTheme($childTheme);
-                            $question->addTheme($parentTheme);
-                            $question->setCreatedBy($oquizzUser);
-
-                            $manager->persist($question);
-
-                            for ($k = 1; $k < 5; $k++) {
-                                // Create Proposition (4 per question)
-                                $proposition = new Proposition();
-                                $proposition->setText("Proposition n°$k (Question N° $j)");
-                                if ($k == 1) {
-                                    $proposition->setIsValid(true);
-                                } else {
-                                    $proposition->setIsValid(false);
-                                }
-                                $proposition->setQuestion($question);
-
-                                $manager->persist($proposition);
-                            }
-                        }
-                    }
                 }
-
+            }           
+        }
+    
+        $manager->flush();
                 // /!\ Les thèmes doivent être différents de ceux créer plus haut (ligne 42) :
                 //     Modifier la variable $themes en conséquence.
 
@@ -237,7 +201,7 @@ class AppFixtures extends Fixture
                 $cinéma = new Theme();
                 $cinéma->setName("Cinéma"); // Nom du quizz
                 $cinéma->setImage("/img/ciné.png");
-                $cinéma->addThemeParent($parentTheme); // Cinéma
+                $cinéma->addThemeParent($movietheme); // Cinéma
                 $manager->persist($cinéma);
 
                 // Demo
@@ -251,42 +215,50 @@ class AppFixtures extends Fixture
 
                 $quizzFriends = new Quizz();
                 $quizzFriends->setName("Connaissez-vous Friends ?"); // Titre du Quizz, à modifier
+                $quizzFriends->setImage("/img/serietv/friends.jpeg");
                 $quizzFriends->addTheme($friends)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzFriends);
             
                 $quizzKaamelott = new Quizz();
                 $quizzKaamelott->setName("Connaissez-vous Kaamelott ?");
+                $quizzKaamelott->setImage("/img/serietv/kaamelott.jpeg");
                 $quizzKaamelott->addTheme($kaamelott)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzKaamelott);
 
                 $quizzScrubs = new Quizz();
                 $quizzScrubs->setName("Connaissez-vous Scrubs ?");
+                $quizzScrubs->setImage("/img/serietv/scubs.jpeg");
                 $quizzScrubs->addTheme($Scrubs)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzScrubs);
 
                 $quizzAnnées8090 = new Quizz();
                 $quizzAnnées8090->setName("Années8090"); // Titre du Quizz, à modifier
+                $quizzAnnées8090->setImage("/img/annees8090.png");
                 $quizzAnnées8090->addTheme($Années8090)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzAnnées8090);
 
                 $quizzHowIMetYourMother = new Quizz();
                 $quizzHowIMetYourMother->setName("Connaissez vous How i met your mother ?"); // Titre du Quizz, à modifier
+                $quizzHowIMetYourMother->setImage("/img/serietv/howimetyourmother.jpeg");
                 $quizzHowIMetYourMother->addTheme($HowIMetYourMother)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzHowIMetYourMother);
 
                 $quizzPersonnages = new Quizz();
                 $quizzPersonnages->setName("$Personnages de séries Tv"); // Titre du Quizz, à modifier
+                $quizzPersonnages->setImage("/img/serietv/personnages.jpeg");
                 $quizzPersonnages->addTheme($Personnages)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzPersonnages);
 
                 $quizzCinéma = new Quizz();
                 $quizzCinéma->setName("Cinéma"); // Titre du Quizz, à modifier
+                $quizzCinéma->setImage("/img/ciné.png");
                 $quizzCinéma->addTheme($cinéma)->addTheme($movietheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzCinéma);
 
 
                 $quizzDemo = new Quizz();
                 $quizzDemo->setName("Demo oQuizz"); // Titre du Quizz, à modifier
+                $quizzDemo->setImage("/img/ladiesman.jpg");
                 $quizzDemo->addTheme($demo)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzDemo);
 
@@ -3786,7 +3758,5 @@ class AppFixtures extends Fixture
                     $manager->persist($proposition);
 
                 $manager->flush();
-            }
-        }
     }
 }

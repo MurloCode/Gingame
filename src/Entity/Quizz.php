@@ -44,17 +44,22 @@ class Quizz
      */
     private $createdBy;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
 	public function __construct()
-         	{
-         		$this->questions = new ArrayCollection();
-         		$this->themes = new ArrayCollection();
-         	}
+                  	{
+                  		$this->questions = new ArrayCollection();
+                  		$this->themes = new ArrayCollection();
+                  	}
 
 	public function __toString(){
-         	return $this->name;
-			return $this->questions;
-			return $this->themes;
-         }
+                  	return $this->name;
+         			return $this->questions;
+         			return $this->themes;
+                  }
 
 
 public function getId(): ?int
@@ -90,55 +95,55 @@ public function setDescription(?string $description): self
 	 * @return Collection|Question[]
 	 */
 	public function getQuestions(): Collection
-         	{
-         		return $this->questions;
-         	}
+                  	{
+                  		return $this->questions;
+                  	}
 
 	public function countQuestions(): int 
-	{
-		return $this->questions->count();
-	}
+         	{
+         		return $this->questions->count();
+         	}
 
 	public function addQuestion(Question $question): self
-         	{
-         		if (!$this->questions->contains($question)) {
-         			$this->questions[] = $question;
-         		}
-         
-         		return $this;
-         	}
+                  	{
+                  		if (!$this->questions->contains($question)) {
+                  			$this->questions[] = $question;
+                  		}
+                  
+                  		return $this;
+                  	}
 	
 
 	public function removeQuestion(Question $question): self
-         	{
-         		$this->questions->removeElement($question);
-         
-         		return $this;
-         	}
+                  	{
+                  		$this->questions->removeElement($question);
+                  
+                  		return $this;
+                  	}
 
 	/**
 	 * @return Collection|Theme[]
 	 */
 	public function getThemes(): Collection
-         	{
-         		return $this->themes;
-         	}
+                  	{
+                  		return $this->themes;
+                  	}
 
 	public function addTheme(Theme $theme): self
-         	{
-         		if (!$this->themes->contains($theme)) {
-         			$this->themes[] = $theme;
-         		}
-         
-         		return $this;
-         	}
+                  	{
+                  		if (!$this->themes->contains($theme)) {
+                  			$this->themes[] = $theme;
+                  		}
+                  
+                  		return $this;
+                  	}
 
 	public function removeTheme(Theme $theme): self
-         	{
-         		$this->themes->removeElement($theme);
-         
-         		return $this;
-         	}
+                  	{
+                  		$this->themes->removeElement($theme);
+                  
+                  		return $this;
+                  	}
 
     public function getCreatedBy(): ?User
     {
@@ -148,6 +153,18 @@ public function setDescription(?string $description): self
     public function setCreatedBy(?User $createdBy): self
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
