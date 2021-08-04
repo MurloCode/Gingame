@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class QuizzCrudController extends AbstractCrudController
 {
@@ -45,6 +46,9 @@ class QuizzCrudController extends AbstractCrudController
 				->setLabel('Nom de votre Quizz'),
 			TextareaField::new('description')
 				->setLabel('Description de votre Quizz'),
+			// TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+			TextField::new('imageFile')->setFormType(VichImageType::class),
+			ImageField::new('image')->setBasePath('/img/quizz')->onlyOnIndex(),
 			AssociationField::new('themes'),
 			CollectionField::new('new_questions')
 				->setLabel('Vos questions')
@@ -55,8 +59,7 @@ class QuizzCrudController extends AbstractCrudController
 				// ->allowAdd()
 				// ->allowDelete()
 				->hideOnIndex(),
-			
-				AssociationField::new('questions'),
+			AssociationField::new('questions'),
 
 		];
 		

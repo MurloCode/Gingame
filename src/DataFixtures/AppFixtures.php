@@ -179,7 +179,7 @@ class AppFixtures extends Fixture
                 // Années 8090
                 $Années8090 = new Theme();
                 $Années8090->setName("Années8090"); // Nom de la série
-                $Années8090->setImage("/img/quizz/annees8090.png");
+                $Années8090->setImage("annees8090.png");
                 $Années8090->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($Années8090);
 
@@ -200,14 +200,14 @@ class AppFixtures extends Fixture
                 // Cinéma
                 $cinéma = new Theme();
                 $cinéma->setName("Cinéma"); // Nom du quizz
-                $cinéma->setImage("/img/quizz/ciné.png");
+                $cinéma->setImage("ciné.png");
                 $cinéma->addThemeParent($movietheme); // Cinéma
                 $manager->persist($cinéma);
 
                 // Demo
                 $demo = new Theme();
                 $demo->setName("Démo"); // Nom de la série 
-                $demo->setImage("/img/quizz/ladiesman.jpg");
+                $demo->setImage("ladiesman.jpg");
                 $demo->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($demo);
                
@@ -216,91 +216,91 @@ class AppFixtures extends Fixture
                 // Connaissez-vous Friends ?
                 $quizzFriends = new Quizz();
                 $quizzFriends->setName("Connaissez-vous Friends ?"); // Titre du Quizz, à modifier
-                $quizzFriends->setImage("/img/quizz/friends.jpeg");
+                $quizzFriends->setImage("friends.jpeg");
                 $quizzFriends->addTheme($friends)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzFriends);
 
                 // Testez-vous sur Friends ?
                 $quizzFriends2 = new Quizz();
                 $quizzFriends2->setName("Testez-vous sur Friends ?"); // Titre du Quizz, à modifier
-                $quizzFriends2->setImage("/img/quizz/friends-2.jpeg");
+                $quizzFriends2->setImage("friends-2.jpeg");
                 $quizzFriends2->addTheme($friends)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzFriends2);
 
                 // Connaissez-vous Kaamelott ?
                 $quizzKaamelott = new Quizz();
                 $quizzKaamelott->setName("Connaissez-vous Kaamelott ?");
-                $quizzKaamelott->setImage("/img/quizz/kaa.png");
+                $quizzKaamelott->setImage("kaa.png");
                 $quizzKaamelott->addTheme($kaamelott)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzKaamelott);
 
                 // Testez-vous sur Kaamelott ?
                 $quizzKaamelott2 = new Quizz();
                 $quizzKaamelott2->setName("Testez-vous sur Kaamelott ?");
-                $quizzKaamelott2->setImage("/img/quizz/kaamelott-2.jpg");
+                $quizzKaamelott2->setImage("kaamelott-2.jpg");
                 $quizzKaamelott2->addTheme($kaamelott)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzKaamelott2);
 
                 //Connaissez-vous Scrubs ?
                 $quizzScrubs = new Quizz();
                 $quizzScrubs->setName("Connaissez-vous Scrubs ?");
-                $quizzScrubs->setImage("/img/quizz/scrubs.jpeg");
+                $quizzScrubs->setImage("scrubs.jpeg");
                 $quizzScrubs->addTheme($Scrubs)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzScrubs);
 
                  //Testez-vous sur Scrubs ?
                  $quizzScrubs2 = new Quizz();
                  $quizzScrubs2->setName("Testez-vous sur Scrubs ?");
-                 $quizzScrubs2->setImage("/img/quizz/scrubs-1.jpg");
+                 $quizzScrubs2->setImage("scrubs-1.jpg");
                  $quizzScrubs2->addTheme($Scrubs)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                  $manager->persist($quizzScrubs2);
 
                 //Années 8090
                 $quizzAnnées8090 = new Quizz();
                 $quizzAnnées8090->setName("Années8090"); // Titre du Quizz, à modifier
-                $quizzAnnées8090->setImage("/img/quizz/annees8090-1.jpg");
+                $quizzAnnées8090->setImage("annees8090-1.jpg");
                 $quizzAnnées8090->addTheme($Années8090)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzAnnées8090);
 
                 //Nostalgie 8090
                 $quizzNostalgie8090 = new Quizz();
                 $quizzNostalgie8090->setName("Années8090"); // Titre du Quizz, à modifier
-                $quizzNostalgie8090->setImage("/img/quizz/annees8090-2.jpg");
+                $quizzNostalgie8090->setImage("annees8090-2.jpg");
                 $quizzNostalgie8090->addTheme($Années8090)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzNostalgie8090);
 
                 // Connaissez vous How i met your mother ?
                 $quizzHowIMetYourMother = new Quizz();
                 $quizzHowIMetYourMother->setName("Connaissez vous How i met your mother ?"); // Titre du Quizz, à modifier
-                $quizzHowIMetYourMother->setImage("/img/quizz/howimetyourmother.jpeg");
+                $quizzHowIMetYourMother->setImage("howimetyourmother.jpeg");
                 $quizzHowIMetYourMother->addTheme($HowIMetYourMother)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzHowIMetYourMother);
 
                 // Testez-vous sur How i met your mother ?
                 $quizzHowIMetYourMother2 = new Quizz();
                 $quizzHowIMetYourMother2->setName("Testez-vous sur How i met your mother ?"); // Titre du Quizz, à modifier
-                $quizzHowIMetYourMother2->setImage("/img/quizz/howimetyourmother-1.jpeg");
+                $quizzHowIMetYourMother2->setImage("howimetyourmother-1.jpeg");
                 $quizzHowIMetYourMother2->addTheme($HowIMetYourMother)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzHowIMetYourMother2);
 
                 // Personnages de séries Tv
                 $quizzPersonnages = new Quizz();
                 $quizzPersonnages->setName("Personnages de séries Tv"); // Titre du Quizz, à modifier
-                $quizzPersonnages->setImage("/img/quizz/personnages-1.jpg");
+                $quizzPersonnages->setImage("personnages-1.jpg");
                 $quizzPersonnages->addTheme($Personnages)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzPersonnages);
 
                 // Personnages de séries
                 $quizzPersonnages2 = new Quizz();
                 $quizzPersonnages2->setName("Personnages de séries"); // Titre du Quizz, à modifier
-                $quizzPersonnages2->setImage("/img/quizz/personnages-2.jpg");
+                $quizzPersonnages2->setImage("personnages-2.jpg");
                 $quizzPersonnages2->addTheme($Personnages)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzPersonnages2);
 
                 // Cinéma Divers
                 $quizzCinéma = new Quizz();
                 $quizzCinéma->setName("Cinéma Divers"); // Titre du Quizz, à modifier
-                $quizzCinéma->setImage("/img/quizz/ciné.png");
+                $quizzCinéma->setImage("ciné.png");
                 $quizzCinéma->addTheme($cinéma)->addTheme($movietheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzCinéma);
 
@@ -308,14 +308,14 @@ class AppFixtures extends Fixture
                 // Cinéma Varié
                 $quizzCinéma2 = new Quizz();
                 $quizzCinéma2->setName("Cinéma Varié"); // Titre du Quizz, à modifier
-                $quizzCinéma2->setImage("/img/quizz/cinéma.jpg");
+                $quizzCinéma2->setImage("cinéma.jpg");
                 $quizzCinéma2->addTheme($cinéma)->addTheme($movietheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzCinéma2);
 
                 // Demo
                 $quizzDemo = new Quizz();
                 $quizzDemo->setName("Demo oQuizz"); // Titre du Quizz, à modifier
-                $quizzDemo->setImage("/img/quizz/ladiesman.jpg");
+                $quizzDemo->setImage("ladiesman.jpg");
                 $quizzDemo->addTheme($demo)->addTheme($parentTheme)->setCreatedBy($oquizzUser);
                 $manager->persist($quizzDemo);
 

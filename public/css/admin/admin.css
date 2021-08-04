@@ -19,6 +19,10 @@ input {
 	width: 100%;
 }
 
+#main-menu a {
+	text-decoration: none;
+}
+
 button,
 button:focus,
 button:focus:not(:focus-visible) {

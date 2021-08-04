@@ -6,9 +6,13 @@ use App\Repository\QuizzRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=QuizzRepository::class)
+ * @Vich\Uploadable
  */
 class Quizz
 {
@@ -39,27 +43,46 @@ class Quizz
 	 */
 	private $themes;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="quizz")
-     */
-    private $createdBy;
+	/**
+	 * @ORM\ManyToOne(targetEntity=User::class, inversedBy="quizz")
+	 */
+	private $createdBy;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $image;
+	/**
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	private $image;
+
+	/**
+	 * @Vich\UploadableField(mapping="quizz_images", fileNameProperty="image")
+	 * @var File
+	 */
+	private $imageFile;
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	private $createdAt;
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	private $updatedAt;
 
 	public function __construct()
-                  	{
-                  		$this->questions = new ArrayCollection();
-                  		$this->themes = new ArrayCollection();
-                  	}
+	{
+		$this->questions = new ArrayCollection();
+		$this->themes = new ArrayCollection();
+		$this->createdAt = new \DateTime();
+		$this->updatedAt = new \DateTime();
+	}
 
-	public function __toString(){
-                  	return $this->name;
-         			return $this->questions;
-         			return $this->themes;
-                  }
+	public function __toString()
+	{
+		return $this->name;
+		return $this->questions;
+		return $this->themes;
+	}
 
 
 public function getId(): ?int
@@ -95,79 +118,115 @@ public function setDescription(?string $description): self
 	 * @return Collection|Question[]
 	 */
 	public function getQuestions(): Collection
-                  	{
-                  		return $this->questions;
-                  	}
+										{
+											return $this->questions;
+										}
 
 	public function countQuestions(): int 
-         	{
-         		return $this->questions->count();
-         	}
+						   	{
+						   		return $this->questions->count();
+						   	}
 
 	public function addQuestion(Question $question): self
-                  	{
-                  		if (!$this->questions->contains($question)) {
-                  			$this->questions[] = $question;
-                  		}
-                  
-                  		return $this;
-                  	}
+										{
+											if (!$this->questions->contains($question)) {
+												$this->questions[] = $question;
+											}
+									
+											return $this;
+										}
 	
 
 	public function removeQuestion(Question $question): self
-                  	{
-                  		$this->questions->removeElement($question);
-                  
-                  		return $this;
-                  	}
+										{
+											$this->questions->removeElement($question);
+									
+											return $this;
+										}
 
 	/**
 	 * @return Collection|Theme[]
 	 */
 	public function getThemes(): Collection
-                  	{
-                  		return $this->themes;
-                  	}
+	{
+		return $this->themes;
+	}
 
 	public function addTheme(Theme $theme): self
-                  	{
-                  		if (!$this->themes->contains($theme)) {
-                  			$this->themes[] = $theme;
-                  		}
-                  
-                  		return $this;
-                  	}
+	{
+		if (!$this->themes->contains($theme)) {
+			$this->themes[] = $theme;
+		}
+
+		return $this;
+	}
 
 	public function removeTheme(Theme $theme): self
-                  	{
-                  		$this->themes->removeElement($theme);
-                  
-                  		return $this;
-                  	}
+	{
+		$this->themes->removeElement($theme);
 
-    public function getCreatedBy(): ?User
-    {
-        return $this->createdBy;
-    }
+		return $this;
+	}
 
-    public function setCreatedBy(?User $createdBy): self
-    {
-        $this->createdBy = $createdBy;
+	public function getCreatedBy(): ?User
+	{
+		return $this->createdBy;
+	}
 
-        return $this;
-    }
+	public function setCreatedBy(?User $createdBy): self
+	{
+		$this->createdBy = $createdBy;
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
+		return $this;
+	}
 
-    public function setImage(?string $image): self
-    {
-        $this->image = $image;
+	public function getImage(): ?string
+	{
+		return $this->image;
+	}
 
-        return $this;
-    }
+	public function setImage(?string $image): self
+	{
+		$this->image = $image;
 
+		return $this;
+	}
+	
+	public function setImageFile(File $file = null)
+	{
+		$this->imageFile = $file;
+		if ($file) {
+			$this->updatedAt = new \DateTime('now');
+		}
+	}
+
+	public function getImageFile()
+	{
+		return $this->imageFile;
+	}
+
+	public function getCreatedAt(): ?\DateTimeInterface
+	{
+		return $this->createdAt;
+	}
+
+	public function setCreatedAt(?\DateTimeInterface $createdAt): self
+	{
+		$this->createdAt = $createdAt;
+
+		return $this;
+	}
+
+	public function getUpdatedAt(): ?\DateTimeInterface
+	{
+		return $this->updatedAt;
+	}
+
+	public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+	{
+		$this->updatedAt = $updatedAt;
+
+		return $this;
+	}
 
 }
