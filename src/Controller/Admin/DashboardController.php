@@ -48,7 +48,6 @@ class DashboardController extends AbstractDashboardController
 		yield MenuItem::linkToCrud('Question', 'fas fa-map-marker-alt', Question::class);
 		yield MenuItem::linkToCrud('User', 'fas fa-map-marker-alt', User::class);
 		yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'home');
-		
 	}
 
 

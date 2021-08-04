@@ -14,6 +14,7 @@ function addPropositions(elem, time = 4) {
 	for (let i = 0; i < time; i++) {
 		elem.click();
 		if (i == 0) {
+			answerField;
 			// Check the first Checkbox of the new added proposition & add class on it
 			var checkbox = document.getElementsByClassName("isValid");
 			checkbox[checkbox.length - 1].checked = true;
