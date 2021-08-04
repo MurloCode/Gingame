@@ -90,7 +90,10 @@ class SecurityController extends AbstractController
         //->priority(Email::PRIORITY_HIGH)
         ->subject('Time for Symfony Mailer!')
         ->text('Sending emails is fun again!')
-        ->html('<p>See Twig integration for better HTML integration!</p>');
+        ->html("Bonjour,<br><br>Une demande de réinitialisation de mot de passe a été effectuée pour le site Oquizz. Veuillez cliquer sur le lien suivant : " . $url,
+        'text/html'
+    )
+;
 
     $mailer->send($email);
 
