@@ -48,9 +48,9 @@ class QuizzCrudController extends AbstractCrudController
 			AssociationField::new('themes'),
 			ImageField::new('image')
 				->setLabel('Image du Quizz')
-				->setBasePath('/public/img/quizz')
+				->setBasePath('/img/quizz')
 				// ->setUploadDir('public/uploads')
-				->setUploadDir('/public/img/quizz')
+				->setUploadDir('public/img/quizz')
 		 		->setFormType(FileUploadType::class)
 				->setUploadedFileNamePattern('[randomhash].[extension]')
 				->setRequired(false),
@@ -64,7 +64,7 @@ class QuizzCrudController extends AbstractCrudController
 				// ->allowDelete()
 				->hideOnIndex(),
 			
-				//AssociationField::new('questions'),
+				AssociationField::new('questions'),
 
 		];
 		

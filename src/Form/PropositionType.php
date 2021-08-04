@@ -19,6 +19,7 @@ class PropositionType extends AbstractType
 			->add('text', TextType::class, [
 
 				'label' => 'Proposition',
+				'mapped' => false,
 				'attr' => [
 					// 'class' => '[props]'.'Field' <-- A étudier
 					'class' => 'testCSS',
@@ -31,6 +32,7 @@ class PropositionType extends AbstractType
 
 			// ])
 			->add('is_valid', CheckboxType::class, [
+				'mapped' => false,
 				'label' => 'Bonne réponse',
 				'attr' => [
 					'class' => 'isValid'
