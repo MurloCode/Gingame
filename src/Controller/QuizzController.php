@@ -34,8 +34,6 @@ class QuizzController extends AbstractController
 	 */
 	public function index(QuizzRepository $quizzRepository): Response
 	{
-		
-
 		return $this->render('quizz/list.html.twig', [
 			'quizz' => $quizzRepository->findAllNotRandom(),
 		]);
