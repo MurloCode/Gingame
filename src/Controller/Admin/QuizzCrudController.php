@@ -44,12 +44,23 @@ class QuizzCrudController extends AbstractCrudController
 		return  [
 			TextField::new('name')
 				->setLabel('Nom de votre Quizz'),
+
 			TextareaField::new('description')
 				->setLabel('Description de votre Quizz'),
+
 			// TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-			TextField::new('imageFile')->setFormType(VichImageType::class),
-			ImageField::new('image')->setBasePath('/img/quizz')->onlyOnIndex(),
-			AssociationField::new('themes'),
+
+			TextField::new('imageFile')
+				->setFormType(VichImageType::class)
+				->hideOnIndex(),
+
+			ImageField::new('image')
+				->setBasePath('/img/quizz')
+				->onlyOnIndex(),
+
+			AssociationField::new('themes')
+				->hideOnIndex(),
+
 			CollectionField::new('new_questions')
 				->setLabel('Vos questions')
 				->setCssClass('quizzCSS')
@@ -59,6 +70,7 @@ class QuizzCrudController extends AbstractCrudController
 				// ->allowAdd()
 				// ->allowDelete()
 				->hideOnIndex(),
+				
 			AssociationField::new('questions'),
 
 		];

@@ -22,29 +22,35 @@ class CreateQuizzSubscriber implements EventSubscriberInterface
 			// dd($newQuestions);
 			// dd($Quizz[image][file]);
 
-
+			//dd($newQuestions["new_questions"]);
 			
-			if(isset($newQuestions["new_questions"]) && $newQuestions["new_questions"] != null){				
+			if(isset($newQuestions["new_questions"])){				
 				$newQuestions = $newQuestions["new_questions"];
 
+				
 				foreach ($newQuestions as $newQuestion) {
-					$question = new Question();
-					$question->setQuestion($newQuestion['question']);
-
+						
 					//dd($newQuestion);
-					if ($newQuestion['propositions'] && $newQuestion['propositions'] != null) {
-						foreach ($newQuestion['propositions'] as $newProposition) {
-							//$newProposition = $newQuestion['propositions'];
-							//dd($newProposition);
-							if ( !empty($newProposition['text']) || is_null($newProposition['text'])) {
-								$proposition = new Proposition();
-								$proposition->setText($newProposition['text']);
-								$proposition->setIsValid((isset($newProposition['is_valid']) && $newProposition['is_valid'] == 1) ? true : false);
-								$question->addProposition($proposition);
+					if ($newQuestion['question'] != "") {
+					
+						$question = new Question();
+						$question->setQuestion($newQuestion['question']);
+
+						//dd($newQuestion);
+						if ($newQuestion['propositions'] && $newQuestion['propositions'] != null) {
+							foreach ($newQuestion['propositions'] as $newProposition) {
+								//$newProposition = $newQuestion['propositions'];
+								//dd($newProposition);
+								if ( !empty($newProposition['text']) || is_null($newProposition['text'])) {
+									$proposition = new Proposition();
+									$proposition->setText($newProposition['text']);
+									$proposition->setIsValid((isset($newProposition['is_valid']) && $newProposition['is_valid'] == 1) ? true : false);
+									$question->addProposition($proposition);
+								}
 							}
 						}
+						$event->getEntityInstance()->addQuestion($question);
 					}
-					$event->getEntityInstance()->addQuestion($question);
 				}
 			
 			
