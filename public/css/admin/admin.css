@@ -86,12 +86,23 @@ section.content-header::after {
 	display: none;
 }
 
-.eaPropositionCSS .form-group:nth-child(1)::before {
+.eaPropositionCSS:nth-child() .form-group:nth-child(1)::before {
+	content: "NON";
+	position: absolute;
+	display: block;
+	margin: 29px 0 0 6px;
+	padding: 4px 7px;
+	height: 30px;
+	background-color: green;
+	border-radius: var(--border-radius) 0 0 var(--border-radius);
+	color: #fff;
+}
+
+.eaPropositionCSS:nth-child(1) .form-group:nth-child(1)::before {
 	content: "✔";
 	position: absolute;
 	display: block;
 	margin: 29px 0 0 6px;
-	/* width: 100px; */
 	padding: 4px 7px;
 	height: 30px;
 	background-color: green;
