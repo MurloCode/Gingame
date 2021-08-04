@@ -46,14 +46,6 @@ class QuizzCrudController extends AbstractCrudController
 			TextareaField::new('description')
 				->setLabel('Description de votre Quizz'),
 			AssociationField::new('themes'),
-			ImageField::new('image')
-				->setLabel('Image du Quizz')
-				->setBasePath('/img/quizz')
-				// ->setUploadDir('public/uploads')
-				->setUploadDir('public/img/quizz')
-		 		->setFormType(FileUploadType::class)
-				->setUploadedFileNamePattern('[randomhash].[extension]')
-				->setRequired(false),
 			CollectionField::new('new_questions')
 				->setLabel('Vos questions')
 				->setCssClass('quizzCSS')
