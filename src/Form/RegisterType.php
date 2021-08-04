@@ -5,6 +5,7 @@ namespace App\Form;
 use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,7 +19,7 @@ class RegisterType extends AbstractType
     {
         $builder
         // register user's email
-        ->add('email', null, [
+        ->add('email', EmailType::class, [
             'label' => 'Adresse Email:',
             'attr' => ['class' => 'form-control', 'placeholder' => 'Exemple: Oquizz@mail.com']
         ])
