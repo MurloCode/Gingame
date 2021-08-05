@@ -68,9 +68,5 @@ class HistoricRepository extends ServiceEntityRepository
     }
     */
 
-   public function findMostPopular()
-   {
-       return $this->createQueryBuilder('h')
-       ->
-   }
+
 }
