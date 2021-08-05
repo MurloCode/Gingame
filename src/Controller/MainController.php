@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Notification\ContactNotification;
+use App\Repository\HistoricRepository;
 use App\Repository\QuizzRepository;
 use App\Repository\ThemeRepository;
 use App\Service\MessageGenerator;
@@ -22,6 +23,10 @@ class MainController extends AbstractController
     {
         $this->addFlash('', $messageGenerator->randomMessage());
 
+        //$mostPopular = $historicRepository->findMostPopular();
+        // $mostPopular = $historicRepository->countBy('quizz');
+        //dd($mostPopular);
+
         $lastquizz = $quizzRepository->findLastQuizz(4);
 
         $themeChild = $themeRepository->findChildThemes(8);
@@ -29,7 +34,7 @@ class MainController extends AbstractController
         $lastTheme = $themeRepository->findLastThemeChild(4);
 
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+
             'lastquizz' => $lastquizz,
             'themechild' => $themeChild,
             'lasttheme' => $lastTheme

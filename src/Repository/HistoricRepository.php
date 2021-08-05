@@ -19,6 +19,26 @@ class HistoricRepository extends ServiceEntityRepository
         parent::__construct($registry, Historic::class);
     }
 
+    // public function findMostPopular() {
+    //     return 
+    //         $this
+    //             ->createQueryBuilder('h')
+    //             ->join('h.quizz', 'quizz')
+    //             ->addSelect('COUNT(quizz) as total')
+    //             ->having('total > 1')
+    //             ->groupBy('h')
+    //             ->getQuery()
+    //             ->getResult();
+    // }
+    // $this->repository->createQueryBuilder('offer')
+    // ->addSelect('SIZE(offer.files) as files')
+    // ->having('files > 1')
+    // ->getQuery()
+    // ->getResult();
+    // https://stackoverflow.com/questions/52813089/doctrine-query-builder-count-manytomany
+
+
+
     // /**
     //  * @return Historic[] Returns an array of Historic objects
     //  */

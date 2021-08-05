@@ -11,11 +11,14 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="Cet email est deja utilisé")
- * 
+ * @Vich\Uploadable
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -83,12 +86,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $activation_token;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+	/**
+	 * @Vich\UploadableField(mapping="user_images", fileNameProperty="imageurl")
+	 * @var File
+	 */
+	private $imageFile;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
         $this->quizz = new ArrayCollection();
         $this->friends = new ArrayCollection();
         $this->Created_At = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function __toString(){
@@ -326,6 +341,52 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->activation_token = $activation_token;
 
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+	public function setImageFile(File $file = null)
+	{
+		$this->imageFile = $file;
+		if ($file) {
+			$this->updatedAt = new \DateTime('now');
+		}
+	}
+
+	public function getImageFile()
+	{
+		return $this->imageFile;
+	}
+
+    public function __serialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'email' => $this->email,
+            'login' => $this->login,
+            'password' => $this->password,
+            //......
+        ];
+    }
+
+    public function __unserialize(array $serialized): User
+    {
+        $this->id = $serialized['id'];
+        $this->email = $serialized['email'];
+        $this->login = $serialized['login'];
+        $this->password = $serialized['password'];
+        // .....
         return $this;
     }
 }

@@ -34,7 +34,7 @@
 								<img src="{{ asset('img/pngLogo.png') }}" class="avatar avatar-mini" alt="Avatar de {{app.user.login}}">
 								{{ app.user.login }}
 							{% else %}
-								<img src="{{ asset('uploads/'~ app.user.imageurl) }}" class="avatar avatar-mini" alt="Avatar de {{app.user.login}}">
+								<img src="{{ vich_uploader_asset(app.user, 'imageFile') }}" class="avatar avatar-mini" alt="Avatar de {{app.user.login}}">
 								{{ app.user.login }}
 							{% endif %}
 						</a>

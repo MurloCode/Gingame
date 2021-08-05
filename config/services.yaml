@@ -6,6 +6,7 @@
 parameters:
     quizz_images: /img/quizz
     theme_images: /img/themes
+    user_images: /img/users
 services:
     # default configuration for services in *this* file
     _defaults:
