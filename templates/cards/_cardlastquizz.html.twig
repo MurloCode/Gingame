@@ -7,7 +7,7 @@
 				{# style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);"> #}
 			{% else %}
 				<img
-				src="{{ asset('img/quizz/' ~ quizz.image) }}" class="card-img-top img-fluid" alt="..." style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);">
+				src="{{ vich_uploader_asset(quizz, 'imageFile') }}" class="card-img-top img-fluid" alt="..." style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);">
 			{# style="height: 200px; width: 100%; display: block; object-fit:cover;"> #}
 			{% endif %}
 			{# <img src="{{ asset('img/1.png') }}" class="card-img-top img-fluid" alt="..." #}

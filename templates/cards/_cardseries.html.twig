@@ -1,23 +1,24 @@
 <div class="col">
 	{% if type is defined and type == 'parent' %}
-		<a href="{{ path('theme_list_id', {id:themes.id}) }}"><div class="card">
-	{% else %}
-		<a href="{{ path('quizz_themeQuizz', {id:themes.id}) }}"><div class="card">
-	{% endif %}
-		{% if themes.image is empty %}
-		<img src="{{ asset('img/1.png') }}" class="card-img-top img-fluid" alt="..."
-		style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);">
-		{% else %}
-		<img src="{{ themes.image }}" class="card-img-top img-fluid" alt="..."
-		style="height: 200px; width: 100%; display: block; object-fit:cover;">
-		{% endif %}
-		<div class="card-img-overlay">
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<h3 class="card-title position-absolute bottom-0 start-50 translate-middle-x navquizztext quizzcard">{{ themes.name }}</h3>
+		<a href="{{ path('theme_list_id', {id:themes.id}) }}">
+			<div class="card">
+			{% else %}
+				<a href="{{ path('quizz_themeQuizz', {id:themes.id}) }}">
+					<div class="card">
+					{% endif %}
+					{% if themes.image is empty %}
+						<img src="{{ asset('img/1.png') }}" class="card-img-top img-fluid" alt="..." style="height: 200px; width: 100%; display: block; object-fit:cover; background-color: rgb(1, 1, 114);">
+					{% else %}
+						<img src="{{ vich_uploader_asset(themes, 'imageFile') }}" class="card-img-top img-fluid" alt="..." style="height: 200px; width: 100%; display: block; object-fit:cover;">
+					{% endif %}
+					<div class="card-img-overlay">
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<h3 class="card-title position-absolute bottom-0 start-50 translate-middle-x navquizztext quizzcard">{{ themes.name }}</h3>
+					</div>
+				</a>
+			</div>
 		</div>
-	</a></div>
-</div>
