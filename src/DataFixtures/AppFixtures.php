@@ -72,14 +72,14 @@ class AppFixtures extends Fixture
         // 1st Parent Theme : Serie TV
         $parentTheme = new Theme();
         $parentTheme->setName("Série TV");
-        $parentTheme->setImage("/img/serietv.jpeg");
+        $parentTheme->setImage("serietv.jpeg");
         
         $manager->persist($parentTheme);
 
         // second Parent Theme : Serie TV
         $movietheme = new Theme();
         $movietheme->setName("Films");
-        $movietheme->setImage("/img/cinema.jpeg");
+        $movietheme->setImage("cinema.jpeg");
 
         $manager->persist($movietheme);
 
@@ -91,14 +91,14 @@ class AppFixtures extends Fixture
         // Create Children Themes
         $themes = [
             
-            // ["Friends", "/img/serietv/friends.jpeg"],
-            // ["Kaamelott", "/img/serietv/kaamelott.jpeg"],
-            // ["Scrubs", "/img/serietv/scrubs.jpeg"],
-            // ["Années8090", "/img/annees8090.png"],
-            // ["How i met your mother", "/img/serietv/howimetyourmother.jpeg"],
-            // ["Personnages", "/img/serietv/personnages.jpeg"],
-            // ["Cinéma", "/img/ciné.png"],
-            // ["Fixtures", "/img/ladiesman.jpg"]
+            // ["Friends", "friends.jpeg"],
+            // ["Kaamelott", "kaamelott.jpeg"],
+            // ["Scrubs", "scrubs.jpeg"],
+            // ["Années8090", "annees8090.png"],
+            // ["How i met your mother", "howimetyourmother.jpeg"],
+            // ["Personnages", "personnages.jpeg"],
+            // ["Cinéma", "ciné.png"],
+            // ["Fixtures", "ladiesman.jpg"]
 
         ];
     //     $manager->persist($parentTheme);
@@ -158,27 +158,27 @@ class AppFixtures extends Fixture
                 // Friends
                 $friends = new Theme();
                 $friends->setName("Friends"); // Nom de la série
-                $friends->setImage("/img/serietv/friends-logo.png");
+                $friends->setImage("friends-logo.png");
                 $friends->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($friends);
 
                 // Kaamelott
                 $kaamelott = new Theme();
                 $kaamelott->setName("Kaamelott"); // Nom de la série
-                $kaamelott->setImage("/img/serietv/kaamelott.jpeg");
+                $kaamelott->setImage("kaamelott.jpeg");
                 $kaamelott->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($kaamelott);
 
                 // Scrubs
                 $Scrubs = new Theme();
                 $Scrubs->setName("Scrubs"); // Nom de la série
-                $Scrubs->setImage("/img/serietv/scrubs-logo.jpg");
+                $Scrubs->setImage("scrubs-logo.jpg");
                 $Scrubs->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($Scrubs);
 
                 // Années 8090
                 $Années8090 = new Theme();
-                $Années8090->setName("Années8090"); // Nom de la série
+                $Années8090->setName("Années 80-90"); // Nom de la série
                 $Années8090->setImage("annees8090.png");
                 $Années8090->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($Années8090);
@@ -186,14 +186,14 @@ class AppFixtures extends Fixture
                 // How i met your mother
                 $HowIMetYourMother = new Theme();
                 $HowIMetYourMother->setName("How I Met Your Mother"); // Nom de la série
-                $HowIMetYourMother->setImage("/img/serietv/howimetyourmother-logo.jpeg");
+                $HowIMetYourMother->setImage("howimetyourmother-logo.jpeg");
                 $HowIMetYourMother->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($HowIMetYourMother);
 
                 // Personnages
                 $Personnages = new Theme();
                 $Personnages->setName("Personnages"); // Nom de la série
-                $Personnages->setImage("/img/serietv/personnages.jpeg");
+                $Personnages->setImage("personnages.jpeg");
                 $Personnages->addThemeParent($parentTheme); // Serie TV
                 $manager->persist($Personnages);
 
