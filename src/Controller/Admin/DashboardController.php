@@ -49,10 +49,10 @@ class DashboardController extends AbstractDashboardController
 		//yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
 		yield MenuItem::section('Quizz');
 		yield MenuItem::linkToCrud('Quizz', 'fas fa-tasks', Quizz::class);
-		yield MenuItem::linkToCrud('Thèmes', 'fas fa-question', Theme::class);
-		yield MenuItem::linkToCrud('Question', 'fas fa-question', Question::class);
-		yield MenuItem::section('User');
-		yield MenuItem::linkToCrud('User', 'fas fa-id-card', User::class);
+		yield MenuItem::linkToCrud('Thèmes', 'fas fa-object-group', Theme::class);
+		yield MenuItem::linkToCrud('Questions', 'fas fa-question', Question::class);
+		yield MenuItem::section('Utilisateurs');
+		yield MenuItem::linkToCrud('Utilisateurs inscrits', 'fas fa-id-card', User::class);
 		yield MenuItem::section('Bye !');
 		yield MenuItem::linktoRoute('Retour sur le site', 'fas fa-home', 'home');
 	}

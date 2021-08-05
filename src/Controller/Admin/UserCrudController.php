@@ -6,6 +6,7 @@ use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
@@ -22,12 +23,14 @@ class UserCrudController extends AbstractCrudController
 	public function configureFields(string $pageName): iterable
 	{
 	   return [
-			'id',
 			'login',
 			'email',
-			AssociationField::new('quizz'),
+			AssociationField::new('quizz')->onlyOnIndex(),
 			// 'publishedAt',
 			AssociationField::new('friends'),
+			DateField::new('createdAt')
+				->setLabel("Date d'inscription")
+				->setFormat('dd-MM-Y'),
 		];
 	}
 }
