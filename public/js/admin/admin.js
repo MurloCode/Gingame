@@ -7,6 +7,11 @@ window.addEventListener("load", function () {
 	BtnQuestion.addEventListener("click", function () {
 		btnProposition = document.getElementsByClassName("field-collection-add-button")[0];
 		addPropositions(btnProposition);
+
+		// scroll to the bottom of the page
+		//https://stackoverflow.com/questions/11715646/scroll-automatically-to-the-bottom-of-the-page
+		var scrollingElement = document.scrollingElement || document.body;
+		scrollingElement.scrollTop = scrollingElement.scrollHeight;
 	});
 });
 
@@ -24,9 +29,4 @@ function addPropositions(elem, time = 4) {
 	}
 	// remove de button for add new proposition
 	elem.remove();
-
-	// scroll to the bottom of the page
-	//https://stackoverflow.com/questions/11715646/scroll-automatically-to-the-bottom-of-the-page
-	var scrollingElement = document.scrollingElement || document.body;
-	scrollingElement.scrollTop = scrollingElement.scrollHeight;
 }

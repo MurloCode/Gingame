@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -42,35 +43,46 @@ class QuizzCrudController extends AbstractCrudController
 
 
 		return  [
-			TextField::new('name')
-				->setLabel('Nom de votre Quizz'),
 
-			TextareaField::new('description')
-				->setLabel('Description de votre Quizz'),
+			FormField::addPanel('Quizz')
+				->setCssClass('container'),
 
-			// TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+				TextField::new('name')
+					->setLabel('Nom de votre Quizz')
+					->setCssClass('titleField col-12'),
 
-			TextField::new('imageFile')
-				->setFormType(VichImageType::class)
-				->hideOnIndex(),
+				TextareaField::new('description')
+					->setLabel('Description de votre Quizz')
+					->setCssClass('titleField col-8'),
 
-			ImageField::new('image')
-				->setBasePath('/img/quizz')
-				->onlyOnIndex(),
-
-			AssociationField::new('themes')
-				->hideOnIndex(),
-
-			CollectionField::new('new_questions')
-				->setLabel('Vos questions')
-				->setCssClass('quizzCSS')
-				->setFormtypeOption("mapped",false)
-				->setEntryType(QuestionType::class)
-				// ->setEntryIsComplex(true)
-				// ->allowAdd()
-				// ->allowDelete()
-				->hideOnIndex(),
+				TextField::new('imageFile')
+					->setFormType(VichImageType::class)
+					->setCssClass('imgField col-4')
+					->hideOnIndex(),
 				
+				ImageField::new('image')
+					->setBasePath('/img/quizz')
+					->setCssClass('col-4')
+					->onlyOnIndex(),
+
+				AssociationField::new('themes')
+					->setCssClass('themeField col-12')
+					->hideOnIndex(),
+					
+
+			FormField::addPanel('Questions')
+				->addCssClass('container'),				
+
+				CollectionField::new('new_questions')
+					->setLabel('Vos questions')
+					->setCssClass('quizzCSS')
+					->setFormtypeOption("mapped",false)
+					->setEntryType(QuestionType::class)
+					// ->setEntryIsComplex(true)
+					// ->allowAdd()
+					// ->allowDelete()
+					->hideOnIndex(),
+
 			AssociationField::new('questions'),
 
 		];

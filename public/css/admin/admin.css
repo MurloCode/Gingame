@@ -136,3 +136,14 @@ input.questionField {
 .quizzProps div::before {
 	background: #f00;
 }
+
+.ea-edit-Quizz #content-1,
+.ea-new-Quizz #content-1 {
+	display: none;
+}
+
+.ea-edit-Quizz #content-2,
+.ea-new-Quizz #content-2 {
+	display: flex;
+	flex-wrap: wrap;
+}
