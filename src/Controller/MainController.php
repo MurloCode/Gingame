@@ -19,7 +19,7 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository, HistoricRepository $historicRepository): Response
+    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository): Response
     {
         $this->addFlash('', $messageGenerator->randomMessage());
 
@@ -33,8 +33,7 @@ class MainController extends AbstractController
 
         $lastTheme = $themeRepository->findLastThemeChild(4);
 
-        $historic = $historicRepository->findMostPopular();
-        dd($historic);
+    
 
         return $this->render('main/index.html.twig', [
 
