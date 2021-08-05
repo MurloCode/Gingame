@@ -19,6 +19,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+
 /**
  * @isGranted("ROLE_ADMIN")
  */
@@ -46,6 +47,8 @@ class QuizzCrudController extends AbstractCrudController
 		// ])
 
 
+
+
 		return  [
 
 			FormField::addPanel('Quizz')
@@ -56,8 +59,8 @@ class QuizzCrudController extends AbstractCrudController
 					->setCssClass('titleField col-12'),
 
 				TextareaField::new('description')
-					->setLabel('Description de votre Quizz')
-					->setCssClass('titleField col-8'),
+					->setLabel('Description')
+					->setCssClass('descField col-8'),
 
 				TextField::new('imageFile')
 					->setFormType(VichImageType::class)
@@ -65,7 +68,7 @@ class QuizzCrudController extends AbstractCrudController
 					->hideOnIndex(),
 				
 				ImageField::new('image')
-					->setBasePath('/img/quizz')
+					->setBasePath($this->getParameter('quizz_images'))
 					->setCssClass('col-4')
 					->onlyOnIndex(),
 

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Question;
 use App\Entity\Quizz;
+use App\Entity\Theme;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Asset;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
@@ -48,6 +49,7 @@ class DashboardController extends AbstractDashboardController
 		//yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
 		yield MenuItem::section('Quizz');
 		yield MenuItem::linkToCrud('Quizz', 'fas fa-tasks', Quizz::class);
+		yield MenuItem::linkToCrud('Thèmes', 'fas fa-question', Theme::class);
 		yield MenuItem::linkToCrud('Question', 'fas fa-question', Question::class);
 		yield MenuItem::section('User');
 		yield MenuItem::linkToCrud('User', 'fas fa-id-card', User::class);
