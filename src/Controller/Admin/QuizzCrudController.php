@@ -17,7 +17,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+/**
+ * @isGranted("ROLE_ADMIN")
+ */
 class QuizzCrudController extends AbstractCrudController
 {
 	public static function getEntityFqcn(): string
