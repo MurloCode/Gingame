@@ -101,51 +101,21 @@ section.content-header::after {
 	display: none;
 }
 
-/* .eaPropositionCSS:nth-child() .form-group:nth-child(1)::before {
-	content: "NON";
-	position: absolute;
-	display: block;
-	margin: 29px 0 0 6px;
-	padding: 4px 7px;
-	height: 30px;
-	background-color: green;
-	border-radius: var(--border-radius) 0 0 var(--border-radius);
-	color: #fff;
-} */
-
-/* .eaPropositionCSS:nth-child(1) .form-group:nth-child(1)::before {
-	content: "✔";
-	position: absolute;
-	display: block;
-	margin: 29px 0 0 6px;
-	padding: 4px 7px;
-	height: 30px;
-	background-color: green;
-	border-radius: var(--border-radius) 0 0 var(--border-radius);
-	color: #fff;
-} */
-.eaPropositionCSS:nth-child(1) .form-group:nth-child(1)::before {
-	content: "✔";
-	position: absolute;
-	margin: 33px 0 0 9px;
-	padding: 1px 5px;
-	height: 24px;
-	background-color: green;
-	border-radius: 50%;
-	color: #fff;
-	line-height: 22px;
-}
-
 .eaPropositionCSS input.answerField {
-	padding-left: 29px;
+	padding-left: 32px;
+	background: rgb(255, 234, 234, 0.5);
+	background-image: url("img/propsFalse.png");
+	background-size: 20px;
+	background-position: 5px center;
+	background-repeat: no-repeat;
 }
 
 .eaPropositionCSS input.propsIsValid {
-	border: 1px solid green;
+	background-color: rgba(238, 255, 238, 0.5);
+	background-image: url("img/propsTrue.png");
 }
-
-.eaPropositionCSS input.propsIsValid {
-	border: 1px solid green;
+input.questionField {
+	background-color: rgba(238, 255, 238, 0.5);
 }
 
 /* .eaPropositionCSS input.answerField::before {
