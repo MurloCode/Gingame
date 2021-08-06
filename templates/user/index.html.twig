@@ -21,7 +21,8 @@
               {% else %}
               <img src="{{ vich_uploader_asset(user, 'imageFile') }}" style="width:100px;margin-top:-30px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
               {% endif %}
-              <h5 class="card-title">{{user.login}}</h5>
+              <a style="text-decoration:none" href="{{ path('user_profil', {'id': user.id}) }}"><h5 class="card-title">{{user.login}} </h5></a>
+              
             </div>
             <div class="card-footer" style="text-align:center">
               <button class="btn btn-light btn-sm bg-white has-icon btn-block" type="button"><i class="material-icons"></i>Follow</button>
