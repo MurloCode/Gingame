@@ -3,36 +3,66 @@
 {% block title %}Se connecter{% endblock %}
 
 {% block body %}
-	<main class="container">
-		<form method="post">
+
+
+<link rel="stylesheet" href="{{ asset('css/login.css')}}">
+<div id="main-wrapper" class="container">
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
-			<br />
-			<br />
-			<h1 class="mb-3">Se connecter</h1>
-			<br />
-			<br />
-			<label for="inputEmail">Email</label>
-			<input type="email" value="{{ last_username }}" placeholder="Exemple: Oquizz@mail.com" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-			<br />
-			<br />
-			<br />
-			<br />
-			<label for="inputPassword">Password</label>
-			<input type="password" placeholder="Exemple: 0Qu1zz@123" id="inputPassword" name="password" class="form-control" autocomplete="current-password" required>
-			<br />
-			<br />
-			<br />
-			<br />
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-			<button class="btn btn-lg btn-primary" type="submit">
-				Se connecter
-			</button>
-			<br />
-			<br />
-			<a href="{{ path('app_register') }}">Pas encore de compte ?</a>
-			<a href="{{ path('app_forgotten_password') }}">Mot de passe perdu ?</a>
-		</form>
-	</main>
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Se Connecter</h3>
+                                </div>
+
+
+                                <form method="post">
+								{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
+                                    <div class="form-group">
+                                        <label for="inputEmail">Email address</label>
+                                        <input type="email" value="{{ last_username }}" placeholder="Exemple: Oquizz@mail.com" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                                    </div>
+                                    <div class="form-group mb-5">
+                                        <label for="inputPassword">Password</label>
+                                        <input type="password" placeholder="Exemple: 0Qu1zz@123" id="inputPassword" name="password" class="form-control" autocomplete="current-password" required>
+                                    </div>
+									<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                    <button type="submit" class="btn btn-theme">Se Connecter</button>
+                                    <a href="{{ path('app_forgotten_password') }}" class="forgot-link float-right text-primary">Mot de passe perdu ?</a>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+
+            <p class="text-muted text-center mt-3 mb-0">Pas encore de compte ?  <a href="{{ path('app_register') }}" class="text-primary ml-1">S'inscrire</a></p>
+
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    
+</div>
+	
+
+
 {% endblock %}
