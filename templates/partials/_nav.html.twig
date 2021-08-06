@@ -1,27 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-oquizz">
 	<div class="container-fluid">
 		<a class="nav-link" aria-current="page" href="{{ path('home') }}"><img class="d-block headerlogo" src="{{ asset('img/1.png')}}" alt=""></a>
-		<a class="navbar-brand navquizztext" href="{{ path('random_generate') }}">Quizz Random !</a>
+		<a class="navbar-brand navquizztext" href="{{ path('random_generate') }}">Quizz Random <i class="fas fa-exclamation"></i>{# <i class="fas fa-exclamation-circle"> #}</i></a>
+		
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNavDarkDropdown">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link navquizztext" aria-current="page" href="{{ path('home') }}">Accueil<span class="sr-only"></span>
+					<a class="nav-link navquizztext" aria-current="page" href="{{ path('home') }}"><i class="fas fa-home"></i> Accueil<span class="sr-only"></span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link navquizztext" aria-current="page" href="{{ path('quizz_list') }}">Liste des quizz<span class="sr-only"></span>
+					<a class="nav-link navquizztext" aria-current="page" href="{{ path('quizz_list') }}"><i class="fas fa-list"></i> Liste des quizz<span class="sr-only"></span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link navquizztext" aria-current="page" href="{{ path('theme_list') }}">Liste des themes<span class="sr-only"></span>
+					<a class="nav-link navquizztext" aria-current="page" href="{{ path('theme_list') }}"><i class="fas fa-th-list"></i> Liste des themes<span class="sr-only"></span>
 					</a>
 				</li>
 				{% if not is_granted('ROLE_USER') %}
 					<li class="nav-item">
-						<a class="nav-link navquizztext" href="{{ path('app_register') }}">inscription<span class="sr-only"></span>
+						<a class="nav-link navquizztext" href="{{ path('app_register') }}"><i class="fas fa-user-plus"></i> inscription<span class="sr-only"></span>
 						</a>
 					</li>
 				{% endif %}
@@ -40,30 +41,30 @@
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDarkDropdownMenuLink">
 							<li>
-								<a class="dropdown-item navquizztext" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button">Profil</a>
+								<a class="dropdown-item navquizztext" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button"><i class="fas fa-user"></i> Profil</a>
 							</li>
 							{% if is_granted('ROLE_ADMIN') %}
 								<li><hr class="dropdown-divider"></li>
 								<li>
-									<a class="dropdown-item navquizztext bg-warning" href="{{ path('admin') }}" type="button">Administration</a>
+									<a class="dropdown-item navquizztext bg-warning" href="{{ path('admin') }}" type="button"><i class="fas fa-user-shield"></i> Administration</a>
 								</li>
 								<li>
-									<a class="dropdown-item navquizztext bg-warning" href="{{ path('user_index') }}" type="button">Liste utilisateurs</a>
+									<a class="dropdown-item navquizztext bg-warning" href="{{ path('user_index') }}" type="button"><i class="fas fa-list-ol"></i> Liste utilisateurs</a>
 								</li>
 								<li>
-									<a class="dropdown-item navquizztext bg-warning" href="{{ path('user_new') }}" type="button">Créer un nouvel utilisateur</a>
+									<a class="dropdown-item navquizztext bg-warning" href="{{ path('user_new') }}" type="button"><i class="fas fa-user-plus"></i> Créer un nouvel utilisateur</a>
 								</li>
 							{% endif %}
 							<li><hr class="dropdown-divider"></li>
 							<li>
-								<a class="dropdown-item navquizztext bg-danger" href="{{ path('app_logout') }}" type="button">Déconnexion</a>
+								<a class="dropdown-item navquizztext bg-danger" href="{{ path('app_logout') }}" type="button">Déconnexion <i class="fas fa-sign-out-alt"></i></a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		{% else %}
-			<a class="btn btn-lg btn-primary btn-sm proposal" href="{{ path('app_login') }}" role="button">Connexion</a>
+			<a class="btn btn-lg btn-primary btn-sm proposal" href="{{ path('app_login') }}" role="button"><i class="fas fa-sign-in-alt"></i> Connexion</a>
 			{# option class="btn btn-primary"#}
 			{# <button class="btn btn-outline-success" type="submit">Search</button> #}
 		{% endif %}

@@ -4,7 +4,7 @@
 
 {% block body %}
     {{ form_start(form) }}
-        <h1>Contact</h1>
+        <h1><i class="fas fa-file-signature"></i> Contact</h1>
         <main id="contactForm" class="mt-4 container">
             <div class="mb-3">           
                 <div type="prenom" class="" id="Contactfirstname">{{form_row(form.firstname, { label:'Prénom:'} )}}</div>
@@ -27,7 +27,7 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div> #}
-            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <button type="submit" class="btn btn-success">Envoyer <i class="fas fa-arrow-right"></i> </button>
         </main>    
     {{ form_end(form) }}
 {% endblock %}
