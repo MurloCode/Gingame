@@ -89,10 +89,10 @@ class UserController extends AbstractController
 			// /** @var UploadedFile $brochureFile */
 			// $imageFile = $form->get('image')->getData();
 
-			if ($form->get('imageFile')->getData()) {
+			// if ($form->get('imageFile')->getData()) {
 				
-				$user->setImageFile($form->get('imageFile')->getData());
-			}
+			// 	$user->setImageFile($form->get('imageFile')->getData());
+			// }
 		 
 			$this->getDoctrine()->getManager()->flush();
 

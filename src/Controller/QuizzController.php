@@ -55,7 +55,7 @@ class QuizzController extends AbstractController
 	 *
 	 * @return Response
 	 */
-	public function show(int $id, Quizz $quizz=null,  RequestStack $requestStack, PropositionRepository $proposition, SessionQuizzService $sessionQuizz, MessageGenerator $messageGenerator, QuizzRepository $quizzRepository)
+	public function show(int $id, Quizz $quizz=null,  RequestStack $requestStack, PropositionRepository $proposition, SessionQuizzService $sessionQuizz, MessageGenerator $messageGenerator, QuestionRepository $questionRepository	)
 	{
 		// We want to display a 404 if the quizz doesn't exist.
 		// We order a quizz by its id
@@ -66,9 +66,26 @@ class QuizzController extends AbstractController
 			return $this->render('errors/error404.html.twig');
 		}
 		
+
+
 		$sessionQuizz->start();
 
 		$questions = $quizz->getQuestions();
+
+		// Get Themes of Questions
+		foreach ($questions[$sessionQuizz->getQuestionNumber()]->getThemes() as $theme) {
+			$themesQuestion[] = $theme->getName();
+		}
+
+
+		$maQuestion = $questionRepository->find($questions[$sessionQuizz->getQuestionNumber()]->getId());
+		dump($maQuestion);
+		$questionTheme = $maQuestion->getThemes();
+		foreach ($questionTheme as $questionTheme) {
+			dump($questionTheme->getName());	
+		}
+
+
 
 		// Verify if form is Sent
 		if (isset($_POST["options"])) {
@@ -100,6 +117,7 @@ class QuizzController extends AbstractController
 		return $this->render('quizz/show.html.twig', [
 			'quizz' => $quizz,
 			'question' => $questions[$sessionQuizz->getQuestionNumber()],
+			'themes' => $themesQuestion,
 			// Progress. Send : Question n° / Question Total / %
 			'progress' => [
 				'questionNumber' => $sessionQuizz->getQuestionNumber() + 1,

@@ -4,9 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    quizz_images: img/quizz
-    theme_images: img/themes
-    user_images: img/users
+    quizz_images: /img/quizz
+    theme_images: /img/themes
+    user_images: /img/users
 services:
     # default configuration for services in *this* file
     _defaults:

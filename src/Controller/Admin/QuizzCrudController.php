@@ -11,7 +11,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
@@ -54,9 +56,15 @@ class QuizzCrudController extends AbstractCrudController
 			FormField::addPanel('Quizz')
 				->setCssClass('container'),
 
+				IdField::new('id')
+					->onlyOnIndex(),
+
 				TextField::new('name')
 					->setLabel('Nom de votre Quizz')
 					->setCssClass('titleField col-12'),
+
+				IntegerField::new('played', 'Joué')
+					->OnlyOnIndex(),
 
 				TextareaField::new('description')
 					->setLabel('Description')

@@ -54,6 +54,11 @@ class Quizz
 	private $image;
 
 	/**
+	 * @ORM\OneToMany(targetEntity=Historic::class, mappedBy="quizz")
+	 */
+	private $historics;
+
+	/**
 	 * @Vich\UploadableField(mapping="quizz_images", fileNameProperty="image")
 	 * @var File
 	 */
@@ -229,4 +234,13 @@ public function setDescription(?string $description): self
 		return $this;
 	}
 
+	public function getHistorics(): Collection
+	{
+		return $this->historics;
+	}
+
+	public function played():int
+	{
+		return $this->historics->count();
+	} 
 }

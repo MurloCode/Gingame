@@ -5,6 +5,8 @@ namespace App\EventSubscriber;
 use App\Entity\Proposition;
 use App\Entity\Question;
 use App\Entity\Quizz;
+use App\Entity\Theme;
+use App\Repository\ThemeRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -14,6 +16,10 @@ use function PHPUnit\Framework\isEmpty;
 
 class CreateQuizzSubscriber implements EventSubscriberInterface
 {
+	public function __construct(ThemeRepository $themeRepository) {
+		$this->themeRepository = $themeRepository;
+	}
+
 	public function onBeforeEntitySavedEvent ($event) {
 		if ($event->getEntityInstance() instanceof Quizz) {
 			$request = Request::createFromGlobals();
@@ -22,8 +28,12 @@ class CreateQuizzSubscriber implements EventSubscriberInterface
 			// dd($newQuestions);
 			// dd($Quizz[image][file]);
 
-			//dd($newQuestions["new_questions"]);
+			//  dd($newQuestions['themes']);
 			
+			
+
+			$themes = $newQuestions['themes'];
+			//dd($themes);
 			if(isset($newQuestions["new_questions"])){				
 				$newQuestions = $newQuestions["new_questions"];
 
@@ -35,6 +45,15 @@ class CreateQuizzSubscriber implements EventSubscriberInterface
 					
 						$question = new Question();
 						$question->setQuestion($newQuestion['question']);
+
+						
+						foreach ($themes as $theme) {
+							//dd($theme);
+							$themeEntity = $this->themeRepository->findOneBy(['id' => $theme]);
+							//$themeRepo = $this->entityManager->getRepository(Theme::class);
+							//$th = $themeRepo->findOneBy(['id' => $theme]);
+							$question->addTheme($themeEntity);
+						}
 
 						//dd($newQuestion);
 						if ($newQuestion['propositions'] && $newQuestion['propositions'] != null) {
