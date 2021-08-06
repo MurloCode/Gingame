@@ -39,3 +39,7 @@
     border-color: #5369f8;
     color: #fff;
 }
+
+.account-block.rounded-right{
+    width: 130%;
+}
