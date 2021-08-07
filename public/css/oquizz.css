@@ -1,4 +1,4 @@
-
+  
 @font-face {
     font-family: 'code_nextextrabold';
     src: url('/police/codenext-extrabold-webfont.eot');
@@ -18,6 +18,9 @@
   .navbar .navbar-collapse {
     text-align: center;
   }
+
+
+
 
 .tales {
     width: 80%;

@@ -5,32 +5,61 @@ Nouvel inscrit
 {% endblock %}
 
 {% block body %}
-<main class="container">
-		{% for flashError in app.flashes('verify_email_error') %}
+
+
+	<link rel="stylesheet" href="{{ asset('css/register.css')}}">
+	<div id="main-wrapper" class="container" >
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Inscription</h3>
+                                </div>
+								{% for flashError in app.flashes('verify_email_error') %}
 			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 		{% endfor %}
-		{# <br /> #}
-		{# <br /> #}
-		<h1>S'inscrire</h1>
 		{{ form_start(registerForm) }}
-		{# <br /> #}
-		{# <br /> #}
-        {{ form_row(registerForm.login) }}
-		{# <br /> #}
-		{# <br /> #}
-        {{ form_row(registerForm.email) }}
-		{# <br /> #}
-		{# <br /> #}
-		{{ form_row(registerForm.password, {
-            label: 'Mot de passe'
-        }) }}
-		{# <br /> #}
-		{# <br /> #}
-		{{ form_row(registerForm.captcha, {
-			label: 'Recopiez ces caractères : '
-		}) }}
-		{# {{ form_row(registerForm.agreeTerms) }} #}
-		<button type="submit" class="btn btn-primary">Valider</button>
-		{{ form_end(registerForm) }}
-	</main>
+                                    <div class="form-group">
+                                        {{ form_row(registerForm.login) }}
+                                    </div>
+                                    <div class="form-group">
+                                       {{ form_row(registerForm.email) }}
+                                    </div>
+                                    <div class="form-group mb-5">
+                                      {{ form_row(registerForm.password, {
+            							label: 'Mot de passe'
+        								}) }}
+                                    </div>
+									<div class="form-group mb-5">
+                                      {{ form_row(registerForm.captcha, {
+										label: 'Recopiez ces caractères : '
+										}) }}
+                                    </div>
+                                    <button type="submit" class="btn btn-theme">Valider</button>
+									{{ form_end(registerForm) }}
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+            <p class="text-muted text-center mt-3 mb-0">Tu a déjà un compte ? <a href="{{ path('app_login') }}" class="text-primary ml-1">Se Connecter</a></p>
+            <!-- end row -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+</div>
 {% endblock %}
