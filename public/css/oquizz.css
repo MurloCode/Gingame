@@ -235,10 +235,10 @@ main{
     cursor: pointer;
     z-index: 100;
 }
-.btn-toggle img.jour{
+.btn-toggle img.nuit{
     left: 12px;
 }
-.btn-toggle img.nuit{
+.btn-toggle img.jour{
     right: 12px;
 }
 /* .btn-toggle img {

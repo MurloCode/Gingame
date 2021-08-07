@@ -12,8 +12,8 @@ window.addEventListener("load", function () {
         } else {
             body.classList.add("dark");
             body.classList.remove("light");
-            imgToggle.classList.add("jour");
-            imgToggle.classList.remove("nuit");
+            imgToggle.classList.add("nuit");
+            imgToggle.classList.remove("jour");
         }
     }
 
