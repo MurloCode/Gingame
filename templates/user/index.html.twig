@@ -25,7 +25,13 @@
               
             </div>
             <div class="card-footer" style="text-align:center">
-              <button class="btn btn-light btn-sm bg-white has-icon btn-block" type="button"><i class="material-icons"></i>Follow</button>
+             <button class="btn btn-primary">{% if user == app.user %}
+                        <span> <a href="#" class="btn btn-primary">Te follow, tu ne peux</a></span> 
+                    {% elseif user in app.user.followees %}
+                        <a href="{{ path('user_unfollow', {id: user.id}) }}" class="btn btn-primary">Unfollow</a>
+                    {% else %}
+                        <a href="{{ path('user_follow', {id: user.id}) }}" class="btn btn-primary">Follow</a>
+                    {% endif %}</button>
             </div>
           </div>
         </div>{% endfor %}
