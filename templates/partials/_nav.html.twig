@@ -26,6 +26,9 @@
 					</li>
 				{% endif %}
 			</ul>
+
+			<div class="btn-toggle">J</div>
+
 			{% if is_granted('ROLE_USER') %}
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
@@ -38,6 +41,7 @@
 								{{ app.user.login }}
 							{% endif %}
 						</a>
+						
 						<ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDarkDropdownMenuLink">
 							<li>
 								<a class="dropdown-item navquizztext" href="{{ path('user_profil', {'id': app.user.id}) }}" type="button">Profil</a>
