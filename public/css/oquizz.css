@@ -219,25 +219,35 @@ main{
 
 /* Switch to dark mode */
 
-.btn-toggle{
+.btn-toggle img{
     position: absolute;
-    top: 2px;
-    right: 12px;
-    width: 22px;
-    height: 22px;
+    top: 86px;
+    /* right: 12px; */
+    width: 40px;
+    height: 40px;
     border-radius : 50%;
-    background:rgb(1, 1, 114);
+    /* background:rgb(1, 1, 114); */
     color:rgb(207, 207, 193);
     border : 1px solid rgb(207, 207, 193);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    z-index: 100;
 }
-
+.btn-toggle img.jour{
+    left: 12px;
+}
+.btn-toggle img.nuit{
+    right: 12px;
+}
+/* .btn-toggle img {
+    width: 100px;
+    border-radius: 50%;
+} */
 body.dark{
     color: rgb(207, 207, 193);
-    background:rgb(1, 1, 114); 
+    background:#333;
 }
 
 body.dark .btn-toggle{
