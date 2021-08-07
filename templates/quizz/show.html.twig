@@ -23,9 +23,17 @@
 		<div class="header-quizz">
 			<div class="container-progress-bar">
 				<div class="navquizztext d-flex align-items-center">
-					<div class="col-2 "><a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a></div>
-					<div class="col-8"><h1 class="navquizztext">{{quizz.name}}</h1></div>
-					<div class="col-2 closebutton"><button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-times"></i></button></div>
+					<div class="col-2 ">
+						<a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a>
+					</div>
+					<div class="col-8">
+						<h1 class="navquizztext">{{quizz.name}}</h1>
+					</div>
+					<div class="col-2 closebutton">
+						<button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 			<div class="progress">
@@ -49,11 +57,12 @@
 					<img src="{{ asset ("/img/old-tv.png")}}" alt="tv_serie">
 					<span class="quizzcard questionNumber navquizztext">{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }}</span>
 					<span class="quizzcard navquizztext">{{ question.question }}</span>
-					<span class="quizzcard questionTheme navquizztext">
-						{% for theme in themes %}
-							{{ theme }}
-						{% endfor %}
-					</span>
+					{# Thèmes de la question #}
+					{# <span class="quizzcard questionTheme navquizztext">
+											{% for theme in themes %}
+												{{ theme }}
+											{% endfor %}
+										</span> #}
 				</div>
 			</div>
 		</div>
@@ -78,9 +87,9 @@
 	<div
 		class="modal-content">
 		{# <div class="modal-header">
-																																											<h5 class="modal-title" id="myModalLabel">Quitter le Quizz</h5>
-																																											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-																																										</div> #}
+																																													<h5 class="modal-title" id="myModalLabel">Quitter le Quizz</h5>
+																																													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																																												</div> #}
 		<div class="modal-body text-center navquizztext">
 			Êtes-vous sûr de vouloir quitter le Quizz
 			<br/>
@@ -94,7 +103,9 @@
 		<br/>
 	</div>
 </div></div><div class="footer footer-quizz  mt-auto">
-<button class="sendQuizz formbutton" form="quizz" id="bt" type="submit" disabled="enabled" class="btn btn-info">Valider  <i class="fas fa-check"></i></button></div><script>
+<button class="sendQuizz formbutton" form="quizz" id="bt" type="submit" disabled="enabled" class="btn btn-info">Valider
+	<i class="fas fa-check"></i>
+</button></div><script>
 function enableButton() {
 document.getElementById("bt").disabled = false;
 }
