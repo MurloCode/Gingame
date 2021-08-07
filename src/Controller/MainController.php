@@ -19,13 +19,18 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository): Response
+    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository, HistoricRepository $historicRepository): Response
     {
         $this->addFlash('', $messageGenerator->randomMessage());
 
-        //$mostPopular = $historicRepository->findMostPopular();
-        // $mostPopular = $historicRepository->countBy('quizz');
-        //dd($mostPopular);
+        $mostPopular = $historicRepository->findMostPopular(4);
+
+        foreach ($mostPopular as $key) {
+            foreach($key as $value) {
+                // dd($quizzRepository->findById($value)[0]);
+                $popularQuizz[] = $quizzRepository->findById($value)[0];
+            }
+        }
 
         $lastquizz = $quizzRepository->findLastQuizz(4);
 
@@ -33,13 +38,14 @@ class MainController extends AbstractController
 
         $lastTheme = $themeRepository->findLastThemeChild(4);
 
-    
+    //    dd('coucou');
 
         return $this->render('main/index.html.twig', [
 
             'lastquizz' => $lastquizz,
             'themechild' => $themeChild,
-            'lasttheme' => $lastTheme
+            'lasttheme' => $lastTheme,
+            'popularQuizz' => $popularQuizz
         ]);
     }
 

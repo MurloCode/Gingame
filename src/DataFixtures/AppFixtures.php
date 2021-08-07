@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Historic;
 use App\Entity\User;
 use App\Entity\Quizz;
 use App\Entity\Theme;
@@ -3820,6 +3821,18 @@ class AppFixtures extends Fixture
                     $proposition = new Proposition();
                     $proposition->setText("... faut que j'aille chercher mes enfants")->setIsValid(false)->setQuestion($questionDemo);
                     $manager->persist($proposition);
+
+                $fakeGame = new Historic();
+                // quizz
+                $fakeGame->setQuizz($quizzDemo);
+                // user
+                $fakeGame->setUser($oquizzUser);
+                // score
+                $fakeGame->setScore(10);
+                // sur
+                $fakeGame->setOutOf(10);
+                
+                $manager->persist($fakeGame);
 
                 $manager->flush();
     }

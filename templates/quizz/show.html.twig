@@ -23,9 +23,17 @@
 		<div class="header-quizz">
 			<div class="container-progress-bar">
 				<div class="navquizztext d-flex align-items-center">
-					<div class="col-2 "><a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a></div>
-					<div class="col-8"><h1 class="navquizztext">{{quizz.name}}</h1></div>
-					<div class="col-2 closebutton"><button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-times"></i></button></div>
+					<div class="col-2 ">
+						<a class="" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModal"><img class="headerlogo" src="{{ asset('img/1.png')}}" alt=""></a>
+					</div>
+					<div class="col-8">
+						<h1 class="navquizztext">{{quizz.name}}</h1>
+					</div>
+					<div class="col-2 closebutton">
+						<button type="button" class="btn btn-primary proposal" data-bs-toggle="modal" data-bs-target="#myModal">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
 				</div>
 			</div>
 			<div class="progress">
@@ -46,8 +54,15 @@
 						<div class="caps"></div>
 						<canvas id="canvas"></canvas>
 					</div>
-					<img src="{{ asset ("/img/old-tv.png")}}" alt="">
-					<span class="quizzcard navquizztext">{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }} <br /> {{ question.question }}</span>
+					<img src="{{ asset ("/img/old-tv.png")}}" alt="tv_serie">
+					<span class="quizzcard questionNumber navquizztext">{{ progress['questionNumber'] }}/{{ progress['questionTotal'] }}</span>
+					<span class="quizzcard navquizztext">{{ question.question }}</span>
+					{# Thèmes de la question #}
+					{# <span class="quizzcard questionTheme navquizztext">
+											{% for theme in themes %}
+												{{ theme }}
+											{% endfor %}
+										</span> #}
 				</div>
 			</div>
 		</div>
@@ -69,23 +84,28 @@
 	</body>
 </html></div><!-- Button trigger modal --><!-- Modal --><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
-	<div class="modal-content">
+	<div
+		class="modal-content">
 		{# <div class="modal-header">
-			<h5 class="modal-title" id="myModalLabel">Quitter le Quizz</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div> #}
+																																													<h5 class="modal-title" id="myModalLabel">Quitter le Quizz</h5>
+																																													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																																												</div> #}
 		<div class="modal-body text-center navquizztext">
-			Êtes-vous sûr de vouloir quitter le Quizz <br />
-			{{ quizz.name }} ?
+			Êtes-vous sûr de vouloir quitter le Quizz
+			<br/>
+			{{ quizz.name }}
+			?
 		</div>
 		<div class="d-grid gap-2 col-10 mx-auto">
 			<button type="button" class="btn btn-secondary modalbutton" data-bs-dismiss="modal">Non, je veux finir !</button>
 			<a href="{{path('home')}}" class="btn btn-dark modalbutton">J'abandonne, c'est trop dur</a>
 		</div>
-		<br />
+		<br/>
 	</div>
 </div></div><div class="footer footer-quizz  mt-auto">
-<button class="sendQuizz formbutton" form="quizz" id="bt" type="submit" disabled="enabled" class="btn btn-info">Valider  <i class="fas fa-check"></i></button></div><script>
+<button class="sendQuizz formbutton" form="quizz" id="bt" type="submit" disabled="enabled" class="btn btn-info">Valider
+	<i class="fas fa-check"></i>
+</button></div><script>
 function enableButton() {
 document.getElementById("bt").disabled = false;
 }
@@ -94,5 +114,4 @@ var myModal = document.getElementById('myModal');
 var myInput = document.getElementById('myInput');
 myModal.addEventListener('shown.bs.modal', function () {
 myInput.focus();
-});
-</script></body></html>
+});</script></body></html>
