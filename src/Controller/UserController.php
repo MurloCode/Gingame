@@ -120,6 +120,34 @@ class UserController extends AbstractController
 		return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
 	}
 
+	 /**
+     * @Route("/{id}/follow", name="user_follow")
+     */
+    public function follow(User $user, Request $request)
+    {
+        $this->getUser()->follow($user);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($this->getUser());
+        $em->flush();
+
+        return $this->redirect($request->headers->get('referer'));
+    }
+
+    /**
+     * @Route("/{id}/unfollow", name="user_unfollow")
+     */
+    public function unfollow(User $user, Request $request)
+    {
+        $this->getUser()->unfollow($user);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($this->getUser());
+        $em->flush();
+
+        return $this->redirect($request->headers->get('referer'));
+    }
+
    
 
 }

@@ -41,7 +41,13 @@
 									<p class="text-secondary mb-1">O'Clock Student</p>
 									<p class="text-muted font-size-sm">Partout en France
 									</p>
-									<button class="btn btn-primary">Follow</button>
+									<button class="btn btn-primary">{% if user == app.user %}
+                        <span class="font-weight-bold">Te follow, tu ne peux</span>
+                    {% elseif user in app.user.followees %}
+                        <a href="{{ path('user_unfollow', {id: user.id}) }}" class="btn btn-primary">Unfollow</a>
+                    {% else %}
+                        <a href="{{ path('user_follow', {id: user.id}) }}" class="btn btn-primary">Follow</a>
+                    {% endif %}</button>
 
 								</div>
 							</div>
@@ -119,6 +125,40 @@
 							</div>
 						</div>
 					</div>
+
+<div class="row gutters-sm">
+                <div class="col-sm">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Abonnés</i></h6>
+					  {% for follower in user.followers %}
+						  <span class="badge bg-secondary">{{ follower }}</span>
+              {% else %}
+                        <small class="text-muted">Vous n'avez aucun abonné</small>
+                    {% endfor %}
+                   
+					
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+					  <div class="row gutters-sm">
+                <div class="col-sm">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Abonnements</i></h6>
+					  
+                    {% for followee in user.followees %}
+                        <span class="badge bg-secondary">{{ followee }} </span>
+                    {% else %}
+                        <small class="text-muted">Vous n'avez aucun abonnement</small>
+                    {% endfor %}
+					
+                    </div>
+                  </div>
+                </div>
+              </div>
 				</div>
 			</div>
 		</div>

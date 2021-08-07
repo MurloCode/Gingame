@@ -97,6 +97,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 	 */
 	private $imageFile;
 
+     /**
+     * @var Collection|UserRelation[]
+     *
+     * @ORM\OneToMany(targetEntity="UserRelation", mappedBy="followee", cascade={"persist"}, orphanRemoval=true)
+     * 
+     */
+    public $followerRelations;
+
+    /**
+     * @var Collection|UserRelation[]
+     *
+     * @ORM\OneToMany(targetEntity="UserRelation", mappedBy="follower", cascade={"persist"}, orphanRemoval=true)
+     * 
+     */
+    public $followeeRelations;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -389,4 +405,56 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     //     // .....
     //     return $this;
     // }
+
+    public function follow(User $user): self
+    {
+        if ($user === $this) {
+            throw new \LogicException('You cannot follow yourself.');
+        }
+
+        $this->followeeRelations->add($relation = new UserRelation($this, $user));
+        $user->followerRelations->add($relation);
+
+        return $this;
+    }
+
+    public function unfollow(User $user): self
+    {
+        foreach ($this->followeeRelations as $followeeRelation) {
+            if ($followeeRelation->followee === $user) {
+                $this->followeeRelations->removeElement($followeeRelation);
+                break;
+            }
+        }
+
+        foreach ($user->followerRelations as $followerRelation) {
+            if ($followerRelation->follower === $this) {
+                $user->followerRelations->removeElement($followerRelation);
+                break;
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return User[]
+     */
+    public function getFollowers(): array
+    {
+        return $this->followerRelations->map(function (UserRelation $userRelation) {
+            return $userRelation->follower;
+        })->toArray();
+    }
+
+    /**
+     * @return User[]
+     */
+    public function getFollowees(): array
+    {
+        return $this->followeeRelations->map(function (UserRelation $userRelation) {
+            return $userRelation->followee;
+        })->toArray();
+    }
+
 }
