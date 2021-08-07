@@ -37,6 +37,7 @@ class UserType extends AbstractType
 				'download_uri' => true,
 				'image_uri' => true,
 				'asset_helper' => true,
+				'mapped' => false
 				// 'label' => 'Charger une nouvelle image',
 
 				// // unmapped means that this field is not associated to any entity property

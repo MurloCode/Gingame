@@ -369,24 +369,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 		return $this->imageFile;
 	}
 
-    public function __serialize(): array
-    {
-        return [
-            'id' => $this->id,
-            'email' => $this->email,
-            'login' => $this->login,
-            'password' => $this->password,
-            //......
-        ];
-    }
+    // public function __serialize(): array
+    // {
+    //     return [
+    //         'id' => $this->id,
+    //         'email' => $this->email,
+    //         'login' => $this->login,
+    //         'password' => $this->password,
+    //         //......
+    //     ];
+    // }
 
-    public function __unserialize(array $serialized): User
-    {
-        $this->id = $serialized['id'];
-        $this->email = $serialized['email'];
-        $this->login = $serialized['login'];
-        $this->password = $serialized['password'];
-        // .....
-        return $this;
-    }
+    // public function __unserialize(array $serialized): User
+    // {
+    //     $this->id = $serialized['id'];
+    //     $this->email = $serialized['email'];
+    //     $this->login = $serialized['login'];
+    //     $this->password = $serialized['password'];
+    //     // .....
+    //     return $this;
+    // }
 }

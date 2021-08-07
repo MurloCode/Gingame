@@ -4,7 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Historic;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry; 
+
 
 /**
  * @method Historic|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,17 +22,111 @@ class HistoricRepository extends ServiceEntityRepository
         parent::__construct($registry, Historic::class);
     }
 
-    // public function findMostPopular() {
-    //     return 
-    //         $this
-    //             ->createQueryBuilder('h')
-    //             ->join('h.quizz', 'quizz')
-    //             ->addSelect('COUNT(quizz) as total')
-    //             ->having('total > 1')
-    //             ->groupBy('h')
-    //             ->getQuery()
-    //             ->getResult();
-    // }
+    public function findMostPopular(int $limit = 10) {
+
+        
+    return
+        $qb = $this
+            ->createQueryBuilder('histo')
+            ->select('quizz.id')
+            ->innerJoin('histo.quizz', 'quizz')
+            ->groupBy('quizz.id')
+            ->orderBy('COUNT(histo.quizz)', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+
+
+    // return
+    //     $qb = $this
+    //         ->createQueryBuilder('histo')
+    //         ->select(/*'COUNT(histo.quizz) as total', 'quizz.name',*/'quizz.id')
+    //         ->innerJoin('histo.quizz', 'quizz')
+    //         ->groupBy('quizz.id')
+    //         ->orderBy('COUNT(histo.quizz)', 'DESC')
+    //         ->setMaxResults($limit)
+    //         ->getQuery()
+    //         ->getResult();
+
+             //  dd($qb->getDQL());
+
+                
+		// return
+        //     $qb = $this
+        //         ->createQueryBuilder('histo')
+        //         ->select('COUNT(histo.quizz) as total', /*'quizz.name',*/'quizz.id')
+        //         ->innerJoin('histo.quizz', 'quizz')
+        //         // ->innerJoin('histo.quizz', 'quizz', Expr\Join::ON, 'quizz.id = histo.quizz_id')
+        //         // ->innerJoin('histo.quizz', 'quizz', "ON",'quizz.id = histo.quizz')
+        //         // ->addSelect('COUNT(quizz)')
+        //         ->groupBy('quizz.id')
+        //         ->orderBy('COUNT(histo.quizz)', 'DESC')
+        //         //->having('total > 1')
+        //         ->getQuery()
+        //         ->getResult();
+
+                  //  dd($qb->getDQL());
+        
+        // return
+        // $qb = $this
+        //     ->createQueryBuilder('histo')
+        //     ->select('COUNT(histo.quizz) as total', /*'quizz.name',*/'quizz.id')
+        //     ->innerJoin('histo.quizz', 'quizz')
+        //     // ->innerJoin('histo.quizz', 'quizz', Expr\Join::ON, 'quizz.id = histo.quizz_id')
+        //     // ->innerJoin('histo.quizz', 'quizz', "ON",'quizz.id = histo.quizz')
+        //     // ->addSelect('COUNT(quizz)')
+        //     ->groupBy('quizz.id')
+        //     ->orderBy('COUNT(histo.quizz)', 'DESC')
+        //     //->having('total > 1')
+        //     ->getQuery()
+        //     ->getResult();
+
+            
+    // return
+    //     $qb = $this
+    //         ->createQueryBuilder('histo')
+    //         ->select('COUNT(histo.quizz) as total', /*'quizz.name',*/'quizz.id')
+    //         ->innerJoin('histo.quizz', 'quizz')
+    //         // ->innerJoin('histo.quizz', 'quizz', Expr\Join::ON, 'quizz.id = histo.quizz_id')
+    //         // ->innerJoin('histo.quizz', 'quizz', "ON",'quizz.id = histo.quizz')
+    //         // ->addSelect('COUNT(quizz)')
+    //         ->groupBy('quizz.id')
+    //         ->orderBy('COUNT(histo.quizz)', 'DESC')
+    //         //->having('total > 1')
+    //         ->getQuery()
+    //         ->getResult();
+
+              //  dd($qb->getDQL());
+
+		// return
+        //     $qb = $this
+        //         ->createQueryBuilder('histo')
+        //         ->select('COUNT(histo.quizz) as total', 'quizz.name', 'histo.id')
+        //         ->innerJoin('histo.quizz', 'quizz')
+        //         // ->innerJoin('histo.quizz', 'quizz', Expr\Join::ON, 'quizz.id = histo.quizz_id')
+        //         // ->innerJoin('histo.quizz', 'quizz', "ON",'quizz.id = histo.quizz')
+        //         // ->addSelect('COUNT(quizz)')
+        //         ->groupBy('quizz.id')
+        //         ->orderBy('')
+        //         //->having('total > 1')
+        //         ->getQuery()
+        //         ->getResult();
+
+                  //  dd($qb->getDQL());
+
+
+
+            // $this
+            //     ->createQueryBuilder('h')
+            //     //->addSelect('quizz')
+            //     ->innerJoin('h.quizz', 'quizz')
+            //     ->addSelect('COUNT(quizz) as total')
+            //     ->having('total > 1')
+            //     ->groupBy('h.id')
+            //     ->getQuery()
+            //     ->getResult();
+    }
+    
     // $this->repository->createQueryBuilder('offer')
     // ->addSelect('SIZE(offer.files) as files')
     // ->having('files > 1')
