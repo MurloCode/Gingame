@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Notification\ContactNotification;
 use App\Repository\HistoricRepository;
+use App\Repository\QuestionRepository;
 use App\Repository\QuizzRepository;
 use App\Repository\ThemeRepository;
 use App\Repository\UserRepository;
@@ -20,7 +21,7 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository, HistoricRepository $historicRepository, UserRepository $userRepository): Response
+    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository, HistoricRepository $historicRepository, UserRepository $userRepository, QuestionRepository $questionRepository): Response
     {
         $this->addFlash('', $messageGenerator->randomMessage());
 
@@ -40,6 +41,18 @@ class MainController extends AbstractController
             $userPlay[$key][1] = $value['count'];
         }
 
+        // Get most creative User
+        $getUsersActive = $quizzRepository->findMostCreativeUsers();
+        foreach ($getUsersActive as $key => $value) {
+            $userCreate[$key][0] = $userRepository->findById($value['id'])[0];
+            $userCreate[$key][1] = $value['count'];
+            $userCreate[$key][2] = $questionRepository->findMostQuestionUsers($value['id'])['count'];
+            // $userCreate[$key][2] = findMostQuestionUsers
+         
+        }
+     
+    
+
 
         $lastquizz = $quizzRepository->findLastQuizz(4);
 
@@ -55,7 +68,8 @@ class MainController extends AbstractController
             'themechild' => $themeChild,
             'lasttheme' => $lastTheme,
             'popularQuizz' => $popularQuizz,
-            'userPlay' => $userPlay
+            'userPlay' => $userPlay,
+            'userCreate' => $userCreate
         ]);
     }
 

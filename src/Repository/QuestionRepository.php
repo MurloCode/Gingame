@@ -39,4 +39,15 @@ class QuestionRepository extends ServiceEntityRepository
         $this->maxResult = $maxResult;
     }
 
+    public function findMostQuestionUsers($userId, int $limit = 5) {
+		return
+			$qb = $this
+				->createQueryBuilder('question')
+				->select('COUNT(question.createdBy) as count')
+                ->where("question.createdBy = $userId")
+				->getQuery()
+				->getOneOrNullResult();
+	}
+
+
 }

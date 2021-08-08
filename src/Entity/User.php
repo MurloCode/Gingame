@@ -472,6 +472,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 	public function playCounter():int
 	{
 		return $this->historics->count();
-	} 
+	}
+
+    public function quizzCounter():int
+    {
+        return $this->quizz->count();
+    }
 
 }
