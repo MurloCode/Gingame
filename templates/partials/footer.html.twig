@@ -28,7 +28,7 @@
 					<li>
 						<a class="text-decoration-none fw-bold text-white" aria-current="page" href="{{ path('quizz_list') }}"><i class="fas fa-list"></i> Liste des quizz<span class="sr-only"></span></a>
 					</li>
-					<br />
+					
 					<li>
 						<a class="text-decoration-none fw-bold text-white" aria-current="page" href="{{ path('theme_list') }}"><i class="fas fa-th-list"></i> Liste des themes<span class="sr-only"></span></a>
 					</li>
@@ -62,7 +62,7 @@
 						<li>
 							<a class="text-decoration-none fw-bold text-white" href="#!"></a>
 						</li>
-						<br />
+						
 						<li>
 							<a class="text-decoration-none fw-bold text-white" href="{{ path('app_register') }}"><i class="fas fa-user-plus"></i> inscription</a>
 						</li>
@@ -73,14 +73,16 @@
 						<li>
 							<a class="text-decoration-none fw-bold text-white" href="#!"></a>
 						</li>
-						<br />
+						
 						<li>
 							<a class="text-decoration-none fw-bold text-white" href="{{ path('app_logout') }}" type="button">Déconnexion <i class="fas fa-sign-out-alt"></i></a>
 						</li>
 					{% endif %}
 				</ul>
+			
 			</div>
 			<!-- Grid column -->
+			
 		</div>
 		<!-- Grid row -->
 	</div>
@@ -90,4 +92,5 @@
 	<div id="scrollUp">
         <a href="#top"><img src="{{ asset('img/to_top.png')}}"/></a>
     </div>
+	
 </footer>

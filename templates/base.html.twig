@@ -25,10 +25,11 @@
 				document.getElementById('scrollUp').removeAttribute('style');
 				}
 			});
-        </script>	
+        </script>
+		<script src="{{asset('js/scriptdarkmode.js')}}"></script>
 		{% endblock %}
 	</head>
-	<body>
+	<body class="light">
 		{% include "partials/_nav.html.twig" %}
 		
 		{% include "partials/_error.html.twig" %}

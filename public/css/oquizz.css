@@ -229,3 +229,41 @@ main {
 	text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 	top: 0.2em;
 }
+
+/* Switch to dark mode */
+
+.btn-toggle img{
+    position: absolute;
+    top: 86px;
+    /* right: 12px; */
+    width: 40px;
+    height: 40px;
+    border-radius : 50%;
+    /* background:rgb(1, 1, 114); */
+    color:rgb(207, 207, 193);
+    border : 1px solid rgb(207, 207, 193);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+}
+.btn-toggle img.nuit{
+    left: 12px;
+}
+.btn-toggle img.jour{
+    right: 12px;
+}
+/* .btn-toggle img {
+    width: 100px;
+    border-radius: 50%;
+} */
+body.dark{
+    color: rgb(207, 207, 193);
+    background:#333;
+}
+
+body.dark .btn-toggle{
+    background: rgb(207, 207, 193);
+    color: rgb(1, 1, 114);
+}
