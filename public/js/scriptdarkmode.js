@@ -4,12 +4,12 @@ window.addEventListener("load", function () {
 
     function darkmode() {
         const body = document.body;
-        if (localStorage.getItem("darkmode") == "off") {
+        if (localStorage.getItem("darkmode") == "off" || localStorage.hasOwnProperty("darkmode") == false) {
             body.classList.add("light");
             body.classList.remove("dark");
             imgToggle.classList.add("jour");
             imgToggle.classList.remove("nuit");
-        } else {
+        } else  { 
             body.classList.add("dark");
             body.classList.remove("light");
             imgToggle.classList.add("nuit");
