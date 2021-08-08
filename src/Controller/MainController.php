@@ -8,6 +8,7 @@ use App\Notification\ContactNotification;
 use App\Repository\HistoricRepository;
 use App\Repository\QuizzRepository;
 use App\Repository\ThemeRepository;
+use App\Repository\UserRepository;
 use App\Service\MessageGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,18 +20,26 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository, HistoricRepository $historicRepository): Response
+    public function index(MessageGenerator $messageGenerator, QuizzRepository $quizzRepository, ThemeRepository $themeRepository, HistoricRepository $historicRepository, UserRepository $userRepository): Response
     {
         $this->addFlash('', $messageGenerator->randomMessage());
 
         $mostPopular = $historicRepository->findMostPopular(4);
 
+        // Get most played Quizz
         foreach ($mostPopular as $key) {
             foreach($key as $value) {
-                // dd($quizzRepository->findById($value)[0]);
                 $popularQuizz[] = $quizzRepository->findById($value)[0];
             }
         }
+
+        // Get most active User
+        $getUsersPlay = $historicRepository->findMostActivePlayer();  
+        foreach ($getUsersPlay as $key => $value) {
+            $userPlay[$key][0] = $userRepository->findById($value['id'])[0];
+            $userPlay[$key][1] = $value['count'];
+        }
+
 
         $lastquizz = $quizzRepository->findLastQuizz(4);
 
@@ -38,14 +47,15 @@ class MainController extends AbstractController
 
         $lastTheme = $themeRepository->findLastThemeChild(4);
 
+
     //    dd('coucou');
 
         return $this->render('main/index.html.twig', [
-
             'lastquizz' => $lastquizz,
             'themechild' => $themeChild,
             'lasttheme' => $lastTheme,
-            'popularQuizz' => $popularQuizz
+            'popularQuizz' => $popularQuizz,
+            'userPlay' => $userPlay
         ]);
     }
 

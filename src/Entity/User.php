@@ -113,6 +113,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public $followeeRelations;
 
+	/**
+	 * @ORM\OneToMany(targetEntity=Historic::class, mappedBy="user")
+	 */
+	private $historics;
+
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -120,6 +126,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->friends = new ArrayCollection();
         $this->Created_At = new DateTime();
         $this->updatedAt = new DateTime();
+        $this->imageurl = "userDefault.png";
     }
 
     public function __toString(){
@@ -456,5 +463,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             return $userRelation->followee;
         })->toArray();
     }
+
+	public function getHistorics(): Collection
+	{
+		return $this->historics;
+	}
+
+	public function playCounter():int
+	{
+		return $this->historics->count();
+	} 
 
 }
