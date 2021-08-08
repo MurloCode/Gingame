@@ -62,7 +62,7 @@ class UserController extends AbstractController
 	 */
 	public function show(User $user, HistoricRepository $historic): Response
 	{   
-		$historidisplay = $historic->findAll();
+		$historidisplay = $historic->findBy(['user' => $user->getId()]);
 		
 		return $this->render('user/show.html.twig', [
 			'user' => $user,
