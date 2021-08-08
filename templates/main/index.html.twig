@@ -1,38 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}O'Quizz{% endblock %}
+{% block title %}O'Quizz
+{% endblock %}
 
 {% block body %}
-{% include "partials/_flash.html.twig" %}
+	{% include "partials/_flash.html.twig" %}
 	<div class="container">
-		{% include 'cards/_cardcarousel.html.twig' %}
-		<br />
-		<br />
-			<h2 class="h1 my-5">Quizz les plus populaires</h2>
-            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-                {% for theme in themechild %}  
-                    {% set themes = theme[0] %}          
-                    {% include 'cards/_cardseries.html.twig' %}
-                {% endfor %}
-            </div>            
-		<br />
-		<br />
-			<h2 class="h1 my-5">Nos derniers Quizz</h2>
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-                    {% for quizz in lastquizz %}
-                        {% include 'cards/_cardlastquizz.html.twig' %}                
-                    {% endfor %}
-                </div>
-			<h2 class="h1 my-5">Nouvelles Series TV disponnible</h2>
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-				{% for theme in lasttheme %}
-					{% set themes = theme[0] %} 
-                        {% include 'cards/_cardseries.html.twig' %}                
-                    {% endfor %}
-				</div> 
-            <h2 class="h1 my-5">Themes les plus populaires</h2>
-		<br />
-		<br />
-			<h2 class="h1 my-5">Testez vos connaissances, creez vos quizz et testez vos amis</h2>
-	</div> 
-{% endblock %}
+		<div class="row">
+			<div class="col-12 col-lg-8">
+				{% include 'cards/_cardcarousel.html.twig' %}
+
+				<h2 class="h1 my-5">Quizz les plus populaires</h2>
+				<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+					{% for theme in themechild %}
+						{% set themes = theme[0] %}
+						{% include 'cards/_cardseries.html.twig' %}
+					{% endfor %}
+				</div>
+
+				<h2 class="h1 my-5">Nos derniers Quizz</h2>
+				<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+					{% for quizz in lastquizz %}
+						{% include 'cards/_cardlastquizz.html.twig' %}
+					{% endfor %}
+				</div>
+				<h2 class="h1 my-5">Nouvelles Series TV disponnible</h2>
+				<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+					{% for theme in lasttheme %}
+						{% set themes = theme[0] %}
+						{% include 'cards/_cardseries.html.twig' %}
+					{% endfor %}
+				</div>
+				<h2 class="h1 my-5">Themes les plus populaires</h2>
+
+				<h2 class="h1 my-5">Testez vos connaissances, creez vos quizz et testez vos amis</h2>
+
+			</div>
+
+
+			<div class="col-12 col-lg-4">
+				{% include 'partials/user/_user.topPlayer.html.twig' %}
+				{% include 'partials/user/_user.topCreative.html.twig' %}
+
+			</div>
+
+
+		</div>
+	{% endblock %}

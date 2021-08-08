@@ -42,4 +42,18 @@ class QuizzRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findMostCreativeUsers(int $limit = 5) {
+		return
+			$qb = $this
+				->createQueryBuilder('quizz')
+				->select('user.id, COUNT(quizz.createdBy) as count')
+				->innerJoin('quizz.createdBy', 'user')
+				->groupBy('user.id')
+				->orderBy('COUNT(quizz.createdBy)', 'DESC')
+				->setMaxResults($limit)
+				->getQuery()
+				->getResult();
+	}
+
 }
