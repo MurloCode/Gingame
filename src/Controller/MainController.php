@@ -26,6 +26,9 @@ class MainController extends AbstractController
         $this->addFlash('', $messageGenerator->randomMessage());
 
         $mostPopular = $historicRepository->findMostPopular(4);
+        // $popularQuizz = [];
+        $userPlay= [];
+
 
         // Get most played Quizz
         foreach ($mostPopular as $key) {
@@ -67,7 +70,7 @@ class MainController extends AbstractController
             'lastquizz' => $lastquizz,
             'themechild' => $themeChild,
             'lasttheme' => $lastTheme,
-            'popularQuizz' => $popularQuizz,
+            'popularQuizz' => $popularQuizz ?? [],
             'userPlay' => $userPlay,
             'userCreate' => $userCreate
         ]);
