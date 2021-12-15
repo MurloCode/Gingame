@@ -42,22 +42,22 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            $email = (new Email())
-        ->from('robin78670@gmail.com')
-        ->to($user->getEmail())
-        //->cc('cc@example.com')
-        //->bcc('bcc@example.com')
-        //->replyTo('fabien@example.com')
-        //->priority(Email::PRIORITY_HIGH)
-        ->subject('Time for Symfony Mailer!')
-        ->text('Sending emails is fun again!')
-        ->html(
-            $this->renderView(
-                'email/activation.html.twig', ['token' => $user->getActivationToken()]
-            ),
-            'text/html'
-        );
-        $mailer->send($email);
+        //     $email = (new Email())
+        // ->from('corentin@gmail.com')
+        // ->to($user->getEmail())
+        // //->cc('cc@example.com')
+        // //->bcc('bcc@example.com')
+        // //->replyTo('fabien@example.com')
+        // //->priority(Email::PRIORITY_HIGH)
+        // ->subject('Time for Symfony Mailer!')
+        // ->text('Sending emails is fun again!')
+        // ->html(
+        //     $this->renderView(
+        //         'email/activation.html.twig', ['token' => $user->getActivationToken()]
+        //     ),
+        //     'text/html'
+        // );
+        // $mailer->send($email);
 
 
             // Après création du compte, on redirige vers la page de login
