@@ -26,13 +26,13 @@
 				}
 			});
         </script>
-		<script src="{{asset('js/scriptdarkmode.js')}}"></script>
+		{# //DARKMODE <script src="{{asset('js/scriptdarkmode.js')}}"></script> #}
 		{% endblock %}
 	</head>
 	<body class="light">
 		{% include "partials/_nav.html.twig" %}
 		
-		{% include "partials/_error.html.twig" %}
+		{# {% include "partials/_error.html.twig" %} #}
 		<main>
 			{% block body %}{% endblock %}
 		</main>

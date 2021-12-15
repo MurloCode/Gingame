@@ -4,10 +4,10 @@
 {% endblock %}
 
 {% block body %}
-	{% include "partials/_flash.html.twig" %}
+	{# {% include "partials/_flash.html.twig" %} #}
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-lg-8">
+			<div class="col-12 col-lg-12">
 				{% include 'cards/_cardcarousel.html.twig' %}
 
 				<h2 class="h1 my-5">Quizz les plus populaires</h2>
@@ -36,11 +36,11 @@
 			</div>
 
 
-			<div class="col-12 col-lg-4">
+			{# <div class="col-12 col-lg-4">
 				{% include 'partials/user/_user.topPlayer.html.twig' %}
 				{% include 'partials/user/_user.topCreative.html.twig' %}
 
-			</div>
+			</div> #}
 
 
 		</div>
