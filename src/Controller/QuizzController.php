@@ -158,7 +158,8 @@ class QuizzController extends AbstractController
 		}
 
 		return $this->render('quizz/result.html.twig', [
-			'result' => $historic
+			'result' => $historic,
+			'quizz' => $quizz
 		]);
 	}
 
