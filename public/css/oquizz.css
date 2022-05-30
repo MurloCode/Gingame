@@ -254,10 +254,7 @@ main {
 .btn-toggle img.jour{
     right: 12px;
 }
-/* .btn-toggle img {
-    width: 100px;
-    border-radius: 50%;
-} */
+
 body.dark{
     color: rgb(207, 207, 193);
     background:#333;
