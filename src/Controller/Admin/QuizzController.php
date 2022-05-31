@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Quizz;
 use App\Form\Quizz1Type;
+use App\Repository\HistoricRepository;
 use App\Repository\QuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,7 +40,7 @@ class QuizzController extends AbstractController
             $entityManager->persist($quizz);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin/quizz/index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_quizz_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/quizz/new.html.twig', [
@@ -69,7 +70,7 @@ class QuizzController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin/quizz/index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_quizz_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/quizz/edit.html.twig', [
@@ -81,14 +82,20 @@ class QuizzController extends AbstractController
     /**
      * @Route("/{id}", name="admin_quizz_delete", methods={"POST"})
      */
-    public function delete(Request $request, Quizz $quizz): Response
+    public function delete(Request $request, Quizz $quizz, HistoricRepository $historicRepository, int $id): Response
     {
+        $historic = $historicRepository->findBy(['quizz' => $id]);
+        foreach ($historic as $key => $historic) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($historic);
+        };
+
         if ($this->isCsrfTokenValid('delete'.$quizz->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($quizz);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin/quizz/index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_quizz_index', [], Response::HTTP_SEE_OTHER);
     }
 }
